@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 
 const site = "https://doccrafttools.com";
 
@@ -20,10 +21,30 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-50 text-slate-900">{children}</body>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SKR2R64LCM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PASTE-YOUR-ID-HERE');
+          `}
+        </Script>
+      </head>
+      <body className="min-h-screen bg-slate-50 text-slate-900">
+        {children}
+      </body>
     </html>
   );
 }
