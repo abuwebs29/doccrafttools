@@ -4,6 +4,10 @@ import path from "path";
 
 const BASE_URL = "https://doccrafttools.com";
 
+/**
+ * Dynamic sitemap that auto-discovers all routes that contain app/**/page.tsx
+ * and excludes low-value utility pages (search/status/about/language routes).
+ */
 function getAppRoutes(): string[] {
   const appDir = path.join(process.cwd(), "app");
 
@@ -47,10 +51,11 @@ function getAppRoutes(): string[] {
 
       const relDir = path.relative(appDir, dir);
 
+      // Remove route groups like (marketing)
       const clean = relDir
         .split(path.sep)
         .filter(Boolean)
-        .filter((seg) => !seg.startsWith("(") && !seg.endsWith(")"))
+        .filter((seg) => !(seg.startsWith("(") && seg.endsWith(")")))
         .join("/");
 
       const route = clean ? `/${clean}` : "/";
@@ -63,8 +68,24 @@ function getAppRoutes(): string[] {
   return Array.from(new Set(routes)).sort();
 }
 
+function shouldExclude(route: string): boolean {
+  const exact = new Set<string>([
+    "/search",
+    "/status",
+    "/about",
+    "/ar",
+  ]);
+
+  if (exact.has(route)) return true;
+
+  // Exclude language sub-routes like /ar/*
+  if (route.startsWith("/ar/")) return true;
+
+  return false;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = getAppRoutes();
+  const routes = getAppRoutes().filter((r) => !shouldExclude(r));
 
   return routes.map((route) => ({
     url: `${BASE_URL}${route === "/" ? "" : route}`,
