@@ -1,52 +1,75 @@
 import type { MetadataRoute } from "next";
+import fs from "fs";
+import path from "path";
 
-const base = "https://doccrafttools.com";
+const BASE_URL = "https://doccrafttools.com";
+
+function getAppRoutes(): string[] {
+  const appDir = path.join(process.cwd(), "app");
+
+  const ignoreFolders = new Set([
+    "api",
+    "_components",
+    "components",
+    "lib",
+    "fonts",
+  ]);
+
+  const ignoreNames = new Set([
+    "layout.tsx",
+    "loading.tsx",
+    "error.tsx",
+    "not-found.tsx",
+    "global-error.tsx",
+    "sitemap.ts",
+    "robots.ts",
+    "favicon.ico",
+  ]);
+
+  const routes: string[] = [];
+
+  function walk(dir: string) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+
+      if (entry.isDirectory()) {
+        if (entry.name.startsWith("_") || ignoreFolders.has(entry.name)) continue;
+        walk(fullPath);
+        continue;
+      }
+
+      if (!entry.isFile()) continue;
+      if (ignoreNames.has(entry.name)) continue;
+
+      if (!/^page\.(tsx|ts|jsx|js)$/.test(entry.name)) continue;
+
+      const relDir = path.relative(appDir, dir);
+
+      const clean = relDir
+        .split(path.sep)
+        .filter(Boolean)
+        .filter((seg) => !seg.startsWith("(") && !seg.endsWith(")"))
+        .join("/");
+
+      const route = clean ? `/${clean}` : "/";
+      routes.push(route);
+    }
+  }
+
+  walk(appDir);
+
+  return Array.from(new Set(routes)).sort();
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const routes = getAppRoutes();
 
-  const pages = [
-    "/",
-    "/pdf-templates",
-    "/business-documents",
-    "/guides",
-    "/search",
-    "/faq",
-    "/status",
-    "/about",
-    "/privacy",
-    "/disclaimer",
-    "/rss.xml",
-
-    "/invoice-generator",
-    "/receipt-generator",
-    "/quotation-generator",
-    "/delivery-note-generator",
-    "/rent-receipt-generator",
-
-    "/invoice-template-pdf",
-    "/invoice-format",
-    "/how-to-make-an-invoice",
-    "/simple-invoice-template",
-
-    "/receipt-template-pdf",
-    "/payment-receipt-format",
-    "/rent-receipt-template",
-
-    "/embed/invoice",
-    "/embed/receipt",
-    "/embed/quotation",
-    "/embed/delivery-note",
-    "/embed/rent-receipt",
-
-    "/ar",
-    "/ar/pdf-templates",
-  ];
-
-  return pages.map((p) => ({
-    url: `${base}${p}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: p === "/" ? 1 : p.includes("generator") ? 0.9 : 0.7,
+  return routes.map((route) => ({
+    url: `${BASE_URL}${route === "/" ? "" : route}`,
+    lastModified: new Date(),
+    changeFrequency: route === "/" ? "daily" : "weekly",
+    priority: route === "/" ? 1 : route.includes("generator") ? 0.9 : 0.8,
   }));
 }
