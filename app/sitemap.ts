@@ -4,10 +4,8 @@ import path from "path";
 
 const BASE_URL = "https://doccrafttools.com";
 
-/**
- * Dynamic sitemap that auto-discovers all routes that contain app/**/page.tsx
- * and excludes low-value utility pages (search/status/about/language routes).
- */
+// Dynamic sitemap that auto-discovers all routes with app/<route>/page.tsx
+// and excludes low-value utility pages (search/status/about/language routes).
 function getAppRoutes(): string[] {
   const appDir = path.join(process.cwd(), "app");
 
@@ -69,18 +67,9 @@ function getAppRoutes(): string[] {
 }
 
 function shouldExclude(route: string): boolean {
-  const exact = new Set<string>([
-    "/search",
-    "/status",
-    "/about",
-    "/ar",
-  ]);
-
+  const exact = new Set<string>(["/search", "/status", "/about", "/ar"]);
   if (exact.has(route)) return true;
-
-  // Exclude language sub-routes like /ar/*
   if (route.startsWith("/ar/")) return true;
-
   return false;
 }
 
