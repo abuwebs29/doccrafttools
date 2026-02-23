@@ -1,85 +1,53 @@
-import type { MetadataRoute } from "next";
-import fs from "fs";
-import path from "path";
+import type { MetadataRoute } from "next"
+import fs from "fs"
+import path from "path"
 
-const BASE_URL = "https://doccrafttools.com";
+const BASE_URL = "https://doccrafttools.com"
 
-// Dynamic sitemap that auto-discovers all routes with app/<route>/page.tsx
-// and excludes low-value utility pages (search/status/about/language routes).
 function getAppRoutes(): string[] {
-  const appDir = path.join(process.cwd(), "app");
+  const appDir = path.join(process.cwd(), "app")
 
-  const ignoreFolders = new Set([
-    "api",
-    "_components",
-    "components",
-    "lib",
-    "fonts",
-  ]);
+  function walk(dir: string): string[] {
+    const files = fs.readdirSync(dir)
+    let routes: string[] = []
 
-  const ignoreNames = new Set([
-    "layout.tsx",
-    "loading.tsx",
-    "error.tsx",
-    "not-found.tsx",
-    "global-error.tsx",
-    "sitemap.ts",
-    "robots.ts",
-    "favicon.ico",
-  ]);
+    for (const file of files) {
+      const fullPath = path.join(dir, file)
+      const stat = fs.statSync(fullPath)
 
-  const routes: string[] = [];
+      if (stat.isDirectory()) {
+        routes = routes.concat(walk(fullPath))
+      } else if (file === "page.tsx") {
+        const route = fullPath
+          .replace(appDir, "")
+          .replace(/\/page\.tsx$/, "")
+          .replace(/\\/g, "/")
 
-  function walk(dir: string) {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-
-      if (entry.isDirectory()) {
-        if (entry.name.startsWith("_") || ignoreFolders.has(entry.name)) continue;
-        walk(fullPath);
-        continue;
+        routes.push(route === "" ? "/" : route)
       }
-
-      if (!entry.isFile()) continue;
-      if (ignoreNames.has(entry.name)) continue;
-
-      if (!/^page\.(tsx|ts|jsx|js)$/.test(entry.name)) continue;
-
-      const relDir = path.relative(appDir, dir);
-
-      // Remove route groups like (marketing)
-      const clean = relDir
-        .split(path.sep)
-        .filter(Boolean)
-        .filter((seg) => !(seg.startsWith("(") && seg.endsWith(")")))
-        .join("/");
-
-      const route = clean ? `/${clean}` : "/";
-      routes.push(route);
     }
+
+    return routes
   }
 
-  walk(appDir);
-
-  return Array.from(new Set(routes)).sort();
-}
-
-function shouldExclude(route: string): boolean {
-  const exact = new Set<string>(["/search", "/status", "/about", "/ar"]);
-  if (exact.has(route)) return true;
-  if (route.startsWith("/ar/")) return true;
-  return false;
+  return walk(appDir)
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = getAppRoutes().filter((r) => !shouldExclude(r));
+  const routes = getAppRoutes()
 
-  return routes.map((route) => ({
-    url: `${BASE_URL}${route === "/" ? "" : route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "/" ? "daily" : "weekly",
-    priority: route === "/" ? 1 : route.includes("generator") ? 0.9 : 0.8,
-  }));
+  return routes
+    // 🚫 Exclude low-value utility routes
+    .filter(
+      (route) =>
+        !route.startsWith("/embed") &&
+        !route.startsWith("/api") &&
+        !route.startsWith("/_")
+    )
+    .map((route) => ({
+      url: `${BASE_URL}${route}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: route === "/" ? 1 : 0.8,
+    }))
 }
