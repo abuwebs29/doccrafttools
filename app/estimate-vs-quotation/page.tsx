@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Estimate vs Quotation (Key Differences)",
@@ -21,6 +22,7 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Estimate vs Quotation (Key Differences)" path="/estimate-vs-quotation" description="Learn the difference between an estimate and a quotation in business." />
+              <InternalLinks currentPath="/estimate-vs-quotation" />
       </article>
       <SiteFooter />
     </main>

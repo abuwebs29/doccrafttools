@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Invoice Due Date Meaning Explained",
@@ -21,6 +22,7 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Invoice Due Date Meaning Explained" path="/invoice-due-date-meaning" description="Understand what invoice due date means and how it affects payments." />
+              <InternalLinks currentPath="/invoice-due-date-meaning" />
       </article>
       <SiteFooter />
     </main>

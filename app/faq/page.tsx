@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "FAQ",
@@ -66,6 +67,7 @@ export default function Page() {
             <a className="font-semibold text-slate-900 hover:underline" href="/guides">Guides →</a>
           </div>
         </section>
+              <InternalLinks currentPath="/faq" />
       </article>
 
       <SiteFooter />

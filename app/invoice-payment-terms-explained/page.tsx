@@ -1,4 +1,5 @@
     import SiteNav from "@/components/SiteNav";
+import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import ShareBar from "@/components/ShareBar";
 
@@ -57,7 +58,8 @@
             </div>
 
             <ShareBar title="Invoice Payment Terms Explained (Net 30, Net 15, Due on Receipt)" path="/invoice-payment-terms-explained" description="Understand invoice payment terms like Net 30, Net 15, and Due on Receipt. Learn best practices and generate invoices with clear terms." />
-          </article>
+                  <InternalLinks currentPath="/invoice-payment-terms-explained" />
+      </article>
 
           <SiteFooter />
         </main>
