@@ -25,7 +25,7 @@ export default function Home() {
       <SiteNav />
 
       <header className="mt-6">
-        <h1 className="text-4xl font-extrabold tracking-tight">Free PDF Templates — Generated Instantly\1
+        <h1 className="text-4xl font-extrabold tracking-tight">Free PDF Templates — Generated Instantly</h1>
         <p className="mt-4 text-slate-600">
           DocCraftTools helps you create clean, professional business documents in minutes — invoices, receipts, quotations, rent receipts, and delivery notes —
           and export them as PDF.
