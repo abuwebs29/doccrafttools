@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import type { TemplateDef } from "@/lib/templates";
 import { fileToDataUrl } from "@/lib/fileToDataUrl";
-import { CURRENCIES, formatMoney, getCurrency } from "@/lib/currencies";
+import { CURRENCIES, formatMoney } from "@/lib/currencies";
 import {
   generateInvoicePdf,
   generateReceiptPdf,
@@ -19,9 +19,15 @@ function clampNum(v: any) {
   return Number.isFinite(n) ? n : 0;
 }
 
-export default function TemplateEngine({ template, initialCurrencyCode }: { template: TemplateDef; initialCurrencyCode?: string }) {
-  const [logoDataUrl,
-      currencyCode: (form.currencyCode || "AED").toUpperCase(), setLogoDataUrl] = useState<string>("");
+export default function TemplateEngine({
+  template,
+  initialCurrencyCode,
+}: {
+  template: TemplateDef;
+  initialCurrencyCode?: string;
+}) {
+  const [logoDataUrl, setLogoDataUrl] = useState<string>("");
+
   const [form, setForm] = useState<Record<string, any>>(() => ({
     currencyCode: (initialCurrencyCode || "AED").toUpperCase(),
     items: [{ desc: "Service / Product", qty: 1, price: 100 }] as ItemRow[],
@@ -31,7 +37,10 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
     dnDate: new Date().toISOString().slice(0, 10),
   }));
 
-  const requiredKeys = useMemo(() => template.fields.filter(f => f.required).map(f => f.key), [template.fields]);
+  const requiredKeys = useMemo(
+    () => template.fields.filter((f) => f.required).map((f) => f.key),
+    [template.fields]
+  );
 
   function update(key: string, value: any) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -55,7 +64,13 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
     setForm((prev) => ({
       ...prev,
       items: (prev.items || []).map((it: ItemRow, i: number) =>
-        i === idx ? { ...it, [key]: key === "qty" || key === "price" ? clampNum(value) : value } : it
+        i === idx
+          ? {
+              ...it,
+              [key]:
+                key === "qty" || key === "price" ? clampNum(value) : value,
+            }
+          : it
       ),
     }));
   }
@@ -75,11 +90,14 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
       const v = form[k];
       if (k === "items") {
         const items: ItemRow[] = Array.isArray(form.items) ? form.items : [];
-        const hasAtLeastOne = items.length > 0 && items.some(i => (i.desc || "").trim().length > 0);
+        const hasAtLeastOne =
+          items.length > 0 && items.some((i) => (i.desc || "").trim().length > 0);
         if (!hasAtLeastOne) missing.push("Items");
         continue;
       }
-      if (v === undefined || v === null || String(v).trim() === "") missing.push(k);
+      if (v === undefined || v === null || String(v).trim() === "") {
+        missing.push(k);
+      }
     }
     return missing;
   }
@@ -135,7 +153,9 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-slate-200 p-4">
-          <label className="block text-sm font-semibold text-slate-700">Logo (optional)</label>
+          <label className="block text-sm font-semibold text-slate-700">
+            Logo (optional)
+          </label>
           <input
             type="file"
             accept="image/*"
@@ -152,71 +172,81 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
         </div>
 
         <div className="rounded-xl border border-slate-200 p-4">
-  <div className="flex items-center justify-between gap-3">
-    <div className="text-sm font-semibold text-slate-700">Totals</div>
-    <div className="flex items-center gap-2">
-      <label className="text-xs font-semibold text-slate-600">Currency</label>
-      <select
-        value={(form.currencyCode || "AED").toUpperCase()}
-        onChange={(e) => update("currencyCode", e.target.value)}
-        className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs"
-      >
-        {CURRENCIES.map((c) => (
-          <option key={c.code} value={c.code}>
-            {c.code} — {c.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  </div>
+          <div className="flex items-center justify-between gap-3">
+            <div className="text-sm font-semibold text-slate-700">Totals</div>
+            <div className="flex items-center gap-2">
+              <label className="text-xs font-semibold text-slate-600">
+                Currency
+              </label>
+              <select
+                value={(form.currencyCode || "AED").toUpperCase()}
+                onChange={(e) => update("currencyCode", e.target.value)}
+                className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs"
+              >
+                {CURRENCIES.map((c) => (
+                  <option key={c.code} value={c.code}>
+                    {c.code} — {c.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
 
-  {/* Invoice / Quotation totals */}
-  {template.id === "invoice" || template.id === "quotation" ? (
-    <div className="mt-3 grid gap-2 text-sm text-slate-700">
-      <div className="flex justify-between">
-        <span>Subtotal</span>
-        <span>{formatMoney(subtotal, form.currencyCode)}</span>
-      </div>
-      <div className="flex justify-between">
-        <span>Tax</span>
-        <span>{formatMoney(tax, form.currencyCode)}</span>
-      </div>
-      <div className="flex justify-between font-semibold">
-        <span>Total</span>
-        <span>{formatMoney(total, form.currencyCode)}</span>
-      </div>
-    </div>
-  ) : null}
+          {template.id === "invoice" || template.id === "quotation" ? (
+            <div className="mt-3 grid gap-2 text-sm text-slate-700">
+              <div className="flex justify-between">
+                <span>Subtotal</span>
+                <span>{formatMoney(subtotal, form.currencyCode)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Tax</span>
+                <span>{formatMoney(tax, form.currencyCode)}</span>
+              </div>
+              <div className="flex justify-between font-semibold">
+                <span>Total</span>
+                <span>{formatMoney(total, form.currencyCode)}</span>
+              </div>
+            </div>
+          ) : null}
 
-  {/* Receipt / Rent receipt amount */}
-  {template.id === "receipt" ? (
-    <div className="mt-3 text-sm text-slate-700">
-      <div className="flex justify-between font-semibold">
-        <span>Amount</span>
-        <span>{formatMoney(clampNum(form.amount), form.currencyCode)}</span>
-      </div>
-    </div>
-  ) : null}
+          {template.id === "receipt" ? (
+            <div className="mt-3 text-sm text-slate-700">
+              <div className="flex justify-between font-semibold">
+                <span>Amount</span>
+                <span>{formatMoney(clampNum(form.amount), form.currencyCode)}</span>
+              </div>
+            </div>
+          ) : null}
 
-  {template.id === "rent_receipt" ? (
-    <div className="mt-3 text-sm text-slate-700">
-      <div className="flex justify-between font-semibold">
-        <span>Amount</span>
-        <span>{formatMoney(clampNum(form.rentAmount), form.currencyCode)}</span>
+          {template.id === "rent_receipt" ? (
+            <div className="mt-3 text-sm text-slate-700">
+              <div className="flex justify-between font-semibold">
+                <span>Amount</span>
+                <span>{formatMoney(clampNum(form.rentAmount), form.currencyCode)}</span>
+              </div>
+            </div>
+          ) : null}
+        </div>
       </div>
-    </div>
-  ) : null}
-</div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {template.fields.map((f) => {
           if (f.type === "table_items") {
             const items: ItemRow[] = Array.isArray(form.items) ? form.items : [];
             return (
-              <div key={f.key} className="md:col-span-2 rounded-xl border border-slate-200 p-4">
+              <div
+                key={f.key}
+                className="md:col-span-2 rounded-xl border border-slate-200 p-4"
+              >
                 <div className="flex items-center justify-between">
-                  <div className="text-sm font-semibold text-slate-700">{f.label}{f.required ? " *" : ""}</div>
-                  <button onClick={addItem} className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold hover:bg-slate-50">
+                  <div className="text-sm font-semibold text-slate-700">
+                    {f.label}
+                    {f.required ? " *" : ""}
+                  </div>
+                  <button
+                    onClick={addItem}
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold hover:bg-slate-50"
+                  >
                     + Add item
                   </button>
                 </div>
@@ -226,10 +256,10 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
                     <thead>
                       <tr className="text-left text-slate-600">
                         <th className="py-2 pr-2">Description</th>
-                        <th className="py-2 pr-2 w-20">Qty</th>
-                        <th className="py-2 pr-2 w-28">Price</th>
-                        <th className="py-2 pr-2 w-28">Total</th>
-                        <th className="py-2 w-16"></th>
+                        <th className="w-20 py-2 pr-2">Qty</th>
+                        <th className="w-28 py-2 pr-2">Price</th>
+                        <th className="w-28 py-2 pr-2">Total</th>
+                        <th className="w-16 py-2"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -259,9 +289,14 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
                               className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
                             />
                           </td>
-                          <td className="py-2 pr-2 text-slate-700">AED {(clampNum(it.qty) * clampNum(it.price)).toFixed(2)}</td>
-                          <td className="py-2">
-                            <button onClick={() => removeItem(idx)} className="text-xs font-semibold text-slate-700 hover:text-red-600">
+                          <td className="py-2 pr-2 align-middle text-slate-700">
+                            {formatMoney(clampNum(it.qty) * clampNum(it.price), form.currencyCode)}
+                          </td>
+                          <td className="py-2 align-middle">
+                            <button
+                              onClick={() => removeItem(idx)}
+                              className="text-sm font-semibold text-slate-600 hover:text-slate-900"
+                            >
                               Remove
                             </button>
                           </td>
@@ -270,40 +305,71 @@ export default function TemplateEngine({ template, initialCurrencyCode }: { temp
                     </tbody>
                   </table>
                 </div>
+
+                {template.id === "invoice" || template.id === "quotation" ? (
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-600">
+                        Tax %
+                      </label>
+                      <input
+                        type="number"
+                        value={form.taxPercent || 0}
+                        onChange={(e) => update("taxPercent", e.target.value)}
+                        className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
+                      />
+                    </div>
+                    <div className="sm:col-span-2 rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm">
+                      <div className="flex justify-between">
+                        <span>Subtotal</span>
+                        <span>{formatMoney(subtotal, form.currencyCode)}</span>
+                      </div>
+                      <div className="mt-1 flex justify-between">
+                        <span>Tax</span>
+                        <span>{formatMoney(tax, form.currencyCode)}</span>
+                      </div>
+                      <div className="mt-1 flex justify-between font-semibold">
+                        <span>Total</span>
+                        <span>{formatMoney(total, form.currencyCode)}</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             );
           }
 
           const value = form[f.key] ?? "";
+
           return (
-            <div key={f.key} className="rounded-xl border border-slate-200 p-4">
+            <div key={f.key}>
               <label className="block text-sm font-semibold text-slate-700">
-                {f.label}{f.required ? " *" : ""}
+                {f.label}
+                {f.required ? " *" : ""}
               </label>
 
               {f.type === "textarea" ? (
                 <textarea
                   value={value}
                   onChange={(e) => update(f.key, e.target.value)}
-                  className="mt-2 h-28 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-slate-400"
-                  placeholder={f.placeholder}
+                  rows={4}
+                  className="mt-2 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
+                  placeholder={f.placeholder || ""}
                 />
               ) : (
                 <input
                   type={f.type === "number" ? "number" : f.type === "date" ? "date" : "text"}
                   value={value}
-                  onChange={(e) => update(f.key, e.target.value)}
-                  className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-slate-400"
-                  placeholder={f.placeholder}
+                  onChange={(e) =>
+                    update(f.key, f.type === "number" ? clampNum(e.target.value) : e.target.value)
+                  }
+                  className="mt-2 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
+                  placeholder={f.placeholder || ""}
                 />
               )}
             </div>
           );
         })}
-      </div>
-
-      <div className="mt-4 text-xs text-slate-500">
-        Privacy: PDFs are generated locally in your browser. We do not store your document data.
       </div>
     </section>
   );
