@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { TemplateDef } from "@/lib/templates";
 import { fileToDataUrl } from "@/lib/fileToDataUrl";
+import { CURRENCIES, formatMoney, getCurrency } from "@/lib/currencies";
 import {
   generateInvoicePdf,
   generateReceiptPdf,
@@ -18,9 +19,11 @@ function clampNum(v: any) {
   return Number.isFinite(n) ? n : 0;
 }
 
-export default function TemplateEngine({ template }: { template: TemplateDef }) {
-  const [logoDataUrl, setLogoDataUrl] = useState<string>("");
+export default function TemplateEngine({ template, initialCurrencyCode }: { template: TemplateDef; initialCurrencyCode?: string }) {
+  const [logoDataUrl,
+      currencyCode: (form.currencyCode || "AED").toUpperCase(), setLogoDataUrl] = useState<string>("");
   const [form, setForm] = useState<Record<string, any>>(() => ({
+    currencyCode: (initialCurrencyCode || "AED").toUpperCase(),
     items: [{ desc: "Service / Product", qty: 1, price: 100 }] as ItemRow[],
     invoiceDate: new Date().toISOString().slice(0, 10),
     receiptDate: new Date().toISOString().slice(0, 10),
@@ -149,14 +152,61 @@ export default function TemplateEngine({ template }: { template: TemplateDef }) 
         </div>
 
         <div className="rounded-xl border border-slate-200 p-4">
-          <div className="text-sm font-semibold text-slate-700">Totals</div>
-          <div className="mt-3 grid gap-2 text-sm text-slate-700">
-            <div className="flex justify-between"><span>Subtotal</span><span>AED {subtotal.toFixed(2)}</span></div>
-            <div className="flex justify-between"><span>Tax</span><span>AED {tax.toFixed(2)}</span></div>
-            <div className="flex justify-between font-semibold"><span>Total</span><span>AED {total.toFixed(2)}</span></div>
-          </div>
-        </div>
+  <div className="flex items-center justify-between gap-3">
+    <div className="text-sm font-semibold text-slate-700">Totals</div>
+    <div className="flex items-center gap-2">
+      <label className="text-xs font-semibold text-slate-600">Currency</label>
+      <select
+        value={(form.currencyCode || "AED").toUpperCase()}
+        onChange={(e) => update("currencyCode", e.target.value)}
+        className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs"
+      >
+        {CURRENCIES.map((c) => (
+          <option key={c.code} value={c.code}>
+            {c.code} — {c.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  {/* Invoice / Quotation totals */}
+  {template.id === "invoice" || template.id === "quotation" ? (
+    <div className="mt-3 grid gap-2 text-sm text-slate-700">
+      <div className="flex justify-between">
+        <span>Subtotal</span>
+        <span>{formatMoney(subtotal, form.currencyCode)}</span>
       </div>
+      <div className="flex justify-between">
+        <span>Tax</span>
+        <span>{formatMoney(tax, form.currencyCode)}</span>
+      </div>
+      <div className="flex justify-between font-semibold">
+        <span>Total</span>
+        <span>{formatMoney(total, form.currencyCode)}</span>
+      </div>
+    </div>
+  ) : null}
+
+  {/* Receipt / Rent receipt amount */}
+  {template.id === "receipt" ? (
+    <div className="mt-3 text-sm text-slate-700">
+      <div className="flex justify-between font-semibold">
+        <span>Amount</span>
+        <span>{formatMoney(clampNum(form.amount), form.currencyCode)}</span>
+      </div>
+    </div>
+  ) : null}
+
+  {template.id === "rent_receipt" ? (
+    <div className="mt-3 text-sm text-slate-700">
+      <div className="flex justify-between font-semibold">
+        <span>Amount</span>
+        <span>{formatMoney(clampNum(form.rentAmount), form.currencyCode)}</span>
+      </div>
+    </div>
+  ) : null}
+</div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {template.fields.map((f) => {
