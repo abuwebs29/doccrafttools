@@ -32,7 +32,7 @@ export default function Page() {
       <TemplateEngine template={templates.invoice} initialCurrencyCode="GBP" />
 
       <ShareBar title="Free GBP Invoice Generator (PDF)" path="/invoice-generator-gbp" />
-      <EmbedCodeBlock path="/embed/invoice" />
+      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
       <ToolSeoBlock id="invoice" />
       <SiteFooter />

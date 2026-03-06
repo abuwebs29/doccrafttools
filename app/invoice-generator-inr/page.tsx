@@ -32,7 +32,7 @@ export default function Page() {
       <TemplateEngine template={templates.invoice} initialCurrencyCode="INR" />
 
       <ShareBar title="Free INR Invoice Generator (PDF)" path="/invoice-generator-inr" />
-      <EmbedCodeBlock path="/embed/invoice" />
+      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
       <ToolSeoBlock id="invoice" />
       <SiteFooter />

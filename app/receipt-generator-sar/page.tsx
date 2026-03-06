@@ -32,7 +32,7 @@ export default function Page() {
       <TemplateEngine template={templates.receipt} initialCurrencyCode="SAR" />
 
       <ShareBar title="Free SAR Receipt Generator (PDF)" path="/receipt-generator-sar" />
-      <EmbedCodeBlock path="/embed/receipt" />
+      <EmbedCodeBlock toolName="receipt generator" embedPath="/embed/receipt" />
 
       <ToolSeoBlock id="receipt" />
       <SiteFooter />

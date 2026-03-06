@@ -32,7 +32,7 @@ export default function Page() {
       <TemplateEngine template={templates.receipt} initialCurrencyCode="USD" />
 
       <ShareBar title="Free USD Receipt Generator (PDF)" path="/receipt-generator-usd" />
-      <EmbedCodeBlock path="/embed/receipt" />
+      <EmbedCodeBlock toolName="receipt generator" embedPath="/embed/receipt" />
 
       <ToolSeoBlock id="receipt" />
       <SiteFooter />

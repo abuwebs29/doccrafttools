@@ -32,7 +32,7 @@ export default function Page() {
       <TemplateEngine template={templates.receipt} initialCurrencyCode="INR" />
 
       <ShareBar title="Free INR Receipt Generator (PDF)" path="/receipt-generator-inr" />
-      <EmbedCodeBlock path="/embed/receipt" />
+      <EmbedCodeBlock toolName="receipt generator" embedPath="/embed/receipt" />
 
       <ToolSeoBlock id="receipt" />
       <SiteFooter />

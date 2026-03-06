@@ -40,7 +40,7 @@ export default function Page() {
           <TemplateEngine template={templates.invoice} initialCurrencyCode="INR" />
 
       <ShareBar title="Free Invoice Generator India (INR)" path="/invoice-generator-inr" />
-      <EmbedCodeBlock path="/embed/invoice" />
+      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
       <ToolSeoBlock id="invoice" />
       <SiteFooter />

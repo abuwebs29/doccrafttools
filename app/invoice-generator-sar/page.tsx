@@ -32,7 +32,7 @@ export default function Page() {
       <TemplateEngine template={templates.invoice} initialCurrencyCode="SAR" />
 
       <ShareBar title="Free SAR Invoice Generator (PDF)" path="/invoice-generator-sar" />
-      <EmbedCodeBlock path="/embed/invoice" />
+      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
       <ToolSeoBlock id="invoice" />
       <SiteFooter />

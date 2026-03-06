@@ -40,7 +40,7 @@ export default function Page() {
           <TemplateEngine template={templates.invoice} initialCurrencyCode="AED" />
 
       <ShareBar title="Free Invoice Generator UAE (AED)" path="/invoice-generator-aed" />
-      <EmbedCodeBlock path="/embed/invoice" />
+      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
       <ToolSeoBlock id="invoice" />
       <SiteFooter />

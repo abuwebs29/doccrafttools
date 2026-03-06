@@ -40,7 +40,7 @@ export default function Page() {
           <TemplateEngine template={templates.invoice} initialCurrencyCode="USD" />
 
       <ShareBar title="Free Invoice Generator USA (USD)" path="/invoice-generator-usd" />
-      <EmbedCodeBlock path="/embed/invoice" />
+      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
       <ToolSeoBlock id="invoice" />
       <SiteFooter />
