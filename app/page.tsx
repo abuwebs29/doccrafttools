@@ -55,6 +55,16 @@ export default function Home() {
         <Card title="Business Documents Hub" desc="Browse all business document generators and guides." href="/business-documents" />
       </section>
 
+<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">Popular Generators by Currency</h2>
+  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-usd">Invoice Generator (USD) →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-inr">Invoice Generator (INR) →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-uk">Invoice Generator (UK / GBP) →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator-usd">Receipt Generator (USD) →</a>
+  </div>
+</section>
+
       <PopularTemplates className="mt-10" />
       <RecentlyUsed className="mt-10" />
 

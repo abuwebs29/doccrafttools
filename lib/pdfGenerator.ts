@@ -1,10 +1,10 @@
 import jsPDF from "jspdf";
-import { formatMoney } from "@/lib/currencies";
 
 type ItemRow = { desc: string; qty: number; price: number };
 
-function money(n: number, currencyCode?: string) {
-  return formatMoney(n, currencyCode);
+function money(n: number) {
+  if (!Number.isFinite(n)) return "0.00";
+  return n.toFixed(2);
 }
 
 function safeStr(v: any) {
@@ -101,8 +101,8 @@ export function generateInvoicePdf(data: any) {
 
     doc.text(descLines, 40, y);
     doc.text(String(qty), W - 190, y);
-    doc.text(money(price, data.currencyCode), W - 140, y);
-    doc.text(money(lineTotal, data.currencyCode), W - 70, y, { align: "right" });
+    doc.text(money(price), W - 140, y);
+    doc.text(money(lineTotal), W - 70, y, { align: "right" });
 
     y += rowHeight;
   }
@@ -119,15 +119,15 @@ export function generateInvoicePdf(data: any) {
 
   doc.setFont("helvetica", "bold");
   doc.text("Subtotal", W - 220, boxTop + 22);
-  doc.text(money(subtotal, data.currencyCode), W - 60, boxTop + 22, { align: "right" });
+  doc.text(money(subtotal), W - 60, boxTop + 22, { align: "right" });
 
   doc.setFont("helvetica", "normal");
   doc.text(`Tax (${taxPercent || 0}%)`, W - 220, boxTop + 44);
-  doc.text(money(tax, data.currencyCode), W - 60, boxTop + 44, { align: "right" });
+  doc.text(money(tax), W - 60, boxTop + 44, { align: "right" });
 
   doc.setFont("helvetica", "bold");
   doc.text("Total", W - 220, boxTop + 70);
-  doc.text(money(grand, data.currencyCode), W - 60, boxTop + 70, { align: "right" });
+  doc.text(money(grand), W - 60, boxTop + 70, { align: "right" });
 
   const notes = safeStr(data.notes);
   if (notes) {
@@ -189,8 +189,8 @@ export function generateQuotationPdf(data: any) {
 
     doc.text(descLines, 40, y);
     doc.text(String(qty), W - 190, y);
-    doc.text(money(price, data.currencyCode), W - 140, y);
-    doc.text(money(lineTotal, data.currencyCode), W - 70, y, { align: "right" });
+    doc.text(money(price), W - 140, y);
+    doc.text(money(lineTotal), W - 70, y, { align: "right" });
 
     y += rowHeight;
   }
@@ -207,15 +207,15 @@ export function generateQuotationPdf(data: any) {
 
   doc.setFont("helvetica", "bold");
   doc.text("Subtotal", W - 220, boxTop + 22);
-  doc.text(money(subtotal, data.currencyCode), W - 60, boxTop + 22, { align: "right" });
+  doc.text(money(subtotal), W - 60, boxTop + 22, { align: "right" });
 
   doc.setFont("helvetica", "normal");
   doc.text(`Tax (${taxPercent || 0}%)`, W - 220, boxTop + 44);
-  doc.text(money(tax, data.currencyCode), W - 60, boxTop + 44, { align: "right" });
+  doc.text(money(tax), W - 60, boxTop + 44, { align: "right" });
 
   doc.setFont("helvetica", "bold");
   doc.text("Total", W - 220, boxTop + 70);
-  doc.text(money(grand, data.currencyCode), W - 60, boxTop + 70, { align: "right" });
+  doc.text(money(grand), W - 60, boxTop + 70, { align: "right" });
 
   const notes = safeStr(data.notes);
   if (notes) {
@@ -259,7 +259,7 @@ export function generateReceiptPdf(data: any) {
   doc.setFont("helvetica", "bold");
   doc.text("Amount:", 60, 145);
   doc.setFont("helvetica", "normal");
-  doc.text(`AED ${money(amount, data.currencyCode)}`, 180, 145);
+  doc.text(`AED ${money(amount)}`, 180, 145);
 
   doc.setFont("helvetica", "bold");
   doc.text("For:", 60, 170);
@@ -336,8 +336,8 @@ export function generateDeliveryNotePdf(data: any) {
 
     doc.text(descLines, 40, y);
     doc.text(String(qty), W - 190, y);
-    doc.text(money(price, data.currencyCode), W - 140, y);
-    doc.text(money(lineTotal, data.currencyCode), W - 70, y, { align: "right" });
+    doc.text(money(price), W - 140, y);
+    doc.text(money(lineTotal), W - 70, y, { align: "right" });
 
     y += rowHeight;
   }
@@ -409,7 +409,7 @@ export function generateRentReceiptPdf(data: any) {
   doc.setFont("helvetica", "bold");
   doc.text("Amount Paid:", 60, 255);
   doc.setFont("helvetica", "normal");
-  doc.text(`AED ${money(amount, data.currencyCode)}`, 150, 255);
+  doc.text(`AED ${money(amount)}`, 150, 255);
 
   doc.setFont("helvetica", "bold");
   doc.text("Method:", 60, 280);
