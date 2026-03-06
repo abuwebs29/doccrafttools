@@ -34,7 +34,13 @@ export const INTERNAL_LINKS: InternalLinkMap = {
     }
   ],
   "/invoice-generator": [
-    {
+    
+    {"href": "/invoice-generator-usd", "anchor": "USD invoice generator"},
+    {"href": "/invoice-generator-inr", "anchor": "INR invoice generator"},
+    {"href": "/invoice-generator-gbp", "anchor": "GBP invoice generator"},
+    {"href": "/invoice-generator-eur", "anchor": "EUR invoice generator"},
+    {"href": "/invoice-generator-sar", "anchor": "SAR invoice generator"},
+{
       "href": "/invoice-template-pdf",
       "anchor": "invoice template PDF"
     },
@@ -86,7 +92,13 @@ export const INTERNAL_LINKS: InternalLinkMap = {
     }
   ],
   "/receipt-generator": [
-    {
+    
+    {"href": "/receipt-generator-usd", "anchor": "USD receipt generator"},
+    {"href": "/receipt-generator-inr", "anchor": "INR receipt generator"},
+    {"href": "/receipt-generator-gbp", "anchor": "GBP receipt generator"},
+    {"href": "/receipt-generator-eur", "anchor": "EUR receipt generator"},
+    {"href": "/receipt-generator-sar", "anchor": "SAR receipt generator"},
+{
       "href": "/receipt-template-pdf",
       "anchor": "receipt template PDF"
     },
@@ -232,6 +244,9 @@ export const INTERNAL_LINKS: InternalLinkMap = {
 };
 
 export const GENERIC_INTERNAL_LINKS: InternalLink[] = [
+  {"href": "/invoice-generator-usd", "anchor": "USD invoice generator"},
+  {"href": "/receipt-generator-usd", "anchor": "USD receipt generator"},
+
   {
     "href": "/invoice-generator",
     "anchor": "invoice generator"
