@@ -6,11 +6,10 @@ import ShareBar from "@/components/ShareBar";
 import EmbedCodeBlock from "@/components/EmbedCodeBlock";
 import RecentTracker from "@/components/RecentTracker";
 import { templates } from "@/lib/templates";
-import { toolSchema } from "@/lib/schemaRegistry";
 
 export const metadata = {
-  title: "Free USD Invoice Generator (PDF) — Create Invoice in USD",
-  description: "Create professional invoices in USD and download a printable PDF. No sign-up required.",
+  title: "Free Invoice Generator in USD (PDF)",
+  description: "Create a professional invoice in USD and download a printable PDF instantly. No login required.",
   alternates: {
     canonical: "/invoice-generator-usd",
   },
@@ -19,21 +18,26 @@ export const metadata = {
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
-      <RecentTracker title="Free USD Invoice Generator (PDF)" href="/invoice-generator-usd" type="Tool" />
+      <RecentTracker title="Free Invoice Generator in USD (PDF)" href="/invoice-generator-usd" type="Tool" />
       <SiteNav />
 
       <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free USD Invoice Generator (PDF)</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">Free Invoice Generator in USD (PDF)</h1>
         <p className="mt-2 max-w-2xl text-slate-600">
-          Create professional invoices in USD and download a printable PDF. No sign-up required.
+          Create a professional invoice in USD and download a printable PDF instantly. No login required.
         </p>
       </header>
 
       <TemplateEngine template={templates.invoice} initialCurrencyCode="USD" />
 
-      <ShareBar title="Free USD Invoice Generator (PDF)" path="/invoice-generator-usd" />
-      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold">USD Invoice Generator</h2>
+        <p className="mt-3 text-slate-600">Use this page to generate invoices in US Dollars for freelance, consulting, or client work.</p>
+        <p className="mt-3 text-slate-600">Add items, optional tax, payment notes, and export a clean PDF in seconds.</p>
+      </section>
 
+      <ShareBar title="Free Invoice Generator in USD (PDF)" path="/invoice-generator-usd" description="Create a professional invoice in USD and download a printable PDF instantly. No login required." />
+      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
       <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>

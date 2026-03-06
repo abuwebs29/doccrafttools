@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Freelance Invoice Template (Professional PDF)",
@@ -22,7 +21,6 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Freelance Invoice Template (Professional PDF)" path="/freelance-invoice-template" description="Free freelance invoice template with professional layout and payment terms." />
-              <InternalLinks currentPath="/freelance-invoice-template" />
       </article>
       <SiteFooter />
     </main>

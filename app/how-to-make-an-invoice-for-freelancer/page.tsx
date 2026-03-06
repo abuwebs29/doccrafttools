@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "How to Make an Invoice as a Freelancer (Step‑by‑Step)",
@@ -81,7 +80,6 @@ export default function Page() {
         </div>
 
         <ShareBar title="How to Make an Invoice as a Freelancer (Step‑by‑Step)" path="/how-to-make-an-invoice-for-freelancer" description="Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy‑paste wording." />
-              <InternalLinks currentPath="/how-to-make-an-invoice-for-freelancer" />
       </article>
       <SiteFooter />
     </main>

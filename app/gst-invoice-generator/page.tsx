@@ -8,9 +8,9 @@ import RecentTracker from "@/components/RecentTracker";
 import { templates } from "@/lib/templates";
 
 export const metadata = {
-  title: "Free GST Invoice Generator (India) — Create GST Invoice Online",
+  title: "Free GST Invoice Generator (India)",
   description:
-    "Create a GST invoice online for India and download a printable PDF. Add GST percentage, business details, and line items instantly.",
+    "Create a GST invoice online for India and download a printable PDF. Add tax percentage, line items, and business details instantly.",
   alternates: {
     canonical: "/gst-invoice-generator",
   },
@@ -34,16 +34,15 @@ export default function Page() {
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-xl font-semibold">What is a GST invoice?</h2>
         <p className="mt-3 text-slate-600">
-          A GST invoice is used in India to bill customers while showing the applicable GST percentage and tax amount.
-          It usually includes supplier details, invoice number, invoice date, line items, subtotal, GST, and total amount.
+          A GST invoice is commonly used in India to bill customers while showing the applicable tax percentage and total amount due.
         </p>
         <p className="mt-3 text-slate-600">
-          Use this page if you need to create an invoice in INR with GST-style billing and export it as a clean PDF.
+          Use this page when you want to create an invoice in INR and export it as a clean PDF for freelance work, services, or small business billing.
         </p>
       </section>
 
-      <ShareBar title="Free GST Invoice Generator (India)" path="/gst-invoice-generator" />
-      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
+      <ShareBar title="Free GST Invoice Generator (India)" path="/gst-invoice-generator" description="Create a GST invoice online for India and download a printable PDF." />
+      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
       <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>

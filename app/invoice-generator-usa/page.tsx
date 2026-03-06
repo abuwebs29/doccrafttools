@@ -6,42 +6,38 @@ import ShareBar from "@/components/ShareBar";
 import EmbedCodeBlock from "@/components/EmbedCodeBlock";
 import RecentTracker from "@/components/RecentTracker";
 import { templates } from "@/lib/templates";
-import { toolSchema } from "@/lib/schemaRegistry";
 
 export const metadata = {
-  title: "Free Invoice Generator USA (USD) — Create Invoice Online",
-  description: "Create invoices in US Dollars (USD) with a clean printable PDF. Great for freelancers and small businesses in the USA.",
+  title: "Free Invoice Generator USA (PDF)",
+  description: "Create a professional invoice for USA clients in USD and download a printable PDF instantly.",
   alternates: {
-    canonical: "/invoice-generator-usd",
+    canonical: "/invoice-generator-usa",
   },
 };
 
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
-      <RecentTracker title="Free Invoice Generator USA (USD)" href="/invoice-generator-usd" type="Tool" />
+      <RecentTracker title="Free Invoice Generator USA (PDF)" href="/invoice-generator-usa" type="Tool" />
       <SiteNav />
 
       <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free Invoice Generator USA (USD)</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">Free Invoice Generator USA (PDF)</h1>
         <p className="mt-2 max-w-2xl text-slate-600">
-          Create invoices in US Dollars (USD) with a clean printable PDF. Great for freelancers and small businesses in the USA.
+          Create a professional invoice for USA clients in USD and download a printable PDF instantly.
         </p>
       </header>
 
-      <section className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-700">
-            <h2 className="text-base font-bold">Country note</h2>
-            <p className="mt-2">
-              This page preselects <strong>USD</strong>. If you need tax/VAT/GST, use the <strong>Tax (%)</strong> field.
-              Always check local rules for invoice requirements.
-            </p>
-          </section>
+      <TemplateEngine template={templates.invoice} initialCurrencyCode="USD" />
 
-          <TemplateEngine template={templates.invoice} initialCurrencyCode="USD" />
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold">Invoice Generator for USA</h2>
+        <p className="mt-3 text-slate-600">Use this page if you invoice customers in the United States and want billing in US Dollars.</p>
+        <p className="mt-3 text-slate-600">Generate a clean invoice PDF online without sign-up.</p>
+      </section>
 
-      <ShareBar title="Free Invoice Generator USA (USD)" path="/invoice-generator-usd" />
-      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
-
+      <ShareBar title="Free Invoice Generator USA (PDF)" path="/invoice-generator-usa" description="Create a professional invoice for USA clients in USD and download a printable PDF instantly." />
+      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
       <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>

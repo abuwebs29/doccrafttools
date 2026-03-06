@@ -1,5 +1,4 @@
     import SiteNav from "@/components/SiteNav";
-import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import ShareBar from "@/components/ShareBar";
 
@@ -51,8 +50,7 @@ import InternalLinks from "@/components/InternalLinks";
             </div>
 
             <ShareBar title="Rent Receipt Format (Examples + Printable PDF)" path="/rent-receipt-format" description="Rent receipt format explained with examples and a printable PDF generator for landlords and tenants." />
-                  <InternalLinks currentPath="/rent-receipt-format" />
-      </article>
+          </article>
 
           <SiteFooter />
         </main>

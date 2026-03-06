@@ -1,5 +1,4 @@
     import SiteNav from "@/components/SiteNav";
-import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import ShareBar from "@/components/ShareBar";
 
@@ -51,8 +50,7 @@ import InternalLinks from "@/components/InternalLinks";
             </div>
 
             <ShareBar title="Delivery Note Format (Template + Examples)" path="/delivery-note-format" description="Delivery note format explained with template fields, examples, and tips for businesses shipping goods." />
-                  <InternalLinks currentPath="/delivery-note-format" />
-      </article>
+          </article>
 
           <SiteFooter />
         </main>

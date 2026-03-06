@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Delivery Note vs Invoice (Clear Comparison)",
@@ -22,7 +21,6 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Delivery Note vs Invoice (Clear Comparison)" path="/delivery-note-vs-invoice" description="Understand the difference between delivery notes and invoices." />
-              <InternalLinks currentPath="/delivery-note-vs-invoice" />
       </article>
       <SiteFooter />
     </main>

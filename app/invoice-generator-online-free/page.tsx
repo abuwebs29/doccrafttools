@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Free Invoice Generator Online (No Sign Up Required)",
@@ -71,7 +70,6 @@ export default function Page() {
         </div>
 
         <ShareBar title="Free Invoice Generator Online (No Sign Up Required)" path="/invoice-generator-online-free" description="Create a professional invoice online for free. Customize, preview, and download a clean PDF instantly—no signup required." />
-              <InternalLinks currentPath="/invoice-generator-online-free" />
       </article>
       <SiteFooter />
     </main>

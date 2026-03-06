@@ -1,5 +1,4 @@
     import SiteNav from "@/components/SiteNav";
-import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import ShareBar from "@/components/ShareBar";
 
@@ -57,8 +56,7 @@ import InternalLinks from "@/components/InternalLinks";
             </div>
 
             <ShareBar title="Difference Between Invoice and Receipt (Simple Guide)" path="/difference-between-invoice-and-receipt" description="Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly." />
-                  <InternalLinks currentPath="/difference-between-invoice-and-receipt" />
-      </article>
+          </article>
 
           <SiteFooter />
         </main>

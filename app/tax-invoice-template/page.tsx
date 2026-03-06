@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Tax Invoice Template (Free PDF Generator)",
@@ -47,7 +46,6 @@ export default function Page() {
           path="/tax-invoice-template"
           description="Free VAT/GST invoice template PDF generator."
         />
-              <InternalLinks currentPath="/tax-invoice-template" />
       </article>
 
       <SiteFooter />

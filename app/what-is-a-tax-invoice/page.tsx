@@ -1,5 +1,4 @@
     import SiteNav from "@/components/SiteNav";
-import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import ShareBar from "@/components/ShareBar";
 
@@ -54,8 +53,7 @@ import InternalLinks from "@/components/InternalLinks";
             </div>
 
             <ShareBar title="What Is a Tax Invoice? (VAT/GST Invoice Guide)" path="/what-is-a-tax-invoice" description="A tax invoice includes VAT/GST details required for compliant billing. Learn what to include and generate a tax invoice PDF instantly." />
-                  <InternalLinks currentPath="/what-is-a-tax-invoice" />
-      </article>
+          </article>
 
           <SiteFooter />
         </main>

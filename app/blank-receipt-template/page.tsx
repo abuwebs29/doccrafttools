@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Blank Receipt Template (Free Printable PDF)",
@@ -91,7 +90,6 @@ export default function Page() {
           path="/blank-receipt-template"
           description="Free printable blank receipt PDF template."
         />
-              <InternalLinks currentPath="/blank-receipt-template" />
       </article>
 
       <SiteFooter />
