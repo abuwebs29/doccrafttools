@@ -42,7 +42,7 @@ export default function Page() {
       <ShareBar title="Free Invoice Generator UK (GBP)" path="/invoice-generator-gbp" />
       <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
-      <ToolSeoBlock id="invoice" />
+      <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>
   );

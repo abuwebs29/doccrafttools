@@ -34,7 +34,7 @@ export default function Page() {
       <ShareBar title="Free GBP Invoice Generator (PDF)" path="/invoice-generator-gbp" />
       <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
-      <ToolSeoBlock id="invoice" />
+      <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>
   );

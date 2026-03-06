@@ -34,7 +34,7 @@ export default function Page() {
       <ShareBar title="Free SAR Receipt Generator (PDF)" path="/receipt-generator-sar" />
       <EmbedCodeBlock toolName="receipt generator" embedPath="/embed/receipt" />
 
-      <ToolSeoBlock id="receipt" />
+      <ToolSeoBlock toolId="receipt" />
       <SiteFooter />
     </main>
   );

@@ -34,7 +34,7 @@ export default function Page() {
       <ShareBar title="Free USD Receipt Generator (PDF)" path="/receipt-generator-usd" />
       <EmbedCodeBlock toolName="receipt generator" embedPath="/embed/receipt" />
 
-      <ToolSeoBlock id="receipt" />
+      <ToolSeoBlock toolId="receipt" />
       <SiteFooter />
     </main>
   );

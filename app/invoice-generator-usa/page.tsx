@@ -42,7 +42,7 @@ export default function Page() {
       <ShareBar title="Free Invoice Generator USA (USD)" path="/invoice-generator-usd" />
       <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
-      <ToolSeoBlock id="invoice" />
+      <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>
   );

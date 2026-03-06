@@ -42,7 +42,7 @@ export default function Page() {
       <ShareBar title="Free Invoice Generator UAE (AED)" path="/invoice-generator-aed" />
       <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
-      <ToolSeoBlock id="invoice" />
+      <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>
   );

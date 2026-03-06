@@ -34,7 +34,7 @@ export default function Page() {
       <ShareBar title="Free GBP Receipt Generator (PDF)" path="/receipt-generator-gbp" />
       <EmbedCodeBlock toolName="receipt generator" embedPath="/embed/receipt" />
 
-      <ToolSeoBlock id="receipt" />
+      <ToolSeoBlock toolId="receipt" />
       <SiteFooter />
     </main>
   );
