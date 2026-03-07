@@ -10,7 +10,6 @@ import {
   generateDeliveryNotePdf,
   generateRentReceiptPdf,
 } from "@/lib/pdfGenerator";
-import { exportInvoiceAsExcel, exportInvoiceAsWord } from "@/lib/exportDocs";
 
 type ItemRow = { desc: string; qty: number; price: number };
 
@@ -19,9 +18,9 @@ function clampNum(v: any) {
   return Number.isFinite(n) ? n : 0;
 }
 
-export default function TemplateEngine({ template }: { template: TemplateDef }) {
+export default function TemplateEngine({ template, initialCurrencyCode }: { template: TemplateDef; initialCurrencyCode?: string }) {
   const [logoDataUrl, setLogoDataUrl] = useState<string>("");
-  const [form, setForm] = useState<Record<string, any>>(() => ({
+  const [form, setForm] = useState<Record<string, any>>(() => ({\n    currencyCode: (initialCurrencyCode || "AED").toUpperCase(),
     items: [{ desc: "Service / Product", qty: 1, price: 100 }] as ItemRow[],
     invoiceDate: new Date().toISOString().slice(0, 10),
     receiptDate: new Date().toISOString().slice(0, 10),
@@ -123,44 +122,12 @@ export default function TemplateEngine({ template }: { template: TemplateDef }) 
           <h2 className="text-xl font-extrabold text-slate-900">{template.name}</h2>
           <p className="mt-1 text-sm text-slate-600">{template.tagline}</p>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {template.id === "invoice" ? (
-            <>
-              <button
-                onClick={() => {
-                  const missing = validate();
-                  if (missing.length) {
-                    alert("Please fill required fields: " + missing.join(", "));
-                    return;
-                  }
-                  exportInvoiceAsExcel({ ...form, logoDataUrl });
-                }}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-              >
-                Export Excel
-              </button>
-              <button
-                onClick={() => {
-                  const missing = validate();
-                  if (missing.length) {
-                    alert("Please fill required fields: " + missing.join(", "));
-                    return;
-                  }
-                  exportInvoiceAsWord({ ...form, logoDataUrl });
-                }}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-              >
-                Export Word
-              </button>
-            </>
-          ) : null}
-          <button
-            onClick={download}
-            className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-          >
-            Download PDF
-          </button>
-        </div>
+        <button
+          onClick={download}
+          className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+        >
+          Download PDF
+        </button>
       </div>
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
