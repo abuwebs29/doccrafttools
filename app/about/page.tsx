@@ -1,6 +1,5 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "About DocCraft Tools",
@@ -29,7 +28,6 @@ export default function Page() {
             contact@doccrafttools.com
           </a>
         </p>
-              <InternalLinks currentPath="/about" />
       </article>
       <SiteFooter />
     </main>

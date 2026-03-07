@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Cash Receipt Template (Free PDF Generator)",
@@ -48,7 +47,6 @@ export default function Page() {
           path="/cash-receipt-template"
           description="Free printable cash receipt PDF generator."
         />
-              <InternalLinks currentPath="/cash-receipt-template" />
       </article>
 
       <SiteFooter />

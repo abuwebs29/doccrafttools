@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Payment Receipt Format (Printable Example)",
@@ -22,7 +21,6 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Payment Receipt Format (Printable Example)" path="/payment-receipt-format" description="Understand the correct payment receipt format and generate a printable PDF instantly." />
-              <InternalLinks currentPath="/payment-receipt-format" />
       </article>
       <SiteFooter />
     </main>

@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Simple Invoice Template (Free PDF)",
@@ -22,7 +21,6 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Simple Invoice Template (Free PDF)" path="/simple-invoice-template" description="Create a simple invoice template PDF for quick billing without complex software." />
-              <InternalLinks currentPath="/simple-invoice-template" />
       </article>
       <SiteFooter />
     </main>

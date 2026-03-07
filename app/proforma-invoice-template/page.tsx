@@ -1,7 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
-import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Proforma Invoice Template (Free PDF Generator)",
@@ -36,7 +35,6 @@ export default function Page() {
           path="/proforma-invoice-template"
           description="Free proforma invoice PDF generator."
         />
-              <InternalLinks currentPath="/proforma-invoice-template" />
       </article>
       <SiteFooter />
     </main>

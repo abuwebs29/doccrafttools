@@ -8,8 +8,8 @@ import EmbedCodeBlock from "@/components/EmbedCodeBlock";
 import { templates } from "@/lib/templates";
 
 export const metadata = {
-  title: "Invoice Template Word Generator",
-  description: "Create a Word-style invoice template and export it as PDF or Word.",
+  title: "Invoice Template Word Generator (PDF)",
+  description: "Create a Word-style invoice template and export it as a printable PDF.",
   alternates: { canonical: "/invoice-template-word" },
 };
 
@@ -19,21 +19,21 @@ export default function Page() {
       <SiteNav />
 
       <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Invoice Template Word Generator</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">Create a Word-style invoice template and export it as PDF or Word.</p>
+        <h1 className="text-3xl font-extrabold tracking-tight">Invoice Template Word Generator (PDF)</h1>
+        <p className="mt-2 max-w-2xl text-slate-600">Create a Word-style invoice template and export it as a printable PDF.</p>
       </header>
 
       <TemplateEngine template={templates.invoice} />
 
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Invoice Template Word Generator</h2>
+        <h2 className="text-xl font-semibold">Invoice Template Word Generator (PDF)</h2>
         <p className="mt-3 text-slate-600">
-          Use this page to build an invoice, then export it as PDF, Excel, or Word depending on your workflow.
+        Use this free generator to quickly create a professional document and download it as a clean printable PDF.
         </p>
       </section>
 
-      <ShareBar title="Invoice Template Word Generator" path="/invoice-template-word" />
-      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
+      <ShareBar title="Invoice Template Word Generator (PDF)" path="/invoice-template-word" />
+      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
       <ToolSeoBlock toolId="invoice" />
       <SiteFooter />
     </main>
