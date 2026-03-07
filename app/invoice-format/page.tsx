@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Invoice Format (Simple Professional Layout Guide)",
@@ -21,6 +22,7 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Invoice Format (Simple Professional Layout Guide)" path="/invoice-format" description="Learn the correct invoice format with examples and required fields for freelancers and businesses." />
+              <InternalLinks currentPath="/invoice-format" />
       </article>
       <SiteFooter />
     </main>

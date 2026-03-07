@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Commercial Invoice Template (Free PDF Generator)",
@@ -47,6 +48,7 @@ export default function Page() {
           path="/commercial-invoice-template"
           description="Free commercial invoice PDF generator for international shipping."
         />
+              <InternalLinks currentPath="/commercial-invoice-template" />
       </article>
 
       <SiteFooter />

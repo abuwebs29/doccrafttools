@@ -20,7 +20,8 @@ function clampNum(v: any) {
 
 export default function TemplateEngine({ template, initialCurrencyCode }: { template: TemplateDef; initialCurrencyCode?: string }) {
   const [logoDataUrl, setLogoDataUrl] = useState<string>("");
-  const [form, setForm] = useState<Record<string, any>>(() => ({\n    currencyCode: (initialCurrencyCode || "AED").toUpperCase(),
+  const [form, setForm] = useState<Record<string, any>>(() => ({
+    currencyCode: (initialCurrencyCode || "AED").toUpperCase(),
     items: [{ desc: "Service / Product", qty: 1, price: 100 }] as ItemRow[],
     invoiceDate: new Date().toISOString().slice(0, 10),
     receiptDate: new Date().toISOString().slice(0, 10),

@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Invoice vs Receipt: What’s the Difference?",
@@ -76,6 +77,7 @@ export default function Page() {
         </div>
 
         <ShareBar title="Invoice vs Receipt: What’s the Difference?" path="/invoice-vs-receipt-difference" description="Invoices request payment. Receipts confirm payment. Learn the difference with simple examples—and create PDFs instantly." />
+              <InternalLinks currentPath="/invoice-vs-receipt-difference" />
       </article>
       <SiteFooter />
     </main>

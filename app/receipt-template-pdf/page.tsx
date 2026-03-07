@@ -1,4 +1,5 @@
     import SiteNav from "@/components/SiteNav";
+import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import RecentTracker from "@/components/RecentTracker";
     import ShareBar from "@/components/ShareBar";
@@ -34,7 +35,8 @@
             </div>
 
             <ShareBar title="Receipt Template PDF (Free Download Generator)" path="/receipt-template-pdf" description="Create a printable receipt template PDF instantly — add payer name, amount, purpose, and method." />
-          </article>
+                  <InternalLinks currentPath="/receipt-template-pdf" />
+      </article>
 
           <SiteFooter />
         </main>

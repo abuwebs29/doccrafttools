@@ -1,4 +1,5 @@
     import SiteNav from "@/components/SiteNav";
+import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import RecentTracker from "@/components/RecentTracker";
     import ShareBar from "@/components/ShareBar";
@@ -37,7 +38,8 @@
             </div>
 
             <ShareBar title="How to Make an Invoice (Step-by-Step)" path="/how-to-make-an-invoice" description="A simple step-by-step method to create a professional invoice — plus a free PDF invoice generator." />
-          </article>
+                  <InternalLinks currentPath="/how-to-make-an-invoice" />
+      </article>
 
           <SiteFooter />
         </main>

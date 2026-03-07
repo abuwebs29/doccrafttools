@@ -2,6 +2,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import RecentlyUsed from "@/components/RecentlyUsed";
 import PopularTemplates from "@/components/PopularTemplates";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "DocCraft Tools — Free PDF Templates Generator",
@@ -25,9 +26,14 @@ export default function Home() {
 
       <header className="mt-6">
         <h1 className="text-4xl font-extrabold tracking-tight">Free PDF Templates — Generated Instantly</h1>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Create professional documents as printable PDFs: invoices, receipts, quotations, delivery notes and rent receipts.
-          No login. No storage. Works in your browser.
+        <p className="mt-4 text-slate-600">
+          DocCraftTools helps you create clean, professional business documents in minutes — invoices, receipts, quotations, rent receipts, and delivery notes —
+          and export them as PDF.
+        </p>
+        <p className="mt-3 text-slate-600">
+          Start with the <a className="underline underline-offset-4" href="/invoice-generator">invoice generator</a> or pick a ready-made{" "}
+          <a className="underline underline-offset-4" href="/pdf-templates">PDF template</a>. Need help with formatting and terms? Browse our{" "}
+          <a className="underline underline-offset-4" href="/guides">step-by-step guides</a>.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -89,6 +95,7 @@ export default function Home() {
 </section>
 
       <SiteFooter />
+          <InternalLinks currentPath="/" />
     </main>
   );
 }

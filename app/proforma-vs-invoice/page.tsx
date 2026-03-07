@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Proforma Invoice vs Invoice (What’s the Difference?)",
@@ -21,6 +22,7 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Proforma Invoice vs Invoice (What’s the Difference?)" path="/proforma-vs-invoice" description="Learn when to use proforma invoices versus standard invoices." />
+              <InternalLinks currentPath="/proforma-vs-invoice" />
       </article>
       <SiteFooter />
     </main>

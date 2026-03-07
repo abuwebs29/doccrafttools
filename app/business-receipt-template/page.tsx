@@ -1,6 +1,7 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
+import InternalLinks from "@/components/InternalLinks";
 
 export const metadata = {
   title: "Business Receipt Template (Free Printable PDF)",
@@ -21,6 +22,7 @@ export default function Page() {
           </a>
         </div>
         <ShareBar title="Business Receipt Template (Free Printable PDF)" path="/business-receipt-template" description="Generate a business receipt template for professional transactions." />
+              <InternalLinks currentPath="/business-receipt-template" />
       </article>
       <SiteFooter />
     </main>

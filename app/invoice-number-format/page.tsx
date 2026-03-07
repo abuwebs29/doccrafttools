@@ -1,4 +1,5 @@
     import SiteNav from "@/components/SiteNav";
+import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import ShareBar from "@/components/ShareBar";
 
@@ -58,7 +59,8 @@
             </div>
 
             <ShareBar title="Invoice Number Format (Examples + Best Practices)" path="/invoice-number-format" description="Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses." />
-          </article>
+                  <InternalLinks currentPath="/invoice-number-format" />
+      </article>
 
           <SiteFooter />
         </main>

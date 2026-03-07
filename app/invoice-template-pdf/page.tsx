@@ -1,4 +1,5 @@
     import SiteNav from "@/components/SiteNav";
+import InternalLinks from "@/components/InternalLinks";
     import SiteFooter from "@/components/SiteFooter";
     import RecentTracker from "@/components/RecentTracker";
     import ShareBar from "@/components/ShareBar";
@@ -34,7 +35,8 @@
             </div>
 
             <ShareBar title="Invoice Template PDF" path="/invoice-template-pdf" description="Use this invoice template PDF generator to create invoices with items, tax, notes and logo — instantly." />
-          </article>
+                  <InternalLinks currentPath="/invoice-template-pdf" />
+      </article>
 
           <SiteFooter />
         </main>
