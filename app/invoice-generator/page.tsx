@@ -31,18 +31,6 @@ export default function Page() {
       <ShareBar title="Free Invoice Generator (PDF)" path="/invoice-generator" description="Generate and download a clean PDF instantly — no login." />
       <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
 
-<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Invoice Generators by Currency</h2>
-  <ul className="mt-4 grid gap-2 sm:grid-cols-2 text-sm">
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-usd">Create Invoice in USD →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-inr">Create Invoice in INR →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-uk">Create Invoice in GBP →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-aud">Create Invoice in AUD →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-cad">Create Invoice in CAD →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-pkr">Create Invoice in PKR →</a></li>
-  </ul>
-</section>
-
       <ToolSeoBlock toolId="invoice" />
 
       <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
