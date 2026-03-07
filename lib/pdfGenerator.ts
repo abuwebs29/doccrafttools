@@ -7,6 +7,11 @@ function money(n: number) {
   return n.toFixed(2);
 }
 
+function moneyWithCurrency(n: number, currencyCode?: string) {
+  const code = String(currencyCode || "AED").toUpperCase();
+  return `${code} ${money(n)}`;
+}
+
 function safeStr(v: any) {
   return String(v ?? "").trim();
 }
@@ -259,7 +264,7 @@ export function generateReceiptPdf(data: any) {
   doc.setFont("helvetica", "bold");
   doc.text("Amount:", 60, 145);
   doc.setFont("helvetica", "normal");
-  doc.text(`AED ${money(amount)}`, 180, 145);
+  doc.text(moneyWithCurrency(amount, data.currencyCode), 180, 145);
 
   doc.setFont("helvetica", "bold");
   doc.text("For:", 60, 170);
@@ -409,7 +414,7 @@ export function generateRentReceiptPdf(data: any) {
   doc.setFont("helvetica", "bold");
   doc.text("Amount Paid:", 60, 255);
   doc.setFont("helvetica", "normal");
-  doc.text(`AED ${money(amount)}`, 150, 255);
+  doc.text(moneyWithCurrency(amount, data.currencyCode), 150, 255);
 
   doc.setFont("helvetica", "bold");
   doc.text("Method:", 60, 280);

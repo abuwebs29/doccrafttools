@@ -48,7 +48,7 @@ export const templates: Record<TemplateId, TemplateDef> = {
       { key: "receiptNo", label: "Receipt Number", type: "text", placeholder: "R-001", required: true },
       { key: "receiptDate", label: "Receipt Date", type: "date", required: true },
       { key: "receivedFrom", label: "Received From", type: "text", placeholder: "Customer name", required: true },
-      { key: "amount", label: "Amount (AED)", type: "number", placeholder: "250", required: true },
+      { key: "amount", label: "Amount", type: "number", placeholder: "250", required: true },
       { key: "paymentFor", label: "Payment For", type: "text", placeholder: "Service / Product", required: true },
       { key: "paymentMethod", label: "Payment Method", type: "text", placeholder: "Cash / Transfer / Card" },
       { key: "issuerName", label: "Issued By (optional)", type: "text", placeholder: "Your name / business" },
