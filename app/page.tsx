@@ -114,6 +114,18 @@ export default function Home() {
 </section>
 
       <SiteFooter />
-    </main>
+    
+
+// PHASE10_HOME_SEO
+<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+<h2 className="text-xl font-semibold">Popular Business Document Templates</h2>
+<p className="mt-3 text-slate-600">
+Generate invoices, receipts, quotations and delivery notes instantly.
+DocCraft Tools provides free templates that work globally for freelancers,
+agencies and small businesses needing fast PDF documents.
+</p>
+</section>
+
+</main>
   );
 }

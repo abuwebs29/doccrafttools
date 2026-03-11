@@ -261,3 +261,25 @@ export function getInternalLinks(currentPath: string): InternalLink[] {
   const normalized = normalizePath(currentPath);
   return INTERNAL_LINKS[normalized] ?? GENERIC_INTERNAL_LINKS;
 }
+
+
+// PHASE10_EXPANSION
+export const EXTRA_INTERNAL_LINKS = {
+  "/invoice-template": [
+    { href: "/invoice-template-excel", anchor: "Invoice Template Excel" },
+    { href: "/invoice-template-word", anchor: "Invoice Template Word" },
+    { href: "/invoice-generator", anchor: "Invoice Generator" }
+  ],
+  "/receipt-template": [
+    { href: "/receipt-generator", anchor: "Receipt Generator" },
+    { href: "/payment-receipt-format", anchor: "Payment Receipt Format" }
+  ],
+  "/commercial-invoice-template": [
+    { href: "/invoice-template", anchor: "Invoice Template" },
+    { href: "/invoice-generator", anchor: "Invoice Generator" }
+  ],
+  "/tax-invoice-template": [
+    { href: "/gst-invoice-generator", anchor: "GST Invoice Generator" },
+    { href: "/invoice-template", anchor: "Invoice Template" }
+  ]
+};

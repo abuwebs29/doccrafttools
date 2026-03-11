@@ -47,6 +47,18 @@ export default function Page() {
       <ToolSeoBlock toolId="invoice" />
       <InternalLinks currentPath="/commercial-invoice-template" />
       <SiteFooter />
-    </main>
+    
+
+// PHASE10_SEO_BLOCK
+<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+<h2 className="text-xl font-semibold">Why use this template?</h2>
+<p className="mt-3 text-slate-600">
+A professional document template helps freelancers and businesses create clear financial records.
+DocCraft Tools lets you generate clean PDFs instantly, customize line items, add taxes,
+and export invoices or receipts quickly without complex accounting software.
+</p>
+</section>
+
+</main>
   );
 }
