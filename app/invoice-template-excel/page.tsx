@@ -47,31 +47,6 @@ export default function Page() {
       <ToolSeoBlock toolId="invoice" />
       <InternalLinks currentPath="/invoice-template-excel" />
       <SiteFooter />
-    
-<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-<h2 className="text-xl font-semibold">How to use this template</h2>
-<p className="mt-3 text-slate-600">
-Create your document using the generator above. Enter your company information,
-client details, line items, and payment information. When finished you can export
-the document as PDF, Excel, or Word depending on your workflow.
-</p>
-
-<h2 className="text-xl font-semibold mt-6">Who should use this template?</h2>
-<p className="mt-3 text-slate-600">
-Freelancers, consultants, contractors, agencies and small businesses use these
-templates to create professional documents quickly without expensive accounting
-software.
-</p>
-
-<h2 className="text-xl font-semibold mt-6">Benefits of using DocCraft templates</h2>
-<ul className="mt-3 list-disc pl-6 text-slate-600">
-<li>Create documents instantly online</li>
-<li>Export to PDF, Excel and Word</li>
-<li>Works for freelancers and small businesses</li>
-<li>No login required</li>
-</ul>
-</section>
-
-</main>
+    </main>
   );
 }
