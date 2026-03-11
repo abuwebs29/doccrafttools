@@ -10,7 +10,6 @@ import {
   generateDeliveryNotePdf,
   generateRentReceiptPdf,
 } from "@/lib/pdfGenerator";
-import { exportInvoiceAsExcel, exportInvoiceAsWord } from "@/lib/exportDocs";
 
 type ItemRow = { desc: string; qty: number; price: number };
 
@@ -33,7 +32,7 @@ function clampNum(v: any) {
 
 function fmtMoney(amount: number, currencyCode?: string) {
   const code = String(currencyCode || "AED").toUpperCase();
-  return `${code} ${clampNum(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  return `${code} ${clampNum(amount).toFixed(2)}`;
 }
 
 export default function TemplateEngine({
@@ -152,44 +151,12 @@ export default function TemplateEngine({
           <h2 className="text-xl font-extrabold text-slate-900">{template.name}</h2>
           <p className="mt-1 text-sm text-slate-600">{template.tagline}</p>
         </div>
-        <div className="flex flex-wrap gap-2">
-        {template.id === "invoice" ? (
-          <>
-            <button
-              onClick={() => {
-                const missing = validate();
-                if (missing.length) {
-                  alert("Please fill required fields: " + missing.join(", "));
-                  return;
-                }
-                exportInvoiceAsExcel({ ...form, logoDataUrl });
-              }}
-              className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
-              Export Excel
-            </button>
-            <button
-              onClick={() => {
-                const missing = validate();
-                if (missing.length) {
-                  alert("Please fill required fields: " + missing.join(", "));
-                  return;
-                }
-                exportInvoiceAsWord({ ...form, logoDataUrl });
-              }}
-              className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
-              Export Word
-            </button>
-          </>
-        ) : null}
         <button
           onClick={download}
           className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
         >
           Download PDF
         </button>
-      </div>
       </div>
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">

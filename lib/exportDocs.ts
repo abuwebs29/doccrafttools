@@ -1,24 +1,24 @@
 type ItemRow = { desc?: string; qty?: number; price?: number };
 
-function num(v: any) {
+function n(v: any) {
   const x = Number(v);
   return Number.isFinite(x) ? x : 0;
 }
 
 function money(v: any) {
-  return num(v).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return n(v).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function escapeHtml(v: any) {
-  return String(v ?? "")
+function escapeHtml(s: any) {
+  return String(s ?? "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
 
-function downloadBlob(filename: string, mime: string, body: string) {
-  const blob = new Blob([body], { type: mime });
+function downloadBlob(filename: string, mime: string, text: string) {
+  const blob = new Blob([text], { type: mime });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -32,17 +32,17 @@ function downloadBlob(filename: string, mime: string, body: string) {
 export function exportInvoiceAsExcel(data: any) {
   const currency = String(data.currencyCode || "AED").toUpperCase();
   const items: ItemRow[] = Array.isArray(data.items) ? data.items : [];
-  const subtotal = items.reduce((s, it) => s + num(it.qty) * num(it.price), 0);
-  const taxPercent = num(data.taxPercent);
+  const subtotal = items.reduce((s, r) => s + n(r.qty) * n(r.price), 0);
+  const taxPercent = n(data.taxPercent);
   const tax = subtotal * (taxPercent / 100);
   const total = subtotal + tax;
 
   const rows = items.map((it) => `
     <tr>
       <td>${escapeHtml(it.desc)}</td>
-      <td>${num(it.qty)}</td>
+      <td>${n(it.qty)}</td>
       <td>${money(it.price)}</td>
-      <td>${money(num(it.qty) * num(it.price))}</td>
+      <td>${money(n(it.qty) * n(it.price))}</td>
     </tr>
   `).join("");
 
@@ -90,17 +90,17 @@ export function exportInvoiceAsExcel(data: any) {
 export function exportInvoiceAsWord(data: any) {
   const currency = String(data.currencyCode || "AED").toUpperCase();
   const items: ItemRow[] = Array.isArray(data.items) ? data.items : [];
-  const subtotal = items.reduce((s, it) => s + num(it.qty) * num(it.price), 0);
-  const taxPercent = num(data.taxPercent);
+  const subtotal = items.reduce((s, r) => s + n(r.qty) * n(r.price), 0);
+  const taxPercent = n(data.taxPercent);
   const tax = subtotal * (taxPercent / 100);
   const total = subtotal + tax;
 
   const rows = items.map((it) => `
     <tr>
       <td>${escapeHtml(it.desc)}</td>
-      <td>${num(it.qty)}</td>
+      <td>${n(it.qty)}</td>
       <td>${money(it.price)}</td>
-      <td>${money(num(it.qty) * num(it.price))}</td>
+      <td>${money(n(it.qty) * n(it.price))}</td>
     </tr>
   `).join("");
 
@@ -117,10 +117,10 @@ export function exportInvoiceAsWord(data: any) {
   </head>
   <body>
     <h1>Invoice</h1>
-    <p><strong>Invoice Number:</strong> ${escapeHtml(data.invoiceNo)}<br />
-    <strong>Date:</strong> ${escapeHtml(data.invoiceDate)}<br />
-    <strong>From:</strong> ${escapeHtml(data.businessName)}<br />
-    <strong>Bill To:</strong> ${escapeHtml(data.clientName)}<br />
+    <p><strong>Invoice Number:</strong> ${escapeHtml(data.invoiceNo)}<br/>
+    <strong>Date:</strong> ${escapeHtml(data.invoiceDate)}<br/>
+    <strong>From:</strong> ${escapeHtml(data.businessName)}<br/>
+    <strong>Bill To:</strong> ${escapeHtml(data.clientName)}<br/>
     <strong>Currency:</strong> ${currency}</p>
 
     <table>
@@ -130,8 +130,8 @@ export function exportInvoiceAsWord(data: any) {
       <tbody>${rows}</tbody>
     </table>
 
-    <p><strong>Subtotal:</strong> ${currency} ${money(subtotal)}<br />
-    <strong>Tax (${taxPercent}%):</strong> ${currency} ${money(tax)}<br />
+    <p><strong>Subtotal:</strong> ${currency} ${money(subtotal)}<br/>
+    <strong>Tax (${taxPercent}%):</strong> ${currency} ${money(tax)}<br/>
     <strong>Total:</strong> ${currency} ${money(total)}</p>
 
     <p><strong>Notes:</strong> ${escapeHtml(data.notes)}</p>

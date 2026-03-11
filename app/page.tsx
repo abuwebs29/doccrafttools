@@ -59,7 +59,17 @@ export default function Home() {
   </div>
 </section>
 
-      <PopularTemplates className="mt-10" />
+      
+<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+<h2 className="text-xl font-semibold">Popular Invoice Templates</h2>
+<div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+<a className="font-semibold text-slate-900 hover:underline" href="/invoice-template">Invoice Template →</a>
+<a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-word">Invoice Template Word →</a>
+<a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-excel">Invoice Template Excel →</a>
+</div>
+</section>
+
+<PopularTemplates className="mt-10" />
       <RecentlyUsed className="mt-10" />
 
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -99,21 +109,6 @@ export default function Home() {
 </section>
 
       <SiteFooter />
-    
-
-{/* PHASE11_HOME_TRAFFIC */}
-<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Popular Download & Template Pages</h2>
-  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-google-docs">Invoice Template Google Docs →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-free-download">Invoice Template Free Download →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-pdf-free-download">Invoice Template PDF Free Download →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-uk">Invoice Template UK →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/consulting-invoice-template">Consulting Invoice Template →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/contractor-invoice-template">Contractor Invoice Template →</a>
-  </div>
-</section>
-
-</main>
+    </main>
   );
 }

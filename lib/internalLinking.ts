@@ -254,7 +254,7 @@ export const GENERIC_INTERNAL_LINKS: InternalLink[] = [
   }
 ];
 
-function getInternalLinksBase(currentPath: string): InternalLink[] {
+export function getInternalLinks(currentPath: string): InternalLink[] {
   if (!currentPath) return GENERIC_INTERNAL_LINKS;
   const normalized = normalizePath(currentPath);
   return INTERNAL_LINKS[normalized] ?? GENERIC_INTERNAL_LINKS;
@@ -269,93 +269,4 @@ export function normalizePath(path: string): string {
   // remove trailing slash except root
   if (path.length > 1) path = path.replace(/\/+$/, "");
   return path;
-}
-
-
-// PHASE11_EXPANSION
-export const PHASE11_INTERNAL_LINKS: Record<string, { href: string; anchor: string }[]> = {
-  "/invoice-template-google-docs": [
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-template-word", anchor: "Invoice Template Word" },
-    { href: "/invoice-template-excel", anchor: "Invoice Template Excel" }
-  ],
-  "/invoice-template-free-download": [
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-template-pdf-free-download", anchor: "Invoice Template PDF Free Download" },
-    { href: "/invoice-generator", anchor: "Invoice Generator" }
-  ],
-  "/receipt-template-excel": [
-    { href: "/receipt-template", anchor: "Receipt Template" },
-    { href: "/receipt-template-word", anchor: "Receipt Template Word" },
-    { href: "/receipt-generator", anchor: "Receipt Generator" }
-  ],
-  "/invoice-template-pdf-free-download": [
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-template-word", anchor: "Invoice Template Word" },
-    { href: "/invoice-template-excel", anchor: "Invoice Template Excel" }
-  ],
-  "/invoice-template-uk": [
-    { href: "/invoice-generator-uk", anchor: "Invoice Generator UK" },
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/tax-invoice-template", anchor: "Tax Invoice Template" }
-  ],
-  "/invoice-generator-cad": [
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-template-excel", anchor: "Invoice Template Excel" }
-  ],
-  "/invoice-generator-aud": [
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-template-word", anchor: "Invoice Template Word" }
-  ],
-  "/invoice-generator-eur": [
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/commercial-invoice-template", anchor: "Commercial Invoice Template" }
-  ],
-  "/invoice-generator-sar": [
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/tax-invoice-template", anchor: "Tax Invoice Template" },
-    { href: "/commercial-invoice-template", anchor: "Commercial Invoice Template" }
-  ],
-  "/invoice-generator-pkr": [
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-template-free-download", anchor: "Invoice Template Free Download" }
-  ],
-  "/receipt-template-google-docs": [
-    { href: "/receipt-template", anchor: "Receipt Template" },
-    { href: "/receipt-template-word", anchor: "Receipt Template Word" },
-    { href: "/receipt-template-excel", anchor: "Receipt Template Excel" }
-  ],
-  "/freelance-invoice-template": [
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-for-services", anchor: "Invoice for Services" }
-  ],
-  "/consulting-invoice-template": [
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/invoice-payment-terms-explained", anchor: "Invoice Payment Terms" }
-  ],
-  "/contractor-invoice-template": [
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-generator", anchor: "Invoice Generator" },
-    { href: "/tax-invoice-template", anchor: "Tax Invoice Template" }
-  ],
-  "/invoice-template-download": [
-    { href: "/invoice-template", anchor: "Invoice Template" },
-    { href: "/invoice-template-free-download", anchor: "Invoice Template Free Download" },
-    { href: "/invoice-template-pdf-free-download", anchor: "Invoice Template PDF Free Download" }
-  ]
-};
-
-const __phase11_original_getInternalLinks = typeof getInternalLinks === "function" ? getInternalLinks : null;
-
-export function getInternalLinks(currentPath: string) {
-  const normalized = typeof normalizePath === "function" ? normalizePath(currentPath) : currentPath;
-  const extra = PHASE11_INTERNAL_LINKS[normalized];
-  if (extra && extra.length) return extra;
-  return __phase11_original_getInternalLinks ? __phase11_original_getInternalLinks(currentPath) : [];
 }

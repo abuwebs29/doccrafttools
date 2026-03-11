@@ -4,7 +4,7 @@ type ItemRow = { desc: string; qty: number; price: number };
 
 function money(n: number) {
   if (!Number.isFinite(n)) return "0.00";
-  return n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return n.toFixed(2);
 }
 
 function moneyWithCurrency(n: number, currencyCode?: string) {
@@ -42,9 +42,9 @@ function addTableHeader(doc: jsPDF, y: number) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(10);
   doc.text("Description", 40, y);
-  doc.text("Qty", W - 210, y);
-  doc.text("Price", W - 130, y, { align: "right" });
-  doc.text("Total", W - 40, y, { align: "right" });
+  doc.text("Qty", W - 200, y);
+  doc.text("Price", W - 140, y);
+  doc.text("Total", W - 70, y, { align: "right" });
 
   doc.setDrawColor(220);
   doc.line(40, y + 8, W - 40, y + 8);
@@ -105,9 +105,9 @@ export function generateInvoicePdf(data: any) {
     y = ensureSpace(doc, y, rowHeight + 10);
 
     doc.text(descLines, 40, y);
-    doc.text(String(qty), W - 210, y);
-    doc.text(money(price), W - 130, y, { align: "right" });
-    doc.text(money(lineTotal), W - 40, y, { align: "right" });
+    doc.text(String(qty), W - 190, y);
+    doc.text(money(price), W - 140, y);
+    doc.text(money(lineTotal), W - 70, y, { align: "right" });
 
     y += rowHeight;
   }
@@ -120,19 +120,19 @@ export function generateInvoicePdf(data: any) {
 
   const boxTop = y + 14;
   doc.setDrawColor(230);
-  doc.roundedRect(W - 250, boxTop, 210, 86, 10, 10);
+  doc.roundedRect(W - 240, boxTop, 200, 86, 10, 10);
 
   doc.setFont("helvetica", "bold");
-  doc.text("Subtotal", W - 230, boxTop + 22);
-  doc.text(money(subtotal), W - 50, boxTop + 22, { align: "right" });
+  doc.text("Subtotal", W - 220, boxTop + 22);
+  doc.text(money(subtotal), W - 60, boxTop + 22, { align: "right" });
 
   doc.setFont("helvetica", "normal");
-  doc.text(`Tax (${taxPercent || 0}%)`, W - 230, boxTop + 44);
-  doc.text(money(tax), W - 50, boxTop + 44, { align: "right" });
+  doc.text(`Tax (${taxPercent || 0}%)`, W - 220, boxTop + 44);
+  doc.text(money(tax), W - 60, boxTop + 44, { align: "right" });
 
   doc.setFont("helvetica", "bold");
-  doc.text("Total", W - 230, boxTop + 70);
-  doc.text(money(grand), W - 50, boxTop + 70, { align: "right" });
+  doc.text("Total", W - 220, boxTop + 70);
+  doc.text(money(grand), W - 60, boxTop + 70, { align: "right" });
 
   const notes = safeStr(data.notes);
   if (notes) {
@@ -193,9 +193,9 @@ export function generateQuotationPdf(data: any) {
     y = ensureSpace(doc, y, rowHeight + 10);
 
     doc.text(descLines, 40, y);
-    doc.text(String(qty), W - 210, y);
-    doc.text(money(price), W - 130, y, { align: "right" });
-    doc.text(money(lineTotal), W - 40, y, { align: "right" });
+    doc.text(String(qty), W - 190, y);
+    doc.text(money(price), W - 140, y);
+    doc.text(money(lineTotal), W - 70, y, { align: "right" });
 
     y += rowHeight;
   }
@@ -208,19 +208,19 @@ export function generateQuotationPdf(data: any) {
 
   const boxTop = y + 14;
   doc.setDrawColor(230);
-  doc.roundedRect(W - 250, boxTop, 210, 86, 10, 10);
+  doc.roundedRect(W - 240, boxTop, 200, 86, 10, 10);
 
   doc.setFont("helvetica", "bold");
-  doc.text("Subtotal", W - 230, boxTop + 22);
-  doc.text(money(subtotal), W - 50, boxTop + 22, { align: "right" });
+  doc.text("Subtotal", W - 220, boxTop + 22);
+  doc.text(money(subtotal), W - 60, boxTop + 22, { align: "right" });
 
   doc.setFont("helvetica", "normal");
-  doc.text(`Tax (${taxPercent || 0}%)`, W - 230, boxTop + 44);
-  doc.text(money(tax), W - 50, boxTop + 44, { align: "right" });
+  doc.text(`Tax (${taxPercent || 0}%)`, W - 220, boxTop + 44);
+  doc.text(money(tax), W - 60, boxTop + 44, { align: "right" });
 
   doc.setFont("helvetica", "bold");
-  doc.text("Total", W - 230, boxTop + 70);
-  doc.text(money(grand), W - 50, boxTop + 70, { align: "right" });
+  doc.text("Total", W - 220, boxTop + 70);
+  doc.text(money(grand), W - 60, boxTop + 70, { align: "right" });
 
   const notes = safeStr(data.notes);
   if (notes) {
@@ -340,9 +340,9 @@ export function generateDeliveryNotePdf(data: any) {
     y = ensureSpace(doc, y, rowHeight + 10);
 
     doc.text(descLines, 40, y);
-    doc.text(String(qty), W - 210, y);
-    doc.text(money(price), W - 130, y, { align: "right" });
-    doc.text(money(lineTotal), W - 40, y, { align: "right" });
+    doc.text(String(qty), W - 190, y);
+    doc.text(money(price), W - 140, y);
+    doc.text(money(lineTotal), W - 70, y, { align: "right" });
 
     y += rowHeight;
   }

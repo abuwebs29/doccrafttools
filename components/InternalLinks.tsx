@@ -18,7 +18,7 @@ export default function InternalLinks({ currentPath, title = "Related pages" }: 
       </p>
 
       <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-        {links.map((l) => (
+        {links.map((l: { href: string; anchor: string }) => (
           <li key={l.href}>
             <Link className="text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900" href={l.href}>
               {l.anchor}
