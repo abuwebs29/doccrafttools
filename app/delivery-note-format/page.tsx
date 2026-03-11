@@ -3,6 +3,7 @@
     import ShareBar from "@/components/ShareBar";
 
     export const metadata = {
+  alternates: { canonical: "/delivery-note-format" },
       title: "Delivery Note Format (Template + Examples)",
       description: "Delivery note format explained with template fields, examples, and tips for businesses shipping goods.",
     };

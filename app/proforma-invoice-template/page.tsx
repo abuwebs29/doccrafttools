@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/proforma-invoice-template" },
   title: "Proforma Invoice Template (Free PDF Generator)",
   description:
     "Create a proforma invoice template for advance billing or quotations. Download as PDF instantly.",

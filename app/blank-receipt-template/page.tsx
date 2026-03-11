@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/blank-receipt-template" },
   title: "Blank Receipt Template (Free Printable PDF)",
   description:
     "Download a blank receipt template PDF. Create and print a simple receipt with payer name, amount, date and signature instantly.",

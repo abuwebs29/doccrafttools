@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/invoice-format" },
   title: "Invoice Format (Simple Professional Layout Guide)",
   description: "Learn the correct invoice format with examples and required fields for freelancers and businesses.",
 };

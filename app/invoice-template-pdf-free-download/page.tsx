@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/invoice-template-pdf-free-download" },
   title: "Free Invoice Template PDF (Download Instantly)",
   description: "Download a free invoice template PDF or generate a custom invoice online. No signup required—get a clean PDF in seconds.",
 };

@@ -9,6 +9,7 @@ import { templates } from "@/lib/templates";
 import { toolSchema } from "@/lib/schemaRegistry";
 
 export const metadata = {
+  alternates: { canonical: "/quotation-generator" },
   title: toolSchema.quotation.title,
   description: toolSchema.quotation.description,
 };

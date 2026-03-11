@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/business-receipt-template" },
   title: "Business Receipt Template (Free Printable PDF)",
   description: "Generate a business receipt template for professional transactions.",
 };

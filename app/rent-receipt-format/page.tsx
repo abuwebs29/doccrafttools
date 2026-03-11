@@ -3,6 +3,7 @@
     import ShareBar from "@/components/ShareBar";
 
     export const metadata = {
+  alternates: { canonical: "/rent-receipt-format" },
       title: "Rent Receipt Format (Examples + Printable PDF)",
       description: "Rent receipt format explained with examples and a printable PDF generator for landlords and tenants.",
     };

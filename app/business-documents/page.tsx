@@ -2,6 +2,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
+  alternates: { canonical: "/business-documents" },
   title: "Business Documents Generator",
   description: "Generate business documents as PDFs: invoices, receipts, quotations, delivery notes and more.",
 };

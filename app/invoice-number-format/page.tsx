@@ -3,6 +3,7 @@
     import ShareBar from "@/components/ShareBar";
 
     export const metadata = {
+  alternates: { canonical: "/invoice-number-format" },
       title: "Invoice Number Format (Examples + Best Practices)",
       description: "Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses.",
     };

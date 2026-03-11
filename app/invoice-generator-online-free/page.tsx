@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/invoice-generator-online-free" },
   title: "Free Invoice Generator Online (No Sign Up Required)",
   description: "Create a professional invoice online for free. Customize, preview, and download a clean PDF instantly—no signup required.",
 };

@@ -1,272 +1,263 @@
 export type InternalLink = { href: string; anchor: string };
 export type InternalLinkMap = Record<string, InternalLink[]>;
 
-/**
- * Hand-curated internal linking map (anchor text + target URL).
- * - Keys are canonical paths (no trailing slash except "/").
- * - Values are ordered lists (most important links first).
- */
 export const INTERNAL_LINKS: InternalLinkMap = {
   "/": [
     {
       "href": "/invoice-generator",
-      "anchor": "invoice generator"
+      "anchor": "Invoice Generator"
     },
     {
       "href": "/receipt-generator",
-      "anchor": "receipt generator"
+      "anchor": "Receipt Generator"
     },
     {
       "href": "/quotation-generator",
-      "anchor": "quotation generator"
+      "anchor": "Quotation Generator"
     },
     {
       "href": "/delivery-note-generator",
-      "anchor": "delivery note generator"
+      "anchor": "Delivery Note Generator"
     },
     {
-      "href": "/pdf-templates",
-      "anchor": "PDF templates"
+      "href": "/invoice-template",
+      "anchor": "Invoice Template"
     },
     {
-      "href": "/guides",
-      "anchor": "invoice & receipt guides"
+      "href": "/invoice-template-excel",
+      "anchor": "Invoice Template Excel"
+    },
+    {
+      "href": "/invoice-template-word",
+      "anchor": "Invoice Template Word"
+    },
+    {
+      "href": "/receipt-template",
+      "anchor": "Receipt Template"
+    },
+    {
+      "href": "/commercial-invoice-template",
+      "anchor": "Commercial Invoice Template"
+    },
+    {
+      "href": "/tax-invoice-template",
+      "anchor": "Tax Invoice Template"
     }
   ],
   "/invoice-generator": [
     {
-      "href": "/invoice-template-pdf",
-      "anchor": "invoice template PDF"
+      "href": "/invoice-template",
+      "anchor": "Invoice Template"
     },
     {
-      "href": "/invoice-format",
-      "anchor": "invoice format guide"
+      "href": "/invoice-template-excel",
+      "anchor": "Invoice Template Excel"
     },
     {
-      "href": "/invoice-number-format",
-      "anchor": "invoice number format"
+      "href": "/invoice-template-word",
+      "anchor": "Invoice Template Word"
     },
     {
-      "href": "/invoice-payment-terms-explained",
-      "anchor": "invoice payment terms"
+      "href": "/gst-invoice-generator",
+      "anchor": "GST Invoice Generator"
     },
     {
-      "href": "/invoice-for-services",
-      "anchor": "invoice for services"
+      "href": "/invoice-generator-usd",
+      "anchor": "Invoice Generator USD"
     },
     {
-      "href": "/receipt-generator",
-      "anchor": "receipt generator"
-    }
-  ],
-  "/invoice-generator-online-free": [
-    {
-      "href": "/invoice-generator",
-      "anchor": "free invoice generator"
+      "href": "/invoice-generator-inr",
+      "anchor": "Invoice Generator INR"
     },
     {
-      "href": "/invoice-template-pdf-free-download",
-      "anchor": "invoice template PDF free download"
+      "href": "/invoice-generator-uk",
+      "anchor": "Invoice Generator GBP"
     },
     {
-      "href": "/how-to-make-an-invoice",
-      "anchor": "how to make an invoice"
+      "href": "/commercial-invoice-template",
+      "anchor": "Commercial Invoice Template"
     },
     {
-      "href": "/invoice-due-date-meaning",
-      "anchor": "invoice due date meaning"
-    },
-    {
-      "href": "/freelance-invoice-template",
-      "anchor": "freelance invoice template"
-    },
-    {
-      "href": "/receipt-generator",
-      "anchor": "create a receipt"
+      "href": "/tax-invoice-template",
+      "anchor": "Tax Invoice Template"
     }
   ],
   "/receipt-generator": [
     {
-      "href": "/receipt-template-pdf",
-      "anchor": "receipt template PDF"
+      "href": "/receipt-template",
+      "anchor": "Receipt Template"
     },
     {
-      "href": "/payment-receipt-format",
-      "anchor": "payment receipt format"
+      "href": "/receipt-template-word",
+      "anchor": "Receipt Template Word"
     },
     {
-      "href": "/cash-receipt-template",
-      "anchor": "cash receipt template"
-    },
-    {
-      "href": "/business-receipt-template",
-      "anchor": "business receipt template"
-    },
-    {
-      "href": "/difference-between-invoice-and-receipt",
-      "anchor": "difference between invoice and receipt"
-    },
-    {
-      "href": "/invoice-generator",
-      "anchor": "invoice generator"
-    }
-  ],
-  "/rent-receipt-generator": [
-    {
-      "href": "/rent-receipt-format",
-      "anchor": "rent receipt format"
-    },
-    {
-      "href": "/rent-receipt-template",
-      "anchor": "rent receipt template"
+      "href": "/receipt-template-excel",
+      "anchor": "Receipt Template Excel"
     },
     {
       "href": "/receipt-template-pdf",
-      "anchor": "receipt template PDF"
+      "anchor": "Receipt Template PDF"
     },
     {
-      "href": "/invoice-generator",
-      "anchor": "invoice generator"
-    },
-    {
-      "href": "/guides",
-      "anchor": "guides"
+      "href": "/rent-receipt-generator",
+      "anchor": "Rent Receipt Generator"
     }
   ],
   "/quotation-generator": [
     {
       "href": "/estimate-vs-quotation",
-      "anchor": "estimate vs quotation"
+      "anchor": "Estimate vs Quotation"
     },
     {
       "href": "/invoice-generator",
-      "anchor": "invoice generator"
+      "anchor": "Invoice Generator"
     },
     {
-      "href": "/proforma-invoice-template",
-      "anchor": "proforma invoice template"
-    },
-    {
-      "href": "/pdf-templates",
-      "anchor": "PDF templates"
-    },
-    {
-      "href": "/guides",
-      "anchor": "guides"
+      "href": "/delivery-note-generator",
+      "anchor": "Delivery Note Generator"
     }
   ],
   "/delivery-note-generator": [
     {
       "href": "/delivery-note-format",
-      "anchor": "delivery note format"
+      "anchor": "Delivery Note Format"
     },
     {
       "href": "/delivery-note-vs-invoice",
-      "anchor": "delivery note vs invoice"
+      "anchor": "Delivery Note vs Invoice"
     },
     {
       "href": "/invoice-generator",
-      "anchor": "invoice generator"
-    },
-    {
-      "href": "/quotation-generator",
-      "anchor": "quotation generator"
-    },
-    {
-      "href": "/guides",
-      "anchor": "guides"
+      "anchor": "Invoice Generator"
     }
   ],
-  "/pdf-templates": [
+  "/invoice-template": [
     {
-      "href": "/invoice-template-pdf",
-      "anchor": "invoice template PDF"
+      "href": "/invoice-generator",
+      "anchor": "Invoice Generator"
     },
     {
-      "href": "/receipt-template-pdf",
-      "anchor": "receipt template PDF"
+      "href": "/invoice-template-excel",
+      "anchor": "Invoice Template Excel"
+    },
+    {
+      "href": "/invoice-template-word",
+      "anchor": "Invoice Template Word"
     },
     {
       "href": "/commercial-invoice-template",
-      "anchor": "commercial invoice template"
-    },
-    {
-      "href": "/proforma-invoice-template",
-      "anchor": "proforma invoice template"
+      "anchor": "Commercial Invoice Template"
     },
     {
       "href": "/tax-invoice-template",
-      "anchor": "tax invoice template"
-    },
-    {
-      "href": "/simple-invoice-template",
-      "anchor": "simple invoice template"
+      "anchor": "Tax Invoice Template"
     }
   ],
-  "/guides": [
+  "/invoice-template-excel": [
     {
-      "href": "/how-to-make-an-invoice",
-      "anchor": "how to make an invoice"
+      "href": "/invoice-template",
+      "anchor": "Invoice Template"
     },
     {
-      "href": "/invoice-format",
-      "anchor": "invoice format"
+      "href": "/invoice-template-word",
+      "anchor": "Invoice Template Word"
     },
     {
-      "href": "/invoice-payment-terms-explained",
-      "anchor": "invoice payment terms explained"
+      "href": "/invoice-generator",
+      "anchor": "Invoice Generator"
+    }
+  ],
+  "/invoice-template-word": [
+    {
+      "href": "/invoice-template",
+      "anchor": "Invoice Template"
     },
     {
-      "href": "/difference-between-invoice-and-receipt",
-      "anchor": "invoice vs receipt"
+      "href": "/invoice-template-excel",
+      "anchor": "Invoice Template Excel"
     },
     {
-      "href": "/proforma-vs-invoice",
-      "anchor": "proforma vs invoice"
+      "href": "/invoice-generator",
+      "anchor": "Invoice Generator"
+    }
+  ],
+  "/receipt-template": [
+    {
+      "href": "/receipt-generator",
+      "anchor": "Receipt Generator"
     },
     {
-      "href": "/delivery-note-vs-invoice",
-      "anchor": "delivery note vs invoice"
+      "href": "/receipt-template-word",
+      "anchor": "Receipt Template Word"
+    },
+    {
+      "href": "/receipt-template-excel",
+      "anchor": "Receipt Template Excel"
+    }
+  ],
+  "/commercial-invoice-template": [
+    {
+      "href": "/invoice-generator",
+      "anchor": "Invoice Generator"
+    },
+    {
+      "href": "/invoice-template",
+      "anchor": "Invoice Template"
+    },
+    {
+      "href": "/tax-invoice-template",
+      "anchor": "Tax Invoice Template"
+    }
+  ],
+  "/tax-invoice-template": [
+    {
+      "href": "/gst-invoice-generator",
+      "anchor": "GST Invoice Generator"
+    },
+    {
+      "href": "/invoice-generator",
+      "anchor": "Invoice Generator"
+    },
+    {
+      "href": "/invoice-template",
+      "anchor": "Invoice Template"
+    }
+  ],
+  "/gst-invoice-generator": [
+    {
+      "href": "/invoice-generator-inr",
+      "anchor": "Invoice Generator INR"
+    },
+    {
+      "href": "/tax-invoice-template",
+      "anchor": "Tax Invoice Template"
+    },
+    {
+      "href": "/invoice-generator",
+      "anchor": "Invoice Generator"
     }
   ]
 };
 
-export const GENERIC_INTERNAL_LINKS: InternalLink[] = [
-  {
-    "href": "/invoice-generator",
-    "anchor": "invoice generator"
-  },
-  {
-    "href": "/invoice-template-pdf",
-    "anchor": "invoice template PDF"
-  },
-  {
-    "href": "/receipt-generator",
-    "anchor": "receipt generator"
-  },
-  {
-    "href": "/pdf-templates",
-    "anchor": "PDF templates"
-  },
-  {
-    "href": "/guides",
-    "anchor": "guides"
-  }
-];
 
-export function getInternalLinks(currentPath: string): InternalLink[] {
-  if (!currentPath) return GENERIC_INTERNAL_LINKS;
-  const normalized = normalizePath(currentPath);
-  return INTERNAL_LINKS[normalized] ?? GENERIC_INTERNAL_LINKS;
-}
+export const GENERIC_INTERNAL_LINKS: InternalLink[] = [
+  { href: "/invoice-generator", anchor: "Invoice Generator" },
+  { href: "/invoice-template", anchor: "Invoice Template" },
+  { href: "/receipt-generator", anchor: "Receipt Generator" },
+  { href: "/commercial-invoice-template", anchor: "Commercial Invoice Template" },
+  { href: "/tax-invoice-template", anchor: "Tax Invoice Template" }
+];
 
 export function normalizePath(path: string): string {
   if (!path) return "/";
-  // strip domain if passed accidentally
   path = path.replace(/^https?:\/\/[^/]+/i, "");
-  // ensure leading slash
   if (!path.startsWith("/")) path = "/" + path;
-  // remove trailing slash except root
   if (path.length > 1) path = path.replace(/\/+$/, "");
   return path;
+}
+
+export function getInternalLinks(currentPath: string): InternalLink[] {
+  const normalized = normalizePath(currentPath);
+  return INTERNAL_LINKS[normalized] ?? GENERIC_INTERNAL_LINKS;
 }

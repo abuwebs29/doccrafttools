@@ -2,6 +2,7 @@ import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: "Embed — Quotation Generator",
   description: "Embedded Quotation Generator by DocCraft Tools.",
 };

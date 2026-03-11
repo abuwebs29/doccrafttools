@@ -2,6 +2,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy",
   description: "Privacy policy for DocCraft Tools.",
 };

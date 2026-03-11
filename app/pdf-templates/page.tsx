@@ -2,6 +2,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
+  alternates: { canonical: "/pdf-templates" },
   title: "Free PDF Templates",
   description: "All DocCraft Tools PDF generators: invoice, receipt, quotation, delivery note, rent receipt.",
 };

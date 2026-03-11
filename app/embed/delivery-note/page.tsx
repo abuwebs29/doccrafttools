@@ -2,6 +2,7 @@ import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: "Embed — Delivery Note Generator",
   description: "Embedded Delivery Note Generator by DocCraft Tools.",
 };

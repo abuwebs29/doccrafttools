@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/how-to-make-an-invoice-for-freelancer" },
   title: "How to Make an Invoice as a Freelancer (Step‑by‑Step)",
   description: "Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy‑paste wording.",
 };

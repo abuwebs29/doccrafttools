@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/freelance-invoice-template" },
   title: "Freelance Invoice Template (Professional PDF)",
   description: "Free freelance invoice template with professional layout and payment terms.",
 };

@@ -2,6 +2,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: "Status",
   description: "Service status and privacy-first statement for DocCraft Tools.",
 };
