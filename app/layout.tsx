@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: site,
-    title: "DocCraft Tools — Free PDF Templates Generator",
+    title: "Free Invoice Generator, Receipt Generator & PDF Templates | DocCraft Tools",
     description:
       "Generate professional PDFs instantly: invoice, receipt, quotation and more — no login.",
   },
