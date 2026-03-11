@@ -6,7 +6,6 @@
     import { buildBreadcrumbsJsonLd, guideCrumbs } from "@/lib/breadcrumbs";
 
     export const metadata = {
-  alternates: { canonical: "/receipt-template-pdf" },
       title: "Receipt Template PDF (Free Download Generator)",
       description: "Create a printable receipt template PDF instantly — add payer name, amount, purpose, and method.",
     };

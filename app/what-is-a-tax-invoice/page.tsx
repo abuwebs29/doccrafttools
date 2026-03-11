@@ -3,7 +3,6 @@
     import ShareBar from "@/components/ShareBar";
 
     export const metadata = {
-  alternates: { canonical: "/what-is-a-tax-invoice" },
       title: "What Is a Tax Invoice? (VAT/GST Invoice Guide)",
       description: "A tax invoice includes VAT/GST details required for compliant billing. Learn what to include and generate a tax invoice PDF instantly.",
     };

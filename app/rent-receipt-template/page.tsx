@@ -6,7 +6,6 @@
     import { buildBreadcrumbsJsonLd, guideCrumbs } from "@/lib/breadcrumbs";
 
     export const metadata = {
-  alternates: { canonical: "/rent-receipt-template" },
       title: "Rent Receipt Template (Printable PDF Generator)",
       description: "Generate a rent receipt PDF with tenant/landlord details, property address, rent period, and amount paid.",
     };

@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import SearchClient from "@/app/search/SearchClient";
 
 export const metadata = {
-  robots: { index: false, follow: false },
   title: "Search",
   description: "Search DocCraft Tools templates and guides.",
 };

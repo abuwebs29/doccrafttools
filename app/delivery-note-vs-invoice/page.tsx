@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
-  alternates: { canonical: "/delivery-note-vs-invoice" },
   title: "Delivery Note vs Invoice (Clear Comparison)",
   description: "Understand the difference between delivery notes and invoices.",
 };

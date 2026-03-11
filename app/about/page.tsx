@@ -2,7 +2,6 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
-  alternates: { canonical: "/about" },
   title: "About DocCraft Tools",
   description: "DocCraft Tools helps freelancers and small businesses generate clean PDF documents instantly.",
 };

@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
-  alternates: { canonical: "/cash-receipt-template" },
   title: "Cash Receipt Template (Free PDF Generator)",
   description:
     "Create a printable cash receipt template PDF. Add payer name, amount received and payment purpose instantly.",

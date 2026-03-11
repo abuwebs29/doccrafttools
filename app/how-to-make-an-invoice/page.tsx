@@ -6,7 +6,6 @@
     import { buildBreadcrumbsJsonLd, guideCrumbs } from "@/lib/breadcrumbs";
 
     export const metadata = {
-  alternates: { canonical: "/how-to-make-an-invoice" },
       title: "How to Make an Invoice (Step-by-Step)",
       description: "A simple step-by-step method to create a professional invoice — plus a free PDF invoice generator.",
     };

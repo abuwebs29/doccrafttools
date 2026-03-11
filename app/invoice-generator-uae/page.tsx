@@ -12,7 +12,7 @@ export const metadata = {
   title: "Free Invoice Generator UAE (AED) — Create Invoice Online",
   description: "Create UAE invoices in AED and download a clean PDF. Add VAT percent if needed and share instantly.",
   alternates: {
-    canonical: "/invoice-generator-uae",
+    canonical: "/invoice-generator-aed",
   },
 };
 

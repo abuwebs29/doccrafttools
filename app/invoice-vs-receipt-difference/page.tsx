@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
-  alternates: { canonical: "/invoice-vs-receipt-difference" },
   title: "Invoice vs Receipt: What’s the Difference?",
   description: "Invoices request payment. Receipts confirm payment. Learn the difference with simple examples—and create PDFs instantly.",
 };

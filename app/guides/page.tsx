@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import { guides } from "@/lib/guides";
 
 export const metadata = {
-  alternates: { canonical: "/guides" },
   title: "Guides",
   description: "Guides and examples for invoices, receipts, quotations and business documents.",
 };

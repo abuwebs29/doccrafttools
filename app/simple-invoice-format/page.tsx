@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
-  alternates: { canonical: "/simple-invoice-format" },
   title: "Simple Invoice Format (Free PDF Example)",
   description: "A simple invoice format you can copy, plus tips for invoice numbers, due dates, and payment terms. Generate a PDF in seconds.",
 };

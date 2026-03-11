@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
-  alternates: { canonical: "/estimate-vs-quotation" },
   title: "Estimate vs Quotation (Key Differences)",
   description: "Learn the difference between an estimate and a quotation in business.",
 };

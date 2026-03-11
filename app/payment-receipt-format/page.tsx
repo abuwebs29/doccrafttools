@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
-  alternates: { canonical: "/payment-receipt-format" },
   title: "Payment Receipt Format (Printable Example)",
   description: "Understand the correct payment receipt format and generate a printable PDF instantly.",
 };

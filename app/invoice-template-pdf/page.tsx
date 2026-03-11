@@ -6,7 +6,6 @@
     import { buildBreadcrumbsJsonLd, guideCrumbs } from "@/lib/breadcrumbs";
 
     export const metadata = {
-  alternates: { canonical: "/invoice-template-pdf" },
       title: "Invoice Template PDF",
       description: "Use this invoice template PDF generator to create invoices with items, tax, notes and logo — instantly.",
     };

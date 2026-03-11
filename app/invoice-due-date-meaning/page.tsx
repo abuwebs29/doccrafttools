@@ -3,7 +3,6 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
-  alternates: { canonical: "/invoice-due-date-meaning" },
   title: "Invoice Due Date Meaning Explained",
   description: "Understand what invoice due date means and how it affects payments.",
 };

@@ -9,7 +9,6 @@ import { templates } from "@/lib/templates";
 import { toolSchema } from "@/lib/schemaRegistry";
 
 export const metadata = {
-  alternates: { canonical: "/receipt-generator" },
   title: toolSchema.receipt.title,
   description: toolSchema.receipt.description,
 };

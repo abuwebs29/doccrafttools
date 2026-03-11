@@ -3,7 +3,6 @@
     import ShareBar from "@/components/ShareBar";
 
     export const metadata = {
-  alternates: { canonical: "/invoice-payment-terms-explained" },
       title: "Invoice Payment Terms Explained (Net 30, Net 15, Due on Receipt)",
       description: "Understand invoice payment terms like Net 30, Net 15, and Due on Receipt. Learn best practices and generate invoices with clear terms.",
     };

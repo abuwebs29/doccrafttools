@@ -9,7 +9,6 @@ import { templates } from "@/lib/templates";
 import { toolSchema } from "@/lib/schemaRegistry";
 
 export const metadata = {
-  alternates: { canonical: "/delivery-note-generator" },
   title: toolSchema.delivery_note.title,
   description: toolSchema.delivery_note.description,
 };

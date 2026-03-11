@@ -2,7 +2,6 @@ import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
 
 export const metadata = {
-  robots: { index: false, follow: false },
   title: "Embed — Receipt Generator",
   description: "Embedded Receipt Generator by DocCraft Tools.",
 };

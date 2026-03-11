@@ -2,7 +2,6 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
-  alternates: { canonical: "/disclaimer" },
   title: "Disclaimer",
   description: "Disclaimer for DocCraft Tools.",
 };
