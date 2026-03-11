@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/invoice-for-services" },
   title: "Invoice for Services Template (Example PDF)",
   description: "Create an invoice for services rendered with a professional format.",
 };

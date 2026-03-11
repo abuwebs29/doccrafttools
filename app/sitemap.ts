@@ -4,14 +4,6 @@ import path from "path";
 
 const BASE_URL = "https://doccrafttools.com";
 
-// Dynamic sitemap that auto-discovers routes that contain app/<route>/page.tsx
-// and excludes low-value utility routes to focus crawl budget.
-//
-// Excludes:
-// - /embed/*
-// - /search, /status, /about
-// - /ar and /ar/*
-// - system routes (/api, /_...)
 function getRoutes(dir: string, appDir: string): string[] {
   const entries = fs.readdirSync(dir);
   let routes: string[] = [];
@@ -30,7 +22,6 @@ function getRoutes(dir: string, appDir: string): string[] {
         .replace(appDir, "")
         .replace(/\/page\.tsx$/, "")
         .replace(/\\/g, "/");
-
       routes.push(route === "" ? "/" : route);
     }
   }
@@ -39,21 +30,23 @@ function getRoutes(dir: string, appDir: string): string[] {
 }
 
 function shouldExclude(route: string): boolean {
-  // system
   if (route.startsWith("/api")) return true;
   if (route.startsWith("/_")) return true;
-
-  // embed utilities
   if (route.startsWith("/embed")) return true;
-
-  // low-value utility pages
-  const exact = new Set<string>(["/search", "/status", "/about", "/ar"]);
-  if (exact.has(route)) return true;
-
-  // exclude language section entirely
-  if (route.startsWith("/ar/")) return true;
-
+  if (route === "/search" || route === "/status") return true;
   return false;
+}
+
+function getLastModifiedForRoute(route: string): Date {
+  try {
+    const appDir = path.join(process.cwd(), "app");
+    const routePath = route === "/" ? "" : route;
+    const pagePath = path.join(appDir, routePath, "page.tsx");
+    const stat = fs.statSync(pagePath);
+    return stat.mtime;
+  } catch {
+    return new Date();
+  }
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -62,8 +55,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
+    lastModified: getLastModifiedForRoute(route),
     changeFrequency: route === "/" ? "daily" : "weekly",
-    priority: route === "/" ? 1 : route.includes("generator") ? 0.9 : 0.8,
+    priority:
+      route === "/"
+        ? 1
+        : route.includes("generator")
+        ? 0.9
+        : route.includes("template")
+        ? 0.85
+        : 0.8,
   }));
 }

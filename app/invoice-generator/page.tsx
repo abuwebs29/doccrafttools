@@ -9,6 +9,7 @@ import { templates } from "@/lib/templates";
 import { toolSchema } from "@/lib/schemaRegistry";
 
 export const metadata = {
+  alternates: { canonical: "/invoice-generator" },
   title: toolSchema.invoice.title,
   description: toolSchema.invoice.description,
 };

@@ -1,6 +1,7 @@
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
+  alternates: { canonical: "/ar" },
   title: "DocCraft Tools — أدوات PDF مجانية",
   description: "أنشئ مستندات PDF احترافية خلال ثوانٍ بدون تسجيل.",
 };

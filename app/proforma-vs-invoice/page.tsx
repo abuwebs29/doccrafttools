@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShareBar from "@/components/ShareBar";
 
 export const metadata = {
+  alternates: { canonical: "/proforma-vs-invoice" },
   title: "Proforma Invoice vs Invoice (What’s the Difference?)",
   description: "Learn when to use proforma invoices versus standard invoices.",
 };

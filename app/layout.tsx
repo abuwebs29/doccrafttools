@@ -6,7 +6,7 @@ const site = "https://doccrafttools.com";
 export const metadata = {
   metadataBase: new URL(site),
   title: {
-    default: "DocCraft Tools — Free PDF Templates Generator",
+    default: "Free Invoice Generator, Receipt Generator & PDF Templates | DocCraft Tools",
     template: "%s | DocCraft Tools",
   },
   description:
@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: site,
-    title: "DocCraft Tools — Free PDF Templates Generator",
+    title: "Free Invoice Generator, Receipt Generator & PDF Templates | DocCraft Tools",
     description:
       "Generate professional PDFs instantly: invoice, receipt, quotation and more — no login.",
   },

@@ -3,6 +3,7 @@
     import ShareBar from "@/components/ShareBar";
 
     export const metadata = {
+  alternates: { canonical: "/difference-between-invoice-and-receipt" },
       title: "Difference Between Invoice and Receipt (Simple Guide)",
       description: "Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly.",
     };

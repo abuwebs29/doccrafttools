@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata = {
+  alternates: { canonical: "/faq" },
   title: "FAQ",
   description: "Frequently asked questions about DocCraft Tools: pricing, privacy, data storage, printing and more.",
 };

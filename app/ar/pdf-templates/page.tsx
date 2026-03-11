@@ -1,6 +1,7 @@
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = {
+  alternates: { canonical: "/ar/pdf-templates" },
   title: "قوالب PDF مجانية",
   description: "قوالب PDF مجانية: فاتورة، إيصال، عرض سعر، إذن تسليم، إيصال إيجار.",
 };

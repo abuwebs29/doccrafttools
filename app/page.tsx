@@ -4,8 +4,9 @@ import RecentlyUsed from "@/components/RecentlyUsed";
 import PopularTemplates from "@/components/PopularTemplates";
 
 export const metadata = {
-  title: "DocCraft Tools — Free PDF Templates Generator",
-  description: "Generate invoices, receipts, quotations and more as clean printable PDFs — no login.",
+  alternates: { canonical: "/" },
+  title: "Free Invoice Generator, Receipt Generator & PDF Templates | DocCraft Tools",
+  description: "Create professional invoices, receipts, quotations and delivery notes instantly. Free PDF generator with templates for freelancers and businesses.",
 };
 
 function Card({ title, desc, href }: { title: string; desc: string; href: string }) {
@@ -24,7 +25,7 @@ export default function Home() {
       <SiteNav />
 
       <header className="mt-6">
-        <h1 className="text-4xl font-extrabold tracking-tight">Free PDF Templates — Generated Instantly</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight">Free Invoice Generator, Receipt Generator & Business Document Templates</h1>
         <p className="mt-3 max-w-2xl text-slate-600">
           Create professional documents as printable PDFs: invoices, receipts, quotations, delivery notes and rent receipts.
           No login. No storage. Works in your browser.
@@ -59,17 +60,21 @@ export default function Home() {
   </div>
 </section>
 
-      
+
 <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-<h2 className="text-xl font-semibold">Popular Invoice Templates</h2>
-<div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
-<a className="font-semibold text-slate-900 hover:underline" href="/invoice-template">Invoice Template →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-word">Invoice Template Word →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-excel">Invoice Template Excel →</a>
-</div>
+  <h2 className="text-xl font-semibold">Export Invoice in Multiple Formats</h2>
+  <p className="mt-2 text-slate-600">Create invoices and export them as PDF, Excel, or Word.</p>
+  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Invoice Generator →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-excel">Export Invoice to Excel →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-word">Export Invoice to Word →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/receipt-template">Receipt Template →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/commercial-invoice-template">Commercial Invoice Template →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/tax-invoice-template">Tax Invoice Template →</a>
+  </div>
 </section>
 
-<PopularTemplates className="mt-10" />
+      <PopularTemplates className="mt-10" />
       <RecentlyUsed className="mt-10" />
 
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -109,6 +114,18 @@ export default function Home() {
 </section>
 
       <SiteFooter />
-    </main>
+    
+
+// PHASE10_HOME_SEO
+<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+<h2 className="text-xl font-semibold">Popular Business Document Templates</h2>
+<p className="mt-3 text-slate-600">
+Generate invoices, receipts, quotations and delivery notes instantly.
+DocCraft Tools provides free templates that work globally for freelancers,
+agencies and small businesses needing fast PDF documents.
+</p>
+</section>
+
+</main>
   );
 }

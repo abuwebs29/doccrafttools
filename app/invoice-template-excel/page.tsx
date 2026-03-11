@@ -1,16 +1,27 @@
-
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import TemplateEngine from "@/components/TemplateEngine";
 import ToolSeoBlock from "@/components/ToolSeoBlock";
 import ShareBar from "@/components/ShareBar";
 import EmbedCodeBlock from "@/components/EmbedCodeBlock";
+import InternalLinks from "@/components/InternalLinks";
 import { templates } from "@/lib/templates";
 
 export const metadata = {
-  title: "Invoice Template Excel Generator (PDF)",
-  description: "Create an Excel-style invoice template and export it as a printable PDF.",
+  title: "Free Invoice Template Excel (XLS Export)",
+  description: "Create a free invoice template and export it to Excel. Ideal for spreadsheet workflows, bookkeeping, and small business invoicing.",
   alternates: { canonical: "/invoice-template-excel" },
+  openGraph: {
+    title: "Free Invoice Template Excel (XLS Export)",
+    description: "Create a free invoice template and export it to Excel. Ideal for spreadsheet workflows, bookkeeping, and small business invoicing.",
+    images: ["https://doccrafttools.com/og-image.svg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Invoice Template Excel (XLS Export)",
+    description: "Create a free invoice template and export it to Excel. Ideal for spreadsheet workflows, bookkeeping, and small business invoicing.",
+    images: ["https://doccrafttools.com/og-image.svg"],
+  },
 };
 
 export default function Page() {
@@ -19,23 +30,35 @@ export default function Page() {
       <SiteNav />
 
       <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Invoice Template Excel Generator (PDF)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">Create an Excel-style invoice template and export it as a printable PDF.</p>
+        <h1 className="text-3xl font-extrabold tracking-tight">Free Invoice Template Excel (XLS Export)</h1>
+        <p className="mt-2 max-w-2xl text-slate-600">Create a free invoice template and export it to Excel. Ideal for spreadsheet workflows, bookkeeping, and small business invoicing.</p>
       </header>
 
       <TemplateEngine template={templates.invoice} />
 
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Invoice Template Excel Generator (PDF)</h2>
-        <p className="mt-3 text-slate-600">
-        Use this free generator to quickly create a professional document and download it as a clean printable PDF.
-        </p>
+        <h2 className="text-xl font-semibold">Why use an invoice template in Excel?</h2>
+        <p className="mt-3 text-slate-600">Excel invoice templates are useful when you want spreadsheet-friendly exports for accounting, bookkeeping, or editing invoice data in rows and columns.</p>
+        <p className="mt-3 text-slate-600">This page helps you create an invoice and export it in an Excel-compatible format while still keeping a clean PDF option available.</p>
       </section>
 
-      <ShareBar title="Invoice Template Excel Generator (PDF)" path="/invoice-template-excel" />
-      <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
+      <ShareBar title="Free Invoice Template Excel (XLS Export)" path="/invoice-template-excel" description="Create a free invoice template and export it to Excel. Ideal for spreadsheet workflows, bookkeeping, and small business invoicing." />
+      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
       <ToolSeoBlock toolId="invoice" />
+      <InternalLinks currentPath="/invoice-template-excel" />
       <SiteFooter />
-    </main>
+    
+
+// PHASE10_SEO_BLOCK
+<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+<h2 className="text-xl font-semibold">Why use this template?</h2>
+<p className="mt-3 text-slate-600">
+A professional document template helps freelancers and businesses create clear financial records.
+DocCraft Tools lets you generate clean PDFs instantly, customize line items, add taxes,
+and export invoices or receipts quickly without complex accounting software.
+</p>
+</section>
+
+</main>
   );
 }

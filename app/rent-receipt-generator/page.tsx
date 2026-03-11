@@ -9,6 +9,7 @@ import { templates } from "@/lib/templates";
 import { toolSchema } from "@/lib/schemaRegistry";
 
 export const metadata = {
+  alternates: { canonical: "/rent-receipt-generator" },
   title: toolSchema.rent_receipt.title,
   description: toolSchema.rent_receipt.description,
 };

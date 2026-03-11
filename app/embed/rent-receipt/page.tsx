@@ -2,6 +2,7 @@ import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: "Embed — Rent Receipt Generator",
   description: "Embedded Rent Receipt Generator by DocCraft Tools.",
 };
