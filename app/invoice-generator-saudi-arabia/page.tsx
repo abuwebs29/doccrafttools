@@ -12,8 +12,9 @@ export const metadata = {
   title: "Free Invoice Generator Saudi Arabia (SAR) — Create Invoice Online",
   description: "Generate invoices in Saudi Riyal (SAR) and export as PDF. Add tax percent if applicable.",
   alternates: {
-    canonical: "/invoice-generator-sar",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

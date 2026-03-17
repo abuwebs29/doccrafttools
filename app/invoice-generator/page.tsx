@@ -33,15 +33,16 @@ export default function Page() {
       <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
 
 <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Invoice Generators by Currency</h2>
-  <ul className="mt-4 grid gap-2 sm:grid-cols-2 text-sm">
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-usd">Create Invoice in USD →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-inr">Create Invoice in INR →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-uk">Create Invoice in GBP →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-aud">Create Invoice in AUD →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-cad">Create Invoice in CAD →</a></li>
-    <li><a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-pkr">Create Invoice in PKR →</a></li>
-  </ul>
+  <h2 className="text-xl font-semibold">Invoice Generator supports multiple currencies</h2>
+  <p className="mt-3 text-slate-600">Choose your currency inside the generator instead of using separate duplicate URLs. This helps keep the main tool page authoritative while still supporting international invoicing.</p>
+  <div className="mt-4 flex flex-wrap gap-3 text-sm">
+    <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/invoice-generator">USD</a>
+    <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/invoice-generator">GBP</a>
+    <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/invoice-generator">EUR</a>
+    <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/invoice-generator">INR</a>
+    <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/invoice-generator">AED</a>
+    <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/invoice-generator">SAR</a>
+  </div>
 </section>
 
       <ToolSeoBlock toolId="invoice" />

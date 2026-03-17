@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Invoice Generator in INR (PDF)",
   description: "Create a professional invoice in INR and download a printable PDF instantly. No login required.",
   alternates: {
-    canonical: "/invoice-generator-inr",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

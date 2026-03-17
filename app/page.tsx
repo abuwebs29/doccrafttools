@@ -51,12 +51,15 @@ export default function Home() {
       </section>
 
 <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Popular Generators by Currency</h2>
-  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-usd">Invoice Generator (USD) →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-inr">Invoice Generator (INR) →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-uk">Invoice Generator (UK / GBP) →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator-usd">Receipt Generator (USD) →</a>
+  <h2 className="text-xl font-semibold">Start with the main generators</h2>
+  <p className="mt-2 text-slate-600">Use the core generators first, then switch currency inside the form when needed. This keeps the site cleaner for search engines and easier for visitors.</p>
+  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Invoice Generator →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator">Receipt Generator →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/quotation-generator">Quotation Generator →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/delivery-note-generator">Delivery Note Generator →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/rent-receipt-generator">Rent Receipt Generator →</a>
+    <a className="font-semibold text-slate-900 hover:underline" href="/pdf-templates">Browse PDF Templates →</a>
   </div>
 </section>
 
@@ -113,18 +116,20 @@ export default function Home() {
   </div>
 </section>
 
+
+      <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-semibold">Free business document generators for invoices, receipts and quotations</h2>
+        <div className="mt-4 space-y-4 text-slate-700">
+          <p>DocCraft Tools helps freelancers, small businesses, landlords and teams create clean PDF documents without logging in. You can generate invoices for services, payment receipts, quotations, delivery notes and rent receipts directly in the browser.</p>
+          <p>Each tool is designed for quick editing and fast export. Add company details, client information, line items, taxes, payment notes and logos, then download a printable PDF. You can also browse template pages for examples, wording ideas and format guidance before using the generator.</p>
+          <p>Popular searches on the site include invoice template PDF, receipt template Word, rent receipt format, delivery note format and business quotation examples. The homepage links above point to the main tool versions so search engines can focus on your strongest pages instead of near-duplicate currency variations.</p>
+        </div>
+      </section>
+
       <SiteFooter />
     
 
-// PHASE10_HOME_SEO
-<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-<h2 className="text-xl font-semibold">Popular Business Document Templates</h2>
-<p className="mt-3 text-slate-600">
-Generate invoices, receipts, quotations and delivery notes instantly.
-DocCraft Tools provides free templates that work globally for freelancers,
-agencies and small businesses needing fast PDF documents.
-</p>
-</section>
+
 
 </main>
   );

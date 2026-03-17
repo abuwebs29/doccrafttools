@@ -32,6 +32,18 @@ export default function Page() {
       <ShareBar title="Free Receipt Generator (PDF)" path="/receipt-generator" description="Generate and download a clean PDF instantly — no login." />
       <EmbedCodeBlock toolName="Receipt Generator" embedPath="/embed/receipt" />
 
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold">Receipt Generator supports multiple currencies</h2>
+        <p className="mt-3 text-slate-600">Use the main receipt generator and select the currency in the form instead of relying on many similar URLs. This helps search engines focus on the strongest version of the tool.</p>
+        <div className="mt-4 flex flex-wrap gap-3 text-sm">
+          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">USD</a>
+          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">GBP</a>
+          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">EUR</a>
+          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">INR</a>
+          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">SAR</a>
+        </div>
+      </section>
+
       <ToolSeoBlock toolId="receipt" />
 
       <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

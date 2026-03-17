@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Receipt Generator in USD (PDF)",
   description: "Create a printable receipt in USD and download a PDF instantly. No login required.",
   alternates: {
-    canonical: "/receipt-generator-usd",
+    canonical: "/receipt-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

@@ -12,8 +12,9 @@ export const metadata = {
   title: "Free Invoice Generator India (INR) — Create Invoice Online",
   description: "Generate invoices in Indian Rupees (INR) and download a PDF. Useful for freelancers, agencies, and small businesses in India.",
   alternates: {
-    canonical: "/invoice-generator-inr",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

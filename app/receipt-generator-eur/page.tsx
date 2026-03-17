@@ -12,8 +12,9 @@ export const metadata = {
   title: "Free EUR Receipt Generator (PDF) — Create Receipt in EUR",
   description: "Generate a payment receipt in EUR and download a clean PDF instantly. No login required.",
   alternates: {
-    canonical: "/receipt-generator-eur",
+    canonical: "/receipt-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

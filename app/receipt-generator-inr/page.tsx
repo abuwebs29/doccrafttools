@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Receipt Generator in INR (PDF)",
   description: "Create a printable receipt in INR and download a PDF instantly. No login required.",
   alternates: {
-    canonical: "/receipt-generator-inr",
+    canonical: "/receipt-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

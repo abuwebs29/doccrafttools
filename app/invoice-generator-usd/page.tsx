@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Invoice Generator in USD (PDF)",
   description: "Create a professional invoice in USD and download a printable PDF instantly. No login required.",
   alternates: {
-    canonical: "/invoice-generator-usd",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

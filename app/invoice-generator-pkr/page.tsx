@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Invoice Generator in PKR (PDF)",
   description: "Create a professional invoice in PKR and download a printable PDF instantly. No login required.",
   alternates: {
-    canonical: "/invoice-generator-pkr",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

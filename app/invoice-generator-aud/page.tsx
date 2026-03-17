@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Invoice Generator in AUD (PDF)",
   description: "Create a professional invoice in AUD and download a printable PDF instantly. No login required.",
   alternates: {
-    canonical: "/invoice-generator-aud",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

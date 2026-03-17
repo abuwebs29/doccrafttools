@@ -36,7 +36,7 @@ export default function Page() {
           <p className="mt-3 text-sm text-slate-600">
             Helpful guides:{" "}
             <a className="font-semibold text-slate-900 hover:underline" href="/invoice-number-format">invoice number format</a>,{" "}
-            <a className="font-semibold text-slate-900 hover:underline" href="/payment-terms-examples">payment terms examples</a>.
+            <a className="font-semibold text-slate-900 hover:underline" href="/invoice-payment-terms-explained">payment terms examples</a>.
           </p>
         </section>
 

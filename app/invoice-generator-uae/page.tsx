@@ -12,14 +12,15 @@ export const metadata = {
   title: "Free Invoice Generator UAE (AED) — Create Invoice Online",
   description: "Create UAE invoices in AED and download a clean PDF. Add VAT percent if needed and share instantly.",
   alternates: {
-    canonical: "/invoice-generator-uae",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
-      <RecentTracker title="Free Invoice Generator UAE (AED)" href="/invoice-generator-aed" type="Tool" />
+      <RecentTracker title="Free Invoice Generator UAE (AED)" href="/invoice-generator-uae" type="Tool" />
       <SiteNav />
 
       <header className="mb-8">
@@ -39,7 +40,7 @@ export default function Page() {
 
           <TemplateEngine template={templates.invoice} initialCurrencyCode="AED" />
 
-      <ShareBar title="Free Invoice Generator UAE (AED)" path="/invoice-generator-aed" />
+      <ShareBar title="Free Invoice Generator UAE (AED)" path="/invoice-generator-uae" />
       <EmbedCodeBlock toolName="invoice generator" embedPath="/embed/invoice" />
 
       <ToolSeoBlock toolId="invoice" />

@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Receipt Generator in GBP (PDF)",
   description: "Create a printable receipt in GBP and download a PDF instantly. No login required.",
   alternates: {
-    canonical: "/receipt-generator-gbp",
+    canonical: "/receipt-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

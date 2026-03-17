@@ -12,8 +12,9 @@ export const metadata = {
   title: "Free GBP Invoice Generator (PDF) — Create Invoice in GBP",
   description: "Create professional invoices in GBP and download a printable PDF. No sign-up required.",
   alternates: {
-    canonical: "/invoice-generator-gbp",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

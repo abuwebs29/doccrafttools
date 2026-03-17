@@ -11,8 +11,9 @@ export const metadata = {
   title: "Free Invoice Generator in GBP (PDF)",
   description: "Create a professional invoice in GBP and download a printable PDF instantly. No login required.",
   alternates: {
-    canonical: "/invoice-generator-uk",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

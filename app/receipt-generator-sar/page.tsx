@@ -12,8 +12,9 @@ export const metadata = {
   title: "Free SAR Receipt Generator (PDF) — Create Receipt in SAR",
   description: "Generate a payment receipt in SAR and download a clean PDF instantly. No login required.",
   alternates: {
-    canonical: "/receipt-generator-sar",
+    canonical: "/receipt-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

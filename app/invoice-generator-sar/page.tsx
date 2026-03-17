@@ -12,8 +12,9 @@ export const metadata = {
   title: "Free SAR Invoice Generator (PDF) — Create Invoice in SAR",
   description: "Create professional invoices in SAR and download a printable PDF. No sign-up required.",
   alternates: {
-    canonical: "/invoice-generator-sar",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

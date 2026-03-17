@@ -12,8 +12,9 @@ export const metadata = {
   title: "Free EUR Invoice Generator (PDF) — Create Invoice in EUR",
   description: "Create professional invoices in EUR and download a printable PDF. No sign-up required.",
   alternates: {
-    canonical: "/invoice-generator-eur",
+    canonical: "/invoice-generator",
   },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {
