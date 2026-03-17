@@ -11,7 +11,6 @@ export const metadata = {
   },
   description:
     "Generate professional PDFs instantly: invoice, receipt, quotation, delivery note, rent receipt — no login.",
-  alternates: { canonical: site },
   openGraph: {
     type: "website",
     url: site,

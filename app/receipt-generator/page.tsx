@@ -44,6 +44,39 @@ export default function Page() {
         </div>
       </section>
 
+
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">When to use a receipt</h2>
+  <p className="mt-3 text-slate-600">Use a receipt to confirm that payment has already been made for products, services, rent, deposits, reimbursements, or one-time transactions.</p>
+</section>
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">What to include in a receipt</h2>
+  <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+    <li>Payer name and payment date</li>
+    <li>Amount received and selected currency</li>
+    <li>Payment method and payment purpose</li>
+    <li>Receiver or issuer details</li>
+    <li>Optional notes and logo</li>
+  </ul>
+</section>
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">How to make a receipt</h2>
+  <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
+    <li>Enter the payer and payment details</li>
+    <li>Select the correct currency in the form</li>
+    <li>Add optional notes or branding</li>
+    <li>Download the PDF and share it instantly</li>
+  </ol>
+</section>
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">Receipt vs invoice</h2>
+  <p className="mt-3 text-slate-600">An invoice asks for payment. A receipt confirms payment has already been received. Many businesses use both documents in the same workflow.</p>
+</section>
+
       <ToolSeoBlock toolId="receipt" />
 
       <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

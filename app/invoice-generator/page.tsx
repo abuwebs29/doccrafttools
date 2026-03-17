@@ -45,6 +45,40 @@ export default function Page() {
   </div>
 </section>
 
+
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">Who should use this invoice generator</h2>
+  <p className="mt-3 text-slate-600">Freelancers, consultants, agencies, contractors, and small businesses can use this tool to create professional invoice PDFs without signing up.</p>
+  <p className="mt-3 text-slate-600">Use it for service invoices, product billing, project milestones, retainers, and one-off client work.</p>
+</section>
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">What to include in an invoice</h2>
+  <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+    <li>Invoice number and issue date</li>
+    <li>Your business details and client details</li>
+    <li>Line items, quantity, rate, and totals</li>
+    <li>Tax, VAT, or GST if applicable</li>
+    <li>Due date, payment terms, and notes</li>
+  </ul>
+</section>
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">How to create an invoice online</h2>
+  <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
+    <li>Add your business and client details</li>
+    <li>Enter items, quantities, and prices</li>
+    <li>Select the currency directly inside the form</li>
+    <li>Review totals and download the PDF instantly</li>
+  </ol>
+</section>
+
+<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 className="text-xl font-semibold">Common invoice mistakes to avoid</h2>
+  <p className="mt-3 text-slate-600">Avoid missing due dates, inconsistent invoice numbering, unclear payment terms, and incorrect tax totals. A clear invoice reduces payment delays and back-and-forth with clients.</p>
+</section>
+
       <ToolSeoBlock toolId="invoice" />
 
       <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
