@@ -5,7 +5,7 @@ import path from "path";
 const BASE_URL = "https://doccrafttools.com";
 
 const EXCLUDED_PREFIXES = ["/api", "/_", "/embed"];
-const EXCLUDED_EXACT = new Set(["/search", "/status"]);
+const EXCLUDED_EXACT = new Set(["/search", "/status", "/invoice-generator-online-free"]);
 const EXCLUDED_PATTERNS = [
   /^\/invoice-generator-(usd|usa|uk|gbp|eur|aud|cad|india|inr|pkr|sar|saudi-arabia|uae)$/,
   /^\/receipt-generator-(usd|eur|gbp|inr|sar)$/,
