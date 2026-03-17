@@ -5,6 +5,8 @@ import ToolSeoBlock from "@/components/ToolSeoBlock";
 import ShareBar from "@/components/ShareBar";
 import EmbedCodeBlock from "@/components/EmbedCodeBlock";
 import RecentTracker from "@/components/RecentTracker";
+import RelatedTools from "@/components/RelatedTools";
+import DownloadTemplates from "@/components/DownloadTemplates";
 import { templates } from "@/lib/templates";
 import { toolSchema } from "@/lib/schemaRegistry";
 
@@ -80,20 +82,9 @@ export default function Page() {
         </div>
       </section>
 
+      <DownloadTemplates />
       <ToolSeoBlock toolId="receipt" />
-
-      <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Related receipt resources</h2>
-        <div className="mt-4 grid gap-2 text-sm">
-          <a className="font-semibold text-slate-900 hover:underline" href="/receipt-template">Receipt Template →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/payment-receipt-format">Payment Receipt Format →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/rent-receipt-generator">Rent Receipt Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/rent-receipt-template">Rent Receipt Template →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Invoice Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/pdf-templates">All PDF Templates →</a>
-        </div>
-      </div>
-
+      <RelatedTools title="Related receipt templates, samples, and tools" />
       <SiteFooter />
     </main>
   );

@@ -5,6 +5,8 @@ import ToolSeoBlock from "@/components/ToolSeoBlock";
 import ShareBar from "@/components/ShareBar";
 import EmbedCodeBlock from "@/components/EmbedCodeBlock";
 import RecentTracker from "@/components/RecentTracker";
+import RelatedTools from "@/components/RelatedTools";
+import DownloadTemplates from "@/components/DownloadTemplates";
 import { templates } from "@/lib/templates";
 import { toolSchema } from "@/lib/schemaRegistry";
 
@@ -83,20 +85,16 @@ export default function Page() {
         </div>
       </section>
 
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold">Turn this tool into your invoice hub</h2>
+        <p className="mt-3 text-sm leading-6 text-slate-700">
+          Use the generator for final PDFs, then support it with template downloads, comparison guides, sample pages, and country-specific format pages. This structure helps both users and search engines understand that DocCraft Tools covers the full invoice workflow.
+        </p>
+      </section>
+
+      <DownloadTemplates />
       <ToolSeoBlock toolId="invoice" />
-
-      <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Related invoice resources</h2>
-        <div className="mt-4 grid gap-2 text-sm">
-          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template">Invoice Template →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/simple-invoice-template">Simple Invoice Template →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-format">Invoice Format Guide →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/how-to-make-an-invoice">How to Make an Invoice →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator">Receipt Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/quotation-generator">Quotation Generator →</a>
-        </div>
-      </div>
-
+      <RelatedTools title="Related invoice tools, templates, and guides" />
       <SiteFooter />
     </main>
   );

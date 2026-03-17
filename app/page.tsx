@@ -2,6 +2,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import RecentlyUsed from "@/components/RecentlyUsed";
 import PopularTemplates from "@/components/PopularTemplates";
+import DownloadTemplates from "@/components/DownloadTemplates";
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -11,7 +12,7 @@ export const metadata = {
 
 function Card({ title, desc, href }: { title: string; desc: string; href: string }) {
   return (
-    <a href={href} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow transition">
+    <a href={href} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow">
       <div className="text-lg font-extrabold text-slate-900">{title}</div>
       <div className="mt-2 text-sm text-slate-600">{desc}</div>
       <div className="mt-4 text-sm font-semibold text-slate-900">Open →</div>
@@ -50,74 +51,58 @@ export default function Home() {
         <Card title="Business Documents Hub" desc="Browse all business document generators and guides." href="/business-documents" />
       </section>
 
-<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Popular Generators by Currency</h2>
-  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-usd">Invoice Generator (USD) →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-inr">Invoice Generator (INR) →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator-uk">Invoice Generator (UK / GBP) →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator-usd">Receipt Generator (USD) →</a>
-  </div>
-</section>
+      <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold">Programmatic SEO pages that expand your reach</h2>
+        <p className="mt-2 text-slate-600">Instead of duplicate currency pages, DocCraft Tools now grows through useful use-case pages, sample pages, comparison guides, and country-specific format pages.</p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-for/freelancers">Invoice template for freelancers →</a>
+          <a className="font-semibold text-slate-900 hover:underline" href="/receipt-for/rent">Receipt for rent →</a>
+          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-format/uae">Invoice format UAE →</a>
+          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-vs-quotation">Invoice vs quotation →</a>
+        </div>
+      </section>
 
-
-<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Export Invoice in Multiple Formats</h2>
-  <p className="mt-2 text-slate-600">Create invoices and export them as PDF, Excel, or Word.</p>
-  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Invoice Generator →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-excel">Export Invoice to Excel →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/invoice-template-word">Export Invoice to Word →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/receipt-template">Receipt Template →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/commercial-invoice-template">Commercial Invoice Template →</a>
-    <a className="font-semibold text-slate-900 hover:underline" href="/tax-invoice-template">Tax Invoice Template →</a>
-  </div>
-</section>
-
+      <DownloadTemplates />
       <PopularTemplates className="mt-10" />
       <RecentlyUsed className="mt-10" />
 
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Popular guides</h2>
-  <p className="mt-2 text-sm text-slate-600">
-    Quick explanations and copy‑paste examples — linked to free generators.
-  </p>
-  <div className="mt-5 grid gap-6 md:grid-cols-3 text-sm">
-    <div>
-      <div className="font-bold text-slate-900">Invoices</div>
-      <div className="mt-3 grid gap-2">
-        <a className="font-semibold text-slate-900 hover:underline" href="/invoice-format">Invoice format →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/invoice-number-format">Invoice number format →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/invoice-payment-terms-explained">Payment terms wording →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/what-is-a-tax-invoice">What is a tax invoice? →</a>
-      </div>
-    </div>
-    <div>
-      <div className="font-bold text-slate-900">Receipts</div>
-      <div className="mt-3 grid gap-2">
-        <a className="font-semibold text-slate-900 hover:underline" href="/payment-receipt-format">Payment receipt format →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/receipt-template-pdf">Receipt template PDF →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/rent-receipt-format">Rent receipt format →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/difference-between-invoice-and-receipt">Invoice vs receipt →</a>
-      </div>
-    </div>
-    <div>
-      <div className="font-bold text-slate-900">Business docs</div>
-      <div className="mt-3 grid gap-2">
-        <a className="font-semibold text-slate-900 hover:underline" href="/estimate-vs-quotation">Estimate vs quotation →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/delivery-note-format">Delivery note format →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/delivery-note-vs-invoice">Delivery note vs invoice →</a>
-        <a className="font-semibold text-slate-900 hover:underline" href="/guides">See all guides →</a>
-      </div>
-    </div>
-  </div>
-</section>
+        <h2 className="text-xl font-semibold">Popular guides</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Quick explanations and copy-paste examples — linked to free generators.
+        </p>
+        <div className="mt-5 grid gap-6 text-sm md:grid-cols-3">
+          <div>
+            <div className="font-bold text-slate-900">Invoices</div>
+            <div className="mt-3 grid gap-2">
+              <a className="font-semibold text-slate-900 hover:underline" href="/invoice-format">Invoice format →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/invoice-sample">Invoice sample →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/invoice-payment-terms-explained">Payment terms wording →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/invoice-format-uae">Invoice format UAE →</a>
+            </div>
+          </div>
+          <div>
+            <div className="font-bold text-slate-900">Receipts</div>
+            <div className="mt-3 grid gap-2">
+              <a className="font-semibold text-slate-900 hover:underline" href="/payment-receipt-format">Payment receipt format →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/receipt-sample">Receipt sample →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/how-to-write-receipt">How to write a receipt →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/receipt-vs-invoice">Receipt vs invoice →</a>
+            </div>
+          </div>
+          <div>
+            <div className="font-bold text-slate-900">Business docs</div>
+            <div className="mt-3 grid gap-2">
+              <a className="font-semibold text-slate-900 hover:underline" href="/estimate-vs-quotation">Estimate vs quotation →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/estimate-vs-invoice">Estimate vs invoice →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/delivery-note-sample">Delivery note sample →</a>
+              <a className="font-semibold text-slate-900 hover:underline" href="/guides">See all guides →</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <SiteFooter />
-    
-
-
-
-</main>
+    </main>
   );
 }
