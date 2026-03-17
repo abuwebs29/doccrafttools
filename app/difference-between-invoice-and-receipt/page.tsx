@@ -1,65 +1,27 @@
-    import SiteNav from "@/components/SiteNav";
-    import SiteFooter from "@/components/SiteFooter";
-    import ShareBar from "@/components/ShareBar";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
-    export const metadata = {
+export const metadata = {
+  title: "Difference Between Invoice and Receipt (Simple Guide)",
+  description: "Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly.",
   alternates: { canonical: "/difference-between-invoice-and-receipt" },
-      title: "Difference Between Invoice and Receipt (Simple Guide)",
-      description: "Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly.",
-    };
+};
 
-    export default function Page() {
-      return (
-        <main className="mx-auto max-w-4xl px-4 py-10">
-          <SiteNav />
-
-          <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <h1 className="text-3xl font-extrabold tracking-tight">Difference Between Invoice and Receipt (Simple Guide)</h1>
-            <p className="mt-4 text-slate-600">Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly.</p>
-
-            <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-slate-700">Quick action:</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <a
-                  href="/invoice-generator"
-                  className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-                >
-                  Create an Invoice PDF →
-                </a>
-              </div>
-            </div>
-
-
-        <h2 className="mt-10 text-xl font-semibold">Invoice vs receipt (quick summary)</h2>
-        <p className="mt-3 text-slate-600"><strong>Invoice</strong> = request for payment (before payment). <strong>Receipt</strong> = proof of payment (after payment).</p>
-
-        <h2 className="mt-10 text-xl font-semibold">Key differences</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-600">
-<li>Timing: invoice first, receipt after</li>
-<li>Purpose: request vs confirmation</li>
-<li>Records: what’s owed vs what’s paid</li>
-</ul>
-
-        <h2 className="mt-10 text-xl font-semibold">FAQ</h2>
-        <div className="mt-4 space-y-4">
-<div className="rounded-xl border border-slate-200 p-5"><h3 className="font-semibold">Should I issue a receipt for cash?</h3><p className="mt-2 text-slate-600">Yes—cash receipts reduce disputes and help bookkeeping.</p></div>
-<div className="rounded-xl border border-slate-200 p-5"><h3 className="font-semibold">Can a receipt replace an invoice?</h3><p className="mt-2 text-slate-600">Usually no—use invoice to request payment and receipt to confirm payment.</p></div>
-</div>
-
-
-            <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-5">
-              <h2 className="text-lg font-semibold">Related pages</h2>
-              <div className="mt-3 grid gap-2 text-sm">
-                <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator">Receipt Generator →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/blank-receipt-template">Blank Receipt Template →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/invoice-payment-terms-explained">Invoice Payment Terms →</a>
-              </div>
-            </div>
-
-            <ShareBar title="Difference Between Invoice and Receipt (Simple Guide)" path="/difference-between-invoice-and-receipt" description="Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly." />
-          </article>
-
-          <SiteFooter />
-        </main>
-      );
-    }
+export default function Page() {
+  return (
+    <ArticleLandingPage
+      title="Difference Between Invoice and Receipt (Simple Guide)"
+      description="Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly."
+      path="/difference-between-invoice-and-receipt"
+      category="Comparison"
+      ctaLabel="Open receipt generator"
+      ctaHref="/receipt-generator"
+      secondaryLabel="Browse receipt templates"
+      secondaryHref="/receipt-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Key difference at a glance", "paragraphs": ["Invoice and Receipt (Simple Guide) are related business topics, but they are not used at the same stage of the workflow.", "This page helps users understand the timing, purpose, and expected content of each document so they can choose the right one."]}, {"title": "What to compare", "bullets": ["Purpose of the document", "When it is issued or shared", "What action the recipient should take next", "Which details must stay consistent across related documents"]}, {"title": "Common mistakes to avoid", "bullets": ["Sending the wrong document for the current stage of work.", "Leaving out dates, totals, or reference numbers that connect documents together.", "Using inconsistent terminology that confuses clients or internal teams."]}]
+      faqs=[{"q": "Why does difference between invoice and receipt (simple guide) matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related receipt pages"
+      trackerTitle="Difference Between Invoice and Receipt (Simple Guide)"
+    />
+  );
+}

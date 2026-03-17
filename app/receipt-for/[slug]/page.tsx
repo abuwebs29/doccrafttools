@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import SiteFooter from "@/components/SiteFooter";
-import SiteNav from "@/components/SiteNav";
-import RelatedTools from "@/components/RelatedTools";
-import PageFaq from "@/components/PageFaq";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 import { receiptUseCaseSlugs, titleFromSlug } from "@/lib/programmaticSeo";
 
 export function generateStaticParams() {
@@ -14,7 +10,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const title = titleFromSlug(params.slug);
   return {
     title: `Receipt for ${title}`,
-    description: `Make a printable receipt for ${title.toLowerCase()} payments. See what fields to include and when a payment receipt should be issued.`,
+    description: `Learn how to issue a receipt for ${title.toLowerCase()} payments with the right fields, clean wording, and a practical proof-of-payment structure.`,
     alternates: { canonical: `/receipt-for/${params.slug}` },
   };
 }
@@ -22,33 +18,27 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 export default function Page({ params }: { params: { slug: string } }) {
   const title = titleFromSlug(params.slug);
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
-      <SiteNav />
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Receipt for {title}</h1>
-        <p className="mt-2 max-w-3xl text-slate-600">
-          Use this guide to create a clean receipt for {title.toLowerCase()} payments. A clear receipt protects both parties and confirms the exact amount, date, and reason for payment.
-        </p>
-      </header>
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Required fields</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-          <li>Receipt number and payment date</li>
-          <li>Payer and receiver names</li>
-          <li>Amount paid and payment method</li>
-          <li>Purpose of payment and optional notes</li>
-        </ul>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/receipt-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white">Create receipt online</Link>
-          <Link href="/receipt-template" className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900">Browse receipt templates</Link>
-        </div>
-      </section>
-      <PageFaq items={[
-        { q: `Is a receipt for ${title.toLowerCase()} legally useful?`, a: "A receipt is generally useful as proof of payment, but legal requirements depend on local law and the type of transaction." },
-        { q: "What is the difference between a receipt and an invoice?", a: "An invoice asks for payment. A receipt confirms that payment was received." },
-      ]} />
-      <RelatedTools />
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title={`Receipt for ${title}`}
+      description={`Use this page to understand what a useful receipt for ${title.toLowerCase()} should include and how to keep payment confirmation clear and easy to review.`}
+      path={`/receipt-for/${params.slug}`}
+      category="Use-case receipt"
+      ctaLabel="Open receipt generator"
+      ctaHref="/receipt-generator"
+      secondaryLabel="Browse receipt templates"
+      secondaryHref="/receipt-template"
+      highlights={["Proof of payment", "Use-case focused", "Generator linked"]}
+      sections={[
+        { title: "Required receipt fields", bullets: ["Receipt number and payment date", "Payer and receiver names", `Reason the ${title.toLowerCase()} payment was made`, "Amount received and payment method", "Optional notes, references, or signature"] },
+        { title: "Why this page is useful", paragraphs: [`A receipt for ${title.toLowerCase()} should be clear enough to confirm the payment purpose without leaving room for confusion later.`, "Use-case pages help users adapt the core receipt structure to real-world payment scenarios rather than relying on vague generic wording."] },
+        { title: "Best next step", paragraphs: ["Use the receipt generator when you want a faster way to create a clean, printable proof-of-payment document online."] },
+      ]}
+      faqs={[
+        { q: `Is a receipt for ${title.toLowerCase()} enough as proof of payment?`, a: "It is generally useful as proof of payment, but exact legal or tax requirements depend on local rules and the type of transaction." },
+        { q: "What is the difference between a receipt and an invoice?", a: "An invoice asks for payment. A receipt confirms that payment has already been received." },
+      ]}
+      relatedTitle="Related receipt use-case pages"
+      trackerTitle={`Receipt for ${title}`}
+    />
   );
 }

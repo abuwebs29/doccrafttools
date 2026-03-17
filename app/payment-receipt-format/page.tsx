@@ -1,29 +1,27 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import ShareBar from "@/components/ShareBar";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  alternates: { canonical: "/payment-receipt-format" },
   title: "Payment Receipt Format (Printable Example)",
   description: "Understand the correct payment receipt format and generate a printable PDF instantly.",
+  alternates: { canonical: "/payment-receipt-format" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-      <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-        <h1 className="text-3xl font-extrabold tracking-tight">Payment Receipt Format (Printable Example)</h1>
-        <p className="mt-4 text-slate-600">Understand the correct payment receipt format and generate a printable PDF instantly.</p>
-        <p className='mt-6 text-slate-600'>A payment receipt confirms money received and includes payer name, amount, date, and method.</p>
-        <div className="mt-8">
-          <a href="/invoice-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-            Create Invoice PDF →
-          </a>
-        </div>
-        <ShareBar title="Payment Receipt Format (Printable Example)" path="/payment-receipt-format" description="Understand the correct payment receipt format and generate a printable PDF instantly." />
-      </article>
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Payment Receipt Format (Printable Example)"
+      description="Understand the correct payment receipt format and generate a printable PDF instantly."
+      path="/payment-receipt-format"
+      category="Format guide"
+      ctaLabel="Open receipt generator"
+      ctaHref="/receipt-generator"
+      secondaryLabel="Browse receipt templates"
+      secondaryHref="/receipt-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Why format matters", "paragraphs": ["A practical receipt format improves clarity, speeds up review, and helps reduce disputes about totals, dates, or responsibilities.", "This page explains the structure that makes the document easier to read and more consistent across repeated use."]}, {"title": "Recommended receipt structure", "bullets": ["Receipt number and payment date", "Payer and receiver details", "Amount paid and payment method", "Purpose of payment", "Optional notes or signature"]}, {"title": "Best practices", "bullets": ["Use clear labels and simple wording.", "Keep dates, numbers, and references consistent.", "Review local tax or compliance requirements when relevant."]}]
+      faqs=[{"q": "Why does payment receipt format (printable example) matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related receipt pages"
+      trackerTitle="Payment Receipt Format (Printable Example)"
+    />
   );
 }

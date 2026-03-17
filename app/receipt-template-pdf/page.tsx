@@ -1,43 +1,32 @@
-    import SiteNav from "@/components/SiteNav";
-    import SiteFooter from "@/components/SiteFooter";
-    import RecentTracker from "@/components/RecentTracker";
-    import ShareBar from "@/components/ShareBar";
-    import JsonLd from "@/components/JsonLd";
-    import { buildBreadcrumbsJsonLd, guideCrumbs } from "@/lib/breadcrumbs";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
-    export const metadata = {
+export const metadata = {
+  title: "Receipt Template PDF (Free Download Generator)",
+  description: "Create a printable receipt template PDF instantly \u2014 add payer name, amount, purpose, and method.",
   alternates: { canonical: "/receipt-template-pdf" },
-      title: "Receipt Template PDF (Free Download Generator)",
-      description: "Create a printable receipt template PDF instantly — add payer name, amount, purpose, and method.",
-    };
+};
 
-    export default function Page() {
-      return (
-        <main className="mx-auto max-w-4xl px-4 py-10">
-          <RecentTracker title="Receipt Template PDF (Free Download Generator)" href="/receipt-template-pdf" type="Guide" />
-          <JsonLd data={buildBreadcrumbsJsonLd(guideCrumbs("Receipt Template PDF (Free Download Generator)", "/receipt-template-pdf"))} />
-          <SiteNav />
-
-          <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <h1 className="text-3xl font-extrabold tracking-tight">Receipt Template PDF (Free Download Generator)</h1>
-            <p className="mt-3 text-slate-600">Create a printable receipt template PDF instantly — add payer name, amount, purpose, and method.</p>
-
-            <p className="mt-4 text-slate-600">A receipt is proof of payment. It typically includes a receipt number, date, received-from name, amount, and what the payment is for.</p>
-<p className="mt-4 text-slate-600">If needed, add a payment method (cash, transfer, card) and an issuer name.</p>
-
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <h2 className="text-lg font-semibold">Quick links</h2>
-              <div className="mt-3 grid gap-2 text-sm">
-                <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator">Generate a receipt PDF →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/payment-receipt-format">Payment receipt format →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/pdf-templates">All PDF templates →</a>
-              </div>
-            </div>
-
-            <ShareBar title="Receipt Template PDF (Free Download Generator)" path="/receipt-template-pdf" description="Create a printable receipt template PDF instantly — add payer name, amount, purpose, and method." />
-          </article>
-
-          <SiteFooter />
-        </main>
-      );
-    }
+export default function Page() {
+  return (
+    <ToolLandingPage
+      title="Receipt Template PDF (Free Download Generator)"
+      description="Create a printable receipt template PDF instantly \u2014 add payer name, amount, purpose, and method."
+      path="/receipt-template-pdf"
+      templateId="receipt"
+      toolId="receipt"
+      toolName="Receipt Template PDF (Free Download Generator)"
+      embedPath="/embed/receipt"
+      trackerTitle="Receipt Template PDF"
+      introTitle="What this receipt page helps you do"
+      introParagraphs=["A good receipt template gives you a reusable structure for dates, parties, amounts, and supporting details so each document stays consistent.", "This page combines a ready-made receipt layout with online editing so you can move from draft to finished export faster."]
+      includeTitle="What to include in a receipt"
+      includeItems=["Receipt number and payment date", "Payer and receiver details", "Amount paid and payment method", "Purpose of payment", "Optional notes or signature"]
+      useCasesTitle="Who should use this receipt page"
+      useCases=[{"title": "Retail and service businesses", "text": "Confirm payment quickly with a clear receipt that is easy to share or print."}, {"title": "Landlords and property managers", "text": "Track rent or deposit payments with a repeatable proof-of-payment format."}, {"title": "Freelancers", "text": "Issue receipts after payment for one-time projects, deposits, and final balances."}, {"title": "Small teams", "text": "Keep internal records clean with consistent payer, date, amount, and method fields."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional receipt without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common receipt questions on the same page."]
+      faqs=[{"q": "What is a receipt?", "a": "A receipt is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this receipt page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this receipt?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related receipt pages"
+    />
+  );
+}

@@ -1,50 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import TemplateEngine from "@/components/TemplateEngine";
-import ToolSeoBlock from "@/components/ToolSeoBlock";
-import ShareBar from "@/components/ShareBar";
-import EmbedCodeBlock from "@/components/EmbedCodeBlock";
-import RecentTracker from "@/components/RecentTracker";
-import { templates } from "@/lib/templates";
-import { toolSchema } from "@/lib/schemaRegistry";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
+  title: "Rent Receipt Generator",
+  description: "Create a professional rent receipt online, customize the details, and export a clean version in minutes.",
   alternates: { canonical: "/rent-receipt-generator" },
-  title: toolSchema.rent_receipt.title,
-  description: toolSchema.rent_receipt.description,
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
-      <RecentTracker title="Rent Receipt Generator" href="/rent-receipt-generator" type="Tool" />
-      <SiteNav />
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free Rent Receipt Generator (PDF)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Create a rent receipt PDF with tenant/landlord details, property, period and amount.
-        </p>
-      </header>
-
-      <TemplateEngine template={templates.rent_receipt} />
-
-      <ShareBar title="Free Rent Receipt Generator (PDF)" path="/rent-receipt-generator" description="Generate and download a clean PDF instantly — no login." />
-      <EmbedCodeBlock toolName="Rent Receipt Generator" embedPath="/embed/rent-receipt" />
-
-      <ToolSeoBlock toolId="rent_receipt" />
-
-      <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Try also</h2>
-        <div className="mt-4 grid gap-2 text-sm">
-          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Invoice Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator">Receipt Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/quotation-generator">Quotation Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/pdf-templates">All PDF Templates →</a>
-        </div>
-      </div>
-
-      <SiteFooter />
-    </main>
+    <ToolLandingPage
+      title="Rent Receipt Generator"
+      description="Create a professional rent receipt online, customize the details, and export a clean version in minutes."
+      path="/rent-receipt-generator"
+      templateId="rent_receipt"
+      toolId="rent_receipt"
+      toolName="Rent Receipt Generator"
+      embedPath="/embed/rent-receipt"
+      trackerTitle="Rent Receipt Generator"
+      introTitle="What this rent receipt page helps you do"
+      introParagraphs=["This rent receipt page is built for users who want a faster way to create consistent documents without starting from a blank file.", "Use it to customize business details, add the right fields, and generate a professional rent receipt that is ready to download and share."]
+      includeTitle="What to include in a rent receipt"
+      includeItems=["Receipt number and payment date", "Tenant and landlord names", "Property address", "Rent period covered", "Amount paid and payment method"]
+      useCasesTitle="Who should use this rent receipt page"
+      useCases=[{"title": "Landlords", "text": "Issue monthly or one-off proof of rent payments with the key tenancy details included."}, {"title": "Tenants", "text": "Keep a printable record of paid rent for reimbursements, tax, or visa paperwork."}, {"title": "Property managers", "text": "Standardize monthly receipts across multiple units and tenants."}, {"title": "Account teams", "text": "Maintain a clear payment history for rental transactions."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional rent receipt without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common rent receipt questions on the same page."]
+      faqs=[{"q": "What is a rent receipt?", "a": "A rent receipt is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this rent receipt page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this rent receipt?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related rent receipt pages"
+    />
   );
 }

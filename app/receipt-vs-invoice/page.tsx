@@ -1,6 +1,4 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import RelatedTools from "@/components/RelatedTools";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Receipt vs Invoice",
@@ -10,20 +8,20 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
-      <SiteNav />
-      <h1 className="text-3xl font-extrabold tracking-tight">Receipt vs Invoice</h1>
-      <p className="mt-2 max-w-3xl text-slate-600">An invoice asks a customer to pay. A receipt confirms that the customer already paid. Businesses often use both in the same transaction lifecycle.</p>
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Simple difference</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-          <li>Invoice: payment request before or by the due date</li>
-          <li>Receipt: proof that money was received</li>
-          <li>Invoice includes balance due, receipt includes amount paid</li>
-        </ul>
-      </section>
-      <RelatedTools />
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Receipt vs Invoice"
+      description="Learn the difference between a receipt and an invoice, with practical examples of when to issue each document."
+      path="/receipt-vs-invoice"
+      category="Comparison"
+      ctaLabel="Open receipt generator"
+      ctaHref="/receipt-generator"
+      secondaryLabel="Browse receipt templates"
+      secondaryHref="/receipt-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Key difference at a glance", "paragraphs": ["Receipt vs Invoice are related business topics, but they are not used at the same stage of the workflow.", "This page helps users understand the timing, purpose, and expected content of each document so they can choose the right one."]}, {"title": "What to compare", "bullets": ["Purpose of the document", "When it is issued or shared", "What action the recipient should take next", "Which details must stay consistent across related documents"]}, {"title": "Common mistakes to avoid", "bullets": ["Sending the wrong document for the current stage of work.", "Leaving out dates, totals, or reference numbers that connect documents together.", "Using inconsistent terminology that confuses clients or internal teams."]}]
+      faqs=[{"q": "Why does receipt vs invoice matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related receipt pages"
+      trackerTitle="Receipt vs Invoice"
+    />
   );
 }

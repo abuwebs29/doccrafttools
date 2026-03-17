@@ -1,34 +1,34 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import { guides } from "@/lib/guides";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
+  title: "Business Document Guides",
+  description: "Read practical guides, comparisons, and formatting tips for invoices, receipts, quotations, delivery notes, and rent receipts.",
   alternates: { canonical: "/guides" },
-  title: "Guides",
-  description: "Guides and examples for invoices, receipts, quotations and business documents.",
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Guides</h1>
-        <p className="mt-2 text-slate-600">Short, practical guides with examples — plus free PDF generators.</p>
-      </header>
-
-      <section className="grid gap-4">
-        {guides.map((g) => (
-          <a key={g.path} href={g.path} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow transition">
-            <div className="text-lg font-extrabold text-slate-900">{g.title}</div>
-            <div className="mt-2 text-sm text-slate-600">{g.description}</div>
-            <div className="mt-4 text-sm font-semibold text-slate-900">Read →</div>
-          </a>
-        ))}
-      </section>
-
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Business Document Guides"
+      description="Read practical guides, comparisons, and formatting tips for invoices, receipts, quotations, delivery notes, and rent receipts."
+      path="/guides"
+      category="Guides hub"
+      ctaLabel="Open invoice generator"
+      ctaHref="/invoice-generator"
+      secondaryLabel="Browse PDF templates"
+      secondaryHref="/pdf-templates"
+      highlights={["Templates", "Guides", "Tools linked together"]}
+      sections={[
+        { title: "What you can find here", paragraphs: ["This hub brings together core document tools, supporting template pages, and educational content so users can move from research to action quickly.", "It is designed to strengthen both usability and search visibility by connecting high-intent pages with helpful supporting content."] },
+        { title: "Best way to use the hub", bullets: ["Start with the main generator when you need to create a document now.", "Use template pages when you want a reusable structure.", "Read format, sample, or comparison pages when you need context before sending a document."] },
+        { title: "Why this matters for growth", paragraphs: ["A strong hub page helps users discover related routes and helps search engines understand the full topic cluster around business documents."] },
+      ]}
+      faqs={[
+        { q: "What is the purpose of this hub page?", a: "It helps users discover the right generator, template, or guide without having to search the site manually." },
+        { q: "Do I need to sign up to use the tools?", a: "The site is designed to let users start creating documents quickly without adding unnecessary friction." },
+      ]}
+      relatedTitle="Related business document pages"
+      trackerTitle="Business Document Guides"
+    />
   );
 }

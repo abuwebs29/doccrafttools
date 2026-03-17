@@ -1,50 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import TemplateEngine from "@/components/TemplateEngine";
-import ToolSeoBlock from "@/components/ToolSeoBlock";
-import ShareBar from "@/components/ShareBar";
-import EmbedCodeBlock from "@/components/EmbedCodeBlock";
-import RecentTracker from "@/components/RecentTracker";
-import { templates } from "@/lib/templates";
-import { toolSchema } from "@/lib/schemaRegistry";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
+  title: "Delivery Note Generator",
+  description: "Create a professional delivery note online, customize the details, and export a clean version in minutes.",
   alternates: { canonical: "/delivery-note-generator" },
-  title: toolSchema.delivery_note.title,
-  description: toolSchema.delivery_note.description,
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
-      <RecentTracker title="Delivery Note Generator" href="/delivery-note-generator" type="Tool" />
-      <SiteNav />
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free Delivery Note Generator (PDF)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Generate a delivery note PDF for delivered goods with item list and reference.
-        </p>
-      </header>
-
-      <TemplateEngine template={templates.delivery_note} />
-
-      <ShareBar title="Free Delivery Note Generator (PDF)" path="/delivery-note-generator" description="Generate and download a clean PDF instantly — no login." />
-      <EmbedCodeBlock toolName="Delivery Note Generator" embedPath="/embed/delivery-note" />
-
-      <ToolSeoBlock toolId="delivery_note" />
-
-      <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Try also</h2>
-        <div className="mt-4 grid gap-2 text-sm">
-          <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Invoice Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator">Receipt Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/quotation-generator">Quotation Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/pdf-templates">All PDF Templates →</a>
-        </div>
-      </div>
-
-      <SiteFooter />
-    </main>
+    <ToolLandingPage
+      title="Delivery Note Generator"
+      description="Create a professional delivery note online, customize the details, and export a clean version in minutes."
+      path="/delivery-note-generator"
+      templateId="delivery_note"
+      toolId="delivery_note"
+      toolName="Delivery Note Generator"
+      embedPath="/embed/delivery-note"
+      trackerTitle="Delivery Note Generator"
+      introTitle="What this delivery note page helps you do"
+      introParagraphs=["This delivery note page is built for users who want a faster way to create consistent documents without starting from a blank file.", "Use it to customize business details, add the right fields, and generate a professional delivery note that is ready to download and share."]
+      includeTitle="What to include in a delivery note"
+      includeItems=["Delivery note number and delivery date", "Sender and receiver details", "Item list and quantities delivered", "Reference number such as PO or invoice", "Notes, signatures, or receiving confirmation"]
+      useCasesTitle="Who should use this delivery note page"
+      useCases=[{"title": "Suppliers", "text": "Document the items that were shipped or handed over to the customer."}, {"title": "Warehouses", "text": "Keep delivery records aligned with orders, invoices, and receiving teams."}, {"title": "Distributors", "text": "Track quantities and references for partial or full deliveries."}, {"title": "Operations teams", "text": "Use a clear paper trail when goods move between locations or customers."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional delivery note without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common delivery note questions on the same page."]
+      faqs=[{"q": "What is a delivery note?", "a": "A delivery note is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this delivery note page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this delivery note?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related delivery note pages"
+    />
   );
 }

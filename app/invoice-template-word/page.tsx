@@ -1,64 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import TemplateEngine from "@/components/TemplateEngine";
-import ToolSeoBlock from "@/components/ToolSeoBlock";
-import ShareBar from "@/components/ShareBar";
-import EmbedCodeBlock from "@/components/EmbedCodeBlock";
-import InternalLinks from "@/components/InternalLinks";
-import { templates } from "@/lib/templates";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Free Invoice Template Word (DOC Export)",
   description: "Create a free invoice template and export it to Word. Perfect for editable document workflows and professional invoice customization.",
   alternates: { canonical: "/invoice-template-word" },
-  openGraph: {
-    title: "Free Invoice Template Word (DOC Export)",
-    description: "Create a free invoice template and export it to Word. Perfect for editable document workflows and professional invoice customization.",
-    images: ["https://doccrafttools.com/og-image.svg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Invoice Template Word (DOC Export)",
-    description: "Create a free invoice template and export it to Word. Perfect for editable document workflows and professional invoice customization.",
-    images: ["https://doccrafttools.com/og-image.svg"],
-  },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
-      <SiteNav />
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free Invoice Template Word (DOC Export)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">Create a free invoice template and export it to Word. Perfect for editable document workflows and professional invoice customization.</p>
-      </header>
-
-      <TemplateEngine template={templates.invoice} />
-
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Why use an invoice template in Word?</h2>
-        <p className="mt-3 text-slate-600">Word invoice templates are useful when you want a document-style invoice that can be edited, shared, or adjusted in a text-first workflow.</p>
-        <p className="mt-3 text-slate-600">Use this page if you prefer Word-compatible exports while still keeping PDF and Excel options available.</p>
-      </section>
-
-      <ShareBar title="Free Invoice Template Word (DOC Export)" path="/invoice-template-word" description="Create a free invoice template and export it to Word. Perfect for editable document workflows and professional invoice customization." />
-      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
-      <ToolSeoBlock toolId="invoice" />
-      <InternalLinks currentPath="/invoice-template-word" />
-      <SiteFooter />
-    
-
-// PHASE10_SEO_BLOCK
-<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-<h2 className="text-xl font-semibold">Why use this template?</h2>
-<p className="mt-3 text-slate-600">
-A professional document template helps freelancers and businesses create clear financial records.
-DocCraft Tools lets you generate clean PDFs instantly, customize line items, add taxes,
-and export invoices or receipts quickly without complex accounting software.
-</p>
-</section>
-
-</main>
+    <ToolLandingPage
+      title="Free Invoice Template Word (DOC Export)"
+      description="Create a free invoice template and export it to Word. Perfect for editable document workflows and professional invoice customization."
+      path="/invoice-template-word"
+      templateId="invoice"
+      toolId="invoice"
+      toolName="Free Invoice Template Word (DOC Export)"
+      embedPath="/embed/invoice"
+      trackerTitle="Invoice Template Word"
+      introTitle="What this invoice page helps you do"
+      introParagraphs=["A good invoice template gives you a reusable structure for dates, parties, amounts, and supporting details so each document stays consistent.", "This page combines a ready-made invoice layout with online editing so you can move from draft to finished export faster."]
+      includeTitle="What to include in a invoice"
+      includeItems=["Business name and contact details", "Client billing details", "Invoice number and issue date", "Due date and payment terms", "Line items, taxes, discounts, and total"]
+      useCasesTitle="Who should use this invoice page"
+      useCases=[{"title": "Freelancers", "text": "Bill project work, retainers, and hourly services with a consistent invoice structure."}, {"title": "Consultants", "text": "Show service descriptions, rates, taxes, and payment terms clearly for every client."}, {"title": "Agencies", "text": "Use a polished layout for itemized services, campaign work, and multi-line projects."}, {"title": "Small businesses", "text": "Standardize billing for products, services, and recurring customer accounts."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional invoice without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common invoice questions on the same page."]
+      faqs=[{"q": "What is a invoice?", "a": "A invoice is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this invoice page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this invoice?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related invoice pages"
+    />
   );
 }

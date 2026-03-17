@@ -1,29 +1,27 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import ShareBar from "@/components/ShareBar";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  alternates: { canonical: "/invoice-for-services" },
   title: "Invoice for Services Template (Example PDF)",
   description: "Create an invoice for services rendered with a professional format.",
+  alternates: { canonical: "/invoice-for-services" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-      <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-        <h1 className="text-3xl font-extrabold tracking-tight">Invoice for Services Template (Example PDF)</h1>
-        <p className="mt-4 text-slate-600">Create an invoice for services rendered with a professional format.</p>
-        <p className='mt-6 text-slate-600'>Service invoices clearly describe work completed and include payment terms.</p>
-        <div className="mt-8">
-          <a href="/invoice-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-            Create Invoice PDF →
-          </a>
-        </div>
-        <ShareBar title="Invoice for Services Template (Example PDF)" path="/invoice-for-services" description="Create an invoice for services rendered with a professional format." />
-      </article>
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Invoice for Services Template (Example PDF)"
+      description="Create an invoice for services rendered with a professional format."
+      path="/invoice-for-services"
+      category="Guide"
+      ctaLabel="Open invoice generator"
+      ctaHref="/invoice-generator"
+      secondaryLabel="Browse invoice templates"
+      secondaryHref="/invoice-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "What this page covers", "paragraphs": ["This page is designed to answer common questions about invoice for services template (example pdf) and guide the user toward the right document workflow.", "It works best when paired with the related invoice generator or template page so readers can move from explanation to action immediately."]}, {"title": "Key points to keep in mind", "bullets": ["Use consistent document titles and numbering.", "Include the parties, dates, amounts, and references that matter most.", "Link educational pages to practical tools so users can act on what they just learned."]}, {"title": "Next action", "paragraphs": ["Once you understand the basics, open the related invoice page to generate a ready-to-use version online."]}]
+      faqs=[{"q": "Why does invoice for services template (example pdf) matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related invoice pages"
+      trackerTitle="Invoice for Services Template (Example PDF)"
+    />
   );
 }

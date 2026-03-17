@@ -1,6 +1,4 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import RelatedTools from "@/components/RelatedTools";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Invoice Format UK",
@@ -10,12 +8,20 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
-      <SiteNav />
-      <h1 className="text-3xl font-extrabold tracking-tight">Invoice Format UK</h1>
-      <p className="mt-2 max-w-3xl text-slate-600">A UK invoice format should make it easy for clients to review service descriptions, VAT treatment where relevant, and payment due dates.</p>
-      <RelatedTools />
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Invoice Format UK"
+      description="Use a practical UK invoice format with supplier details, invoice number, issue date, itemized lines, and tax-ready totals."
+      path="/invoice-format-uk"
+      category="Format guide"
+      ctaLabel="Open invoice generator"
+      ctaHref="/invoice-generator"
+      secondaryLabel="Browse invoice templates"
+      secondaryHref="/invoice-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Why format matters", "paragraphs": ["A practical invoice format improves clarity, speeds up review, and helps reduce disputes about totals, dates, or responsibilities.", "This page explains the structure that makes the document easier to read and more consistent across repeated use."]}, {"title": "Recommended invoice structure", "bullets": ["Business name and contact details", "Client billing details", "Invoice number and issue date", "Due date and payment terms", "Line items, taxes, discounts, and total"]}, {"title": "Best practices", "bullets": ["Use clear labels and simple wording.", "Keep dates, numbers, and references consistent.", "Review local tax or compliance requirements when relevant."]}]
+      faqs=[{"q": "Why does invoice format uk matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related invoice pages"
+      trackerTitle="Invoice Format UK"
+    />
   );
 }

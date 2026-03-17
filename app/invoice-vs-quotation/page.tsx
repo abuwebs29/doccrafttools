@@ -1,7 +1,4 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import RelatedTools from "@/components/RelatedTools";
-import PageFaq from "@/components/PageFaq";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Invoice vs Quotation",
@@ -11,28 +8,20 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
-      <SiteNav />
-      <h1 className="text-3xl font-extrabold tracking-tight">Invoice vs Quotation</h1>
-      <p className="mt-2 max-w-3xl text-slate-600">A quotation is sent before work starts to define scope and price. An invoice is sent after approval or delivery to request payment.</p>
-      <section className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <table className="w-full text-sm">
-          <thead className="bg-slate-50 text-left text-slate-900">
-            <tr>
-              <th className="px-4 py-3 font-semibold">Invoice</th>
-              <th className="px-4 py-3 font-semibold">Quotation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-t"><td className="px-4 py-3">Requests payment</td><td className="px-4 py-3">Offers pricing before work begins</td></tr>
-            <tr className="border-t"><td className="px-4 py-3">Includes due date and payment details</td><td className="px-4 py-3">Includes validity period and scope</td></tr>
-            <tr className="border-t"><td className="px-4 py-3">Issued after approval or delivery</td><td className="px-4 py-3">Issued before approval</td></tr>
-          </tbody>
-        </table>
-      </section>
-      <PageFaq items={[{q:"Can one quotation become an invoice?",a:"Yes. Many businesses convert an approved quotation into an invoice with the same items and pricing."},{q:"Which comes first?",a:"The quotation usually comes first, followed by the invoice after approval or completion."}]} />
-      <RelatedTools />
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Invoice vs Quotation"
+      description="Understand the difference between an invoice and a quotation, when to use each document, and how they fit into one workflow."
+      path="/invoice-vs-quotation"
+      category="Comparison"
+      ctaLabel="Open quotation generator"
+      ctaHref="/quotation-generator"
+      secondaryLabel="Compare with invoice generator"
+      secondaryHref="/invoice-generator"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Key difference at a glance", "paragraphs": ["Invoice vs Quotation are related business topics, but they are not used at the same stage of the workflow.", "This page helps users understand the timing, purpose, and expected content of each document so they can choose the right one."]}, {"title": "What to compare", "bullets": ["Purpose of the document", "When it is issued or shared", "What action the recipient should take next", "Which details must stay consistent across related documents"]}, {"title": "Common mistakes to avoid", "bullets": ["Sending the wrong document for the current stage of work.", "Leaving out dates, totals, or reference numbers that connect documents together.", "Using inconsistent terminology that confuses clients or internal teams."]}]
+      faqs=[{"q": "Why does invoice vs quotation matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related quotation pages"
+      trackerTitle="Invoice vs Quotation"
+    />
   );
 }

@@ -1,29 +1,27 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import ShareBar from "@/components/ShareBar";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  alternates: { canonical: "/estimate-vs-quotation" },
   title: "Estimate vs Quotation (Key Differences)",
   description: "Learn the difference between an estimate and a quotation in business.",
+  alternates: { canonical: "/estimate-vs-quotation" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-      <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-        <h1 className="text-3xl font-extrabold tracking-tight">Estimate vs Quotation (Key Differences)</h1>
-        <p className="mt-4 text-slate-600">Learn the difference between an estimate and a quotation in business.</p>
-        <p className='mt-6 text-slate-600'>An estimate is approximate; a quotation is fixed and binding.</p>
-        <div className="mt-8">
-          <a href="/invoice-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-            Create Invoice PDF →
-          </a>
-        </div>
-        <ShareBar title="Estimate vs Quotation (Key Differences)" path="/estimate-vs-quotation" description="Learn the difference between an estimate and a quotation in business." />
-      </article>
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Estimate vs Quotation (Key Differences)"
+      description="Learn the difference between an estimate and a quotation in business."
+      path="/estimate-vs-quotation"
+      category="Comparison"
+      ctaLabel="Open quotation generator"
+      ctaHref="/quotation-generator"
+      secondaryLabel="Compare with invoice generator"
+      secondaryHref="/invoice-generator"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Key difference at a glance", "paragraphs": ["Estimate vs Quotation (Key Differences) are related business topics, but they are not used at the same stage of the workflow.", "This page helps users understand the timing, purpose, and expected content of each document so they can choose the right one."]}, {"title": "What to compare", "bullets": ["Purpose of the document", "When it is issued or shared", "What action the recipient should take next", "Which details must stay consistent across related documents"]}, {"title": "Common mistakes to avoid", "bullets": ["Sending the wrong document for the current stage of work.", "Leaving out dates, totals, or reference numbers that connect documents together.", "Using inconsistent terminology that confuses clients or internal teams."]}]
+      faqs=[{"q": "Why does estimate vs quotation (key differences) matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related quotation pages"
+      trackerTitle="Estimate vs Quotation (Key Differences)"
+    />
   );
 }

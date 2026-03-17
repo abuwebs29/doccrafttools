@@ -1,67 +1,27 @@
-    import SiteNav from "@/components/SiteNav";
-    import SiteFooter from "@/components/SiteFooter";
-    import ShareBar from "@/components/ShareBar";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
-    export const metadata = {
+export const metadata = {
+  title: "Invoice Number Format (Examples + Best Practices)",
+  description: "Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses.",
   alternates: { canonical: "/invoice-number-format" },
-      title: "Invoice Number Format (Examples + Best Practices)",
-      description: "Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses.",
-    };
+};
 
-    export default function Page() {
-      return (
-        <main className="mx-auto max-w-4xl px-4 py-10">
-          <SiteNav />
-
-          <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <h1 className="text-3xl font-extrabold tracking-tight">Invoice Number Format (Examples + Best Practices)</h1>
-            <p className="mt-4 text-slate-600">Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses.</p>
-
-            <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-slate-700">Quick action:</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <a
-                  href="/invoice-generator"
-                  className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-                >
-                  Create Invoice PDF →
-                </a>
-              </div>
-            </div>
-
-
-        <h2 className="mt-10 text-xl font-semibold">Examples</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-600">
-<li>001, 002, 003…</li>
-<li>INV-2026-001</li>
-<li>INV-2026-02-001</li>
-<li>INV-ABU-001</li>
-</ul>
-
-        <h2 className="mt-10 text-xl font-semibold">Best practices</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-600">
-<li>Keep numbers unique</li><li>Use a prefix like INV</li><li>Use leading zeros for sorting</li>
-</ul>
-
-        <h2 className="mt-10 text-xl font-semibold">FAQ</h2>
-        <div className="mt-4 space-y-4">
-<div className="rounded-xl border border-slate-200 p-5"><h3 className="font-semibold">Can I start at 100?</h3><p className="mt-2 text-slate-600">Yes—many businesses start at 100 or 1000.</p></div>
-</div>
-
-
-            <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-5">
-              <h2 className="text-lg font-semibold">Related pages</h2>
-              <div className="mt-3 grid gap-2 text-sm">
-                <a className="font-semibold text-slate-900 hover:underline" href="/invoice-payment-terms-explained">Invoice Payment Terms →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/tax-invoice-template">Tax Invoice Template →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/commercial-invoice-template">Commercial Invoice Template →</a>
-              </div>
-            </div>
-
-            <ShareBar title="Invoice Number Format (Examples + Best Practices)" path="/invoice-number-format" description="Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses." />
-          </article>
-
-          <SiteFooter />
-        </main>
-      );
-    }
+export default function Page() {
+  return (
+    <ArticleLandingPage
+      title="Invoice Number Format (Examples + Best Practices)"
+      description="Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses."
+      path="/invoice-number-format"
+      category="Format guide"
+      ctaLabel="Open invoice generator"
+      ctaHref="/invoice-generator"
+      secondaryLabel="Browse invoice templates"
+      secondaryHref="/invoice-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Why format matters", "paragraphs": ["A practical invoice format improves clarity, speeds up review, and helps reduce disputes about totals, dates, or responsibilities.", "This page explains the structure that makes the document easier to read and more consistent across repeated use."]}, {"title": "Recommended invoice structure", "bullets": ["Business name and contact details", "Client billing details", "Invoice number and issue date", "Due date and payment terms", "Line items, taxes, discounts, and total"]}, {"title": "Best practices", "bullets": ["Use clear labels and simple wording.", "Keep dates, numbers, and references consistent.", "Review local tax or compliance requirements when relevant."]}]
+      faqs=[{"q": "Why does invoice number format (examples + best practices) matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related invoice pages"
+      trackerTitle="Invoice Number Format (Examples + Best Practices)"
+    />
+  );
+}

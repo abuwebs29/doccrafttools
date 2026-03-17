@@ -1,6 +1,4 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import RelatedTools from "@/components/RelatedTools";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Invoice for Consultants",
@@ -10,16 +8,20 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
-      <SiteNav />
-      <h1 className="text-3xl font-extrabold tracking-tight">Invoice for Consultants</h1>
-      <p className="mt-2 max-w-3xl text-slate-600">Consultant invoices should explain deliverables, workshop dates, retainers, and professional fees in a way finance teams can approve quickly.</p>
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Recommended sections</h2>
-        <p className="mt-3 text-sm leading-6 text-slate-700">Include scope summary, period covered, line-item billing, taxes, and payment instructions. If you bill monthly, use the same numbering system every month.</p>
-      </section>
-      <RelatedTools />
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Invoice for Consultants"
+      description="Use a consultant invoice format that clearly explains advisory services, retainers, and milestones."
+      path="/invoice-for-consultants"
+      category="Guide"
+      ctaLabel="Open invoice generator"
+      ctaHref="/invoice-generator"
+      secondaryLabel="Browse invoice templates"
+      secondaryHref="/invoice-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "What this page covers", "paragraphs": ["This page is designed to answer common questions about invoice for consultants and guide the user toward the right document workflow.", "It works best when paired with the related invoice generator or template page so readers can move from explanation to action immediately."]}, {"title": "Key points to keep in mind", "bullets": ["Use consistent document titles and numbering.", "Include the parties, dates, amounts, and references that matter most.", "Link educational pages to practical tools so users can act on what they just learned."]}, {"title": "Next action", "paragraphs": ["Once you understand the basics, open the related invoice page to generate a ready-to-use version online."]}]
+      faqs=[{"q": "Why does invoice for consultants matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related invoice pages"
+      trackerTitle="Invoice for Consultants"
+    />
   );
 }

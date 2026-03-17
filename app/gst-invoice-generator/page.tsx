@@ -1,62 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import TemplateEngine from "@/components/TemplateEngine";
-import ToolSeoBlock from "@/components/ToolSeoBlock";
-import ShareBar from "@/components/ShareBar";
-import EmbedCodeBlock from "@/components/EmbedCodeBlock";
-import RecentTracker from "@/components/RecentTracker";
-import { templates } from "@/lib/templates";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Free GST Invoice Generator (India)",
-  description:
-    "Create a GST invoice online for India and download a printable PDF. Add tax percentage, line items, and business details instantly.",
-  alternates: {
-    canonical: "/gst-invoice-generator",
-  },
+  description: "Create a GST invoice online for India and download a printable PDF. Add tax percentage, line items, and business details instantly.",
+  alternates: { canonical: "/gst-invoice-generator" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
-      <RecentTracker title="Free GST Invoice Generator (India)" href="/gst-invoice-generator" type="Tool" />
-      <SiteNav />
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free GST Invoice Generator (India)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Create a GST invoice online for India and download a printable PDF in seconds.
-        </p>
-      </header>
-
-      <TemplateEngine template={templates.invoice} initialCurrencyCode="INR" />
-
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">What is a GST invoice?</h2>
-        <p className="mt-3 text-slate-600">
-          A GST invoice is commonly used in India to bill customers while showing the applicable tax percentage and total amount due.
-        </p>
-        <p className="mt-3 text-slate-600">
-          Use this page when you want to create an invoice in INR and export it as a clean PDF for freelance work, services, or small business billing.
-        </p>
-      </section>
-
-      <ShareBar title="Free GST Invoice Generator (India)" path="/gst-invoice-generator" description="Create a GST invoice online for India and download a printable PDF." />
-      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
-      <ToolSeoBlock toolId="invoice" />
-      <SiteFooter />
-    
-
-// PHASE10_SEO_BLOCK
-<section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-<h2 className="text-xl font-semibold">Why use this template?</h2>
-<p className="mt-3 text-slate-600">
-A professional document template helps freelancers and businesses create clear financial records.
-DocCraft Tools lets you generate clean PDFs instantly, customize line items, add taxes,
-and export invoices or receipts quickly without complex accounting software.
-</p>
-</section>
-
-</main>
+    <ToolLandingPage
+      title="Free GST Invoice Generator (India)"
+      description="Create a GST invoice online for India and download a printable PDF. Add tax percentage, line items, and business details instantly."
+      path="/gst-invoice-generator"
+      templateId="invoice"
+      toolId="invoice"
+      toolName="Free GST Invoice Generator (India)"
+      embedPath="/embed/invoice"
+      trackerTitle="GST Invoice Generator"
+      introTitle="What this invoice page helps you do"
+      introParagraphs=["This invoice page is built for users who want a faster way to create consistent documents without starting from a blank file.", "Use it to customize business details, add the right fields, and generate a professional invoice that is ready to download and share."]
+      includeTitle="What to include in a invoice"
+      includeItems=["Business name and contact details", "Client billing details", "Invoice number and issue date", "Due date and payment terms", "Line items, taxes, discounts, and total"]
+      useCasesTitle="Who should use this invoice page"
+      useCases=[{"title": "Freelancers", "text": "Bill project work, retainers, and hourly services with a consistent invoice structure."}, {"title": "Consultants", "text": "Show service descriptions, rates, taxes, and payment terms clearly for every client."}, {"title": "Agencies", "text": "Use a polished layout for itemized services, campaign work, and multi-line projects."}, {"title": "Small businesses", "text": "Standardize billing for products, services, and recurring customer accounts."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional invoice without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common invoice questions on the same page."]
+      faqs=[{"q": "What is a invoice?", "a": "A invoice is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this invoice page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this invoice?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related invoice pages"
+    />
   );
 }

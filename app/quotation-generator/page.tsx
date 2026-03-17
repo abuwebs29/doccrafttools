@@ -1,59 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import TemplateEngine from "@/components/TemplateEngine";
-import ToolSeoBlock from "@/components/ToolSeoBlock";
-import ShareBar from "@/components/ShareBar";
-import EmbedCodeBlock from "@/components/EmbedCodeBlock";
-import RecentTracker from "@/components/RecentTracker";
-import RelatedTools from "@/components/RelatedTools";
-import PageFaq from "@/components/PageFaq";
-import { templates } from "@/lib/templates";
-import { toolSchema } from "@/lib/schemaRegistry";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
+  title: "Quotation Generator",
+  description: "Create a professional quotation online, customize the details, and export a clean version in minutes.",
   alternates: { canonical: "/quotation-generator" },
-  title: toolSchema.quotation.title,
-  description: toolSchema.quotation.description,
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
-      <RecentTracker title="Quotation Generator" href="/quotation-generator" type="Tool" />
-      <SiteNav />
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free Quotation / Estimate Generator (PDF)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Create a quotation PDF with items, optional tax, validity date and notes.
-        </p>
-      </header>
-
-      <TemplateEngine template={templates.quotation} />
-
-      <ShareBar title="Free Quotation / Estimate Generator (PDF)" path="/quotation-generator" description="Generate and download a clean PDF instantly — no login." />
-      <EmbedCodeBlock toolName="Quotation Generator" embedPath="/embed/quotation" />
-
-      <section className="mt-8 grid gap-6 lg:grid-cols-2">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold">What a quotation should include</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-            <li>Customer details and quotation number</li>
-            <li>Item or service descriptions with pricing</li>
-            <li>Validity date and optional tax</li>
-            <li>Approval terms and notes</li>
-          </ul>
-        </div>
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold">Why quotation pages drive traffic</h2>
-          <p className="mt-3 text-sm leading-6 text-slate-700">Comparison pages, samples, and format guides help users understand when to quote and when to invoice. That makes the main generator page stronger and easier to rank.</p>
-        </div>
-      </section>
-
-      <ToolSeoBlock toolId="quotation" />
-      <PageFaq items={[{q:"What is the difference between a quotation and an invoice?",a:"A quotation proposes pricing before approval. An invoice requests payment after approval or delivery."},{q:"Can a quotation become an invoice?",a:"Yes. Many businesses convert accepted quotations into invoices with the same line items and totals."}]} />
-      <RelatedTools title="Related quotation, invoice, and receipt pages" />
-      <SiteFooter />
-    </main>
+    <ToolLandingPage
+      title="Quotation Generator"
+      description="Create a professional quotation online, customize the details, and export a clean version in minutes."
+      path="/quotation-generator"
+      templateId="quotation"
+      toolId="quotation"
+      toolName="Quotation Generator"
+      embedPath="/embed/quotation"
+      trackerTitle="Quotation Generator"
+      introTitle="What this quotation page helps you do"
+      introParagraphs=["This quotation page is built for users who want a faster way to create consistent documents without starting from a blank file.", "Use it to customize business details, add the right fields, and generate a professional quotation that is ready to download and share."]
+      includeTitle="What to include in a quotation"
+      includeItems=["Quotation number and date", "Business and customer details", "Item descriptions and pricing", "Validity date and optional tax", "Approval notes or payment expectations"]
+      useCasesTitle="Who should use this quotation page"
+      useCases=[{"title": "Freelancers", "text": "Send estimates before work starts and convert approved quotes into invoices later."}, {"title": "Consultants", "text": "Share clear pricing, scope, timelines, and validity dates with new prospects."}, {"title": "Agencies", "text": "Present branded proposals for project, retainer, or campaign-based work."}, {"title": "Service businesses", "text": "Standardize quote requests and keep approvals organized."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional quotation without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common quotation questions on the same page."]
+      faqs=[{"q": "What is a quotation?", "a": "A quotation is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this quotation page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this quotation?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related quotation pages"
+    />
   );
 }

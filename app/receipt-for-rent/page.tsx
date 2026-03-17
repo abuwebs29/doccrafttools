@@ -1,6 +1,4 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import RelatedTools from "@/components/RelatedTools";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Receipt for Rent",
@@ -10,21 +8,20 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
-      <SiteNav />
-      <h1 className="text-3xl font-extrabold tracking-tight">Receipt for Rent</h1>
-      <p className="mt-2 max-w-3xl text-slate-600">A rent receipt confirms that the landlord or property manager received a rental payment for a specific period.</p>
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Include these fields</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-          <li>Tenant and landlord name</li>
-          <li>Property address</li>
-          <li>Rental period covered</li>
-          <li>Amount paid and payment method</li>
-        </ul>
-      </section>
-      <RelatedTools />
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Receipt for Rent"
+      description="Make a rent receipt with tenant name, property details, rental period, payment date, and amount received."
+      path="/receipt-for-rent"
+      category="Guide"
+      ctaLabel="Open receipt generator"
+      ctaHref="/receipt-generator"
+      secondaryLabel="Browse receipt templates"
+      secondaryHref="/receipt-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "What this page covers", "paragraphs": ["This page is designed to answer common questions about receipt for rent and guide the user toward the right document workflow.", "It works best when paired with the related receipt generator or template page so readers can move from explanation to action immediately."]}, {"title": "Key points to keep in mind", "bullets": ["Use consistent document titles and numbering.", "Include the parties, dates, amounts, and references that matter most.", "Link educational pages to practical tools so users can act on what they just learned."]}, {"title": "Next action", "paragraphs": ["Once you understand the basics, open the related receipt page to generate a ready-to-use version online."]}]
+      faqs=[{"q": "Why does receipt for rent matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related receipt pages"
+      trackerTitle="Receipt for Rent"
+    />
   );
 }

@@ -1,29 +1,27 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import ShareBar from "@/components/ShareBar";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  alternates: { canonical: "/delivery-note-vs-invoice" },
   title: "Delivery Note vs Invoice (Clear Comparison)",
   description: "Understand the difference between delivery notes and invoices.",
+  alternates: { canonical: "/delivery-note-vs-invoice" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-      <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-        <h1 className="text-3xl font-extrabold tracking-tight">Delivery Note vs Invoice (Clear Comparison)</h1>
-        <p className="mt-4 text-slate-600">Understand the difference between delivery notes and invoices.</p>
-        <p className='mt-6 text-slate-600'>A delivery note confirms goods delivered, while an invoice requests payment.</p>
-        <div className="mt-8">
-          <a href="/invoice-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-            Create Invoice PDF →
-          </a>
-        </div>
-        <ShareBar title="Delivery Note vs Invoice (Clear Comparison)" path="/delivery-note-vs-invoice" description="Understand the difference between delivery notes and invoices." />
-      </article>
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="Delivery Note vs Invoice (Clear Comparison)"
+      description="Understand the difference between delivery notes and invoices."
+      path="/delivery-note-vs-invoice"
+      category="Comparison"
+      ctaLabel="Open delivery note generator"
+      ctaHref="/delivery-note-generator"
+      secondaryLabel="See invoice generator"
+      secondaryHref="/invoice-generator"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Key difference at a glance", "paragraphs": ["Delivery Note vs Invoice (Clear Comparison) are related business topics, but they are not used at the same stage of the workflow.", "This page helps users understand the timing, purpose, and expected content of each document so they can choose the right one."]}, {"title": "What to compare", "bullets": ["Purpose of the document", "When it is issued or shared", "What action the recipient should take next", "Which details must stay consistent across related documents"]}, {"title": "Common mistakes to avoid", "bullets": ["Sending the wrong document for the current stage of work.", "Leaving out dates, totals, or reference numbers that connect documents together.", "Using inconsistent terminology that confuses clients or internal teams."]}]
+      faqs=[{"q": "Why does delivery note vs invoice (clear comparison) matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related delivery note pages"
+      trackerTitle="Delivery Note vs Invoice (Clear Comparison)"
+    />
   );
 }

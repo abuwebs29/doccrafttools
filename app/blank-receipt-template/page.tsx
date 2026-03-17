@@ -1,99 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import ShareBar from "@/components/ShareBar";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  alternates: { canonical: "/blank-receipt-template" },
   title: "Blank Receipt Template (Free Printable PDF)",
-  description:
-    "Download a blank receipt template PDF. Create and print a simple receipt with payer name, amount, date and signature instantly.",
+  description: "Download a blank receipt template PDF. Create and print a simple receipt with payer name, amount, date and signature instantly.",
+  alternates: { canonical: "/blank-receipt-template" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-
-      <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-        <h1 className="text-3xl font-extrabold tracking-tight">
-          Blank Receipt Template
-        </h1>
-
-        <p className="mt-4 text-slate-600">
-          A blank receipt template is a simple document used to confirm
-          payment received. It can be printed and filled manually or
-          generated digitally as a PDF.
-        </p>
-
-        <h2 className="mt-8 text-xl font-semibold">
-          What to include in a blank receipt
-        </h2>
-
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-600">
-          <li>Receipt number</li>
-          <li>Date of payment</li>
-          <li>Name of payer</li>
-          <li>Amount received</li>
-          <li>Payment method (cash, transfer, card)</li>
-          <li>Signature of issuer</li>
-        </ul>
-
-        <h2 className="mt-8 text-xl font-semibold">
-          When to use a blank receipt
-        </h2>
-
-        <p className="mt-3 text-slate-600">
-          Blank receipts are commonly used by small businesses,
-          freelancers, landlords and service providers who need a quick
-          proof of payment document.
-        </p>
-
-        <div className="mt-8">
-          <a
-            href="/receipt-generator"
-            className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-          >
-            Generate Blank Receipt PDF →
-          </a>
-        </div>
-
-        <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
-          <h2 className="text-lg font-semibold">
-            Related Templates
-          </h2>
-
-          <div className="mt-3 grid gap-2 text-sm">
-            <a
-              className="font-semibold text-slate-900 hover:underline"
-              href="/receipt-template-pdf"
-            >
-              Receipt Template PDF →
-            </a>
-
-            <a
-              className="font-semibold text-slate-900 hover:underline"
-              href="/cash-receipt-template"
-            >
-              Cash Receipt Template →
-            </a>
-
-            <a
-              className="font-semibold text-slate-900 hover:underline"
-              href="/rent-receipt-template"
-            >
-              Rent Receipt Template →
-            </a>
-          </div>
-        </div>
-
-        <ShareBar
-          title="Blank Receipt Template"
-          path="/blank-receipt-template"
-          description="Free printable blank receipt PDF template."
-        />
-      </article>
-
-      <SiteFooter />
-    </main>
+    <ToolLandingPage
+      title="Blank Receipt Template (Free Printable PDF)"
+      description="Download a blank receipt template PDF. Create and print a simple receipt with payer name, amount, date and signature instantly."
+      path="/blank-receipt-template"
+      templateId="receipt"
+      toolId="receipt"
+      toolName="Blank Receipt Template (Free Printable PDF)"
+      embedPath="/embed/receipt"
+      trackerTitle="Blank Receipt Template"
+      introTitle="What this receipt page helps you do"
+      introParagraphs=["A good receipt template gives you a reusable structure for dates, parties, amounts, and supporting details so each document stays consistent.", "This page combines a ready-made receipt layout with online editing so you can move from draft to finished export faster."]
+      includeTitle="What to include in a receipt"
+      includeItems=["Receipt number and payment date", "Payer and receiver details", "Amount paid and payment method", "Purpose of payment", "Optional notes or signature"]
+      useCasesTitle="Who should use this receipt page"
+      useCases=[{"title": "Retail and service businesses", "text": "Confirm payment quickly with a clear receipt that is easy to share or print."}, {"title": "Landlords and property managers", "text": "Track rent or deposit payments with a repeatable proof-of-payment format."}, {"title": "Freelancers", "text": "Issue receipts after payment for one-time projects, deposits, and final balances."}, {"title": "Small teams", "text": "Keep internal records clean with consistent payer, date, amount, and method fields."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional receipt without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common receipt questions on the same page."]
+      faqs=[{"q": "What is a receipt?", "a": "A receipt is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this receipt page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this receipt?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related receipt pages"
+    />
   );
 }

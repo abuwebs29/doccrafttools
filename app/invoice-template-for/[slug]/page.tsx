@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import SiteFooter from "@/components/SiteFooter";
-import SiteNav from "@/components/SiteNav";
-import RelatedTools from "@/components/RelatedTools";
-import PageFaq from "@/components/PageFaq";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 import { invoiceUseCaseSlugs, titleFromSlug } from "@/lib/programmaticSeo";
 
 export function generateStaticParams() {
@@ -14,50 +10,35 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const title = titleFromSlug(params.slug);
   return {
     title: `Invoice Template for ${title}`,
-    description: `Use a free invoice template built for ${title.toLowerCase()}. Learn what to include, how to bill clearly, and when to use the generator instead of a static template.`,
+    description: `Use a free invoice template for ${title.toLowerCase()} work. Learn what to include, when to send it, and how to move from template to finished invoice faster.`,
     alternates: { canonical: `/invoice-template-for/${params.slug}` },
   };
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
   const title = titleFromSlug(params.slug);
-
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
-      <SiteNav />
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Invoice Template for {title}</h1>
-        <p className="mt-2 max-w-3xl text-slate-600">
-          Use this free invoice template designed for {title.toLowerCase()}. It gives you a clean structure for billing clients, defining payment terms, and keeping records organized.
-        </p>
-      </header>
-
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">What to include</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-          <li>Your business details, client details, and invoice number</li>
-          <li>A clear description of the work or deliverable</li>
-          <li>Rates, quantities, taxes, and payment due date</li>
-          <li>Accepted payment methods and any late-payment policy</li>
-        </ul>
-        <h2 className="mt-6 text-xl font-semibold">When a template works best</h2>
-        <p className="mt-3 text-sm leading-6 text-slate-700">
-          A reusable template is ideal when you send similar invoices regularly. If you want automatic totals, cleaner branding, and instant PDF export, use the online invoice generator.
-        </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/invoice-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white">Create invoice online</Link>
-          <Link href="/invoice-template" className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900">View all invoice templates</Link>
-        </div>
-      </section>
-
-      <PageFaq
-        items={[
-          { q: `Can I use this invoice template for ${title.toLowerCase()} work?`, a: `Yes. The structure works for ${title.toLowerCase()} billing as long as you customize the service description, pricing, and payment terms.` },
-          { q: "Should I use a template or a generator?", a: "Use a template if you need a static layout. Use the generator if you want automatic totals, easier edits, and instant PDF downloads." },
-        ]}
-      />
-      <RelatedTools />
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title={`Invoice Template for ${title}`}
+      description={`Use this page to understand what a strong invoice template for ${title.toLowerCase()} should include and how to keep billing clear, consistent, and easy to approve.`}
+      path={`/invoice-template-for/${params.slug}`}
+      category="Use-case template"
+      ctaLabel="Open invoice generator"
+      ctaHref="/invoice-generator"
+      secondaryLabel="Browse invoice templates"
+      secondaryHref="/invoice-template"
+      highlights={["Use-case focused", "Template guidance", "Generator linked"]}
+      sections={[
+        { title: "What to include", bullets: ["Business and client details", "Invoice number, issue date, and due date", `A clear description of the ${title.toLowerCase()} work or deliverable`, "Rates, taxes, totals, and payment terms"] },
+        { title: "Why this use-case page matters", paragraphs: [`Templates for ${title.toLowerCase()} work should speak directly to the service, scope, and payment expectations involved.`, "That makes the page more useful than a generic invoice page and helps users understand exactly how to adapt the structure to their business."] },
+        { title: "Best next step", paragraphs: ["Review the structure here, then use the main invoice generator if you want automatic totals, cleaner formatting, and a faster export workflow."] },
+      ]}
+      faqs={[
+        { q: `Can I use this page for ${title.toLowerCase()} billing?`, a: "Yes. Customize the service description, payment terms, and references to match the actual work being billed." },
+        { q: "Should I use a template or the generator?", a: "Use the template for a reusable structure. Use the generator when you want faster edits, automatic totals, and a cleaner finished document." },
+      ]}
+      relatedTitle="Related invoice use-case pages"
+      trackerTitle={`Invoice Template for ${title}`}
+    />
   );
 }

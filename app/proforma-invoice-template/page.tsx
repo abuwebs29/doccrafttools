@@ -1,43 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import ShareBar from "@/components/ShareBar";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  alternates: { canonical: "/proforma-invoice-template" },
   title: "Proforma Invoice Template (Free PDF Generator)",
-  description:
-    "Create a proforma invoice template for advance billing or quotations. Download as PDF instantly.",
+  description: "Create a proforma invoice template for advance billing or quotations. Download as PDF instantly.",
+  alternates: { canonical: "/proforma-invoice-template" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-      <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-        <h1 className="text-3xl font-extrabold tracking-tight">
-          Proforma Invoice Template
-        </h1>
-
-        <p className="mt-4 text-slate-600">
-          A proforma invoice is issued before final sale. It outlines estimated costs and terms.
-        </p>
-
-        <div className="mt-8">
-          <a
-            href="/invoice-generator"
-            className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-          >
-            Generate Proforma Invoice →
-          </a>
-        </div>
-
-        <ShareBar
-          title="Proforma Invoice Template"
-          path="/proforma-invoice-template"
-          description="Free proforma invoice PDF generator."
-        />
-      </article>
-      <SiteFooter />
-    </main>
+    <ToolLandingPage
+      title="Proforma Invoice Template (Free PDF Generator)"
+      description="Create a proforma invoice template for advance billing or quotations. Download as PDF instantly."
+      path="/proforma-invoice-template"
+      templateId="invoice"
+      toolId="invoice"
+      toolName="Proforma Invoice Template (Free PDF Generator)"
+      embedPath="/embed/invoice"
+      trackerTitle="Proforma Invoice Template"
+      introTitle="What this invoice page helps you do"
+      introParagraphs=["A good invoice template gives you a reusable structure for dates, parties, amounts, and supporting details so each document stays consistent.", "This page combines a ready-made invoice layout with online editing so you can move from draft to finished export faster."]
+      includeTitle="What to include in a invoice"
+      includeItems=["Business name and contact details", "Client billing details", "Invoice number and issue date", "Due date and payment terms", "Line items, taxes, discounts, and total"]
+      useCasesTitle="Who should use this invoice page"
+      useCases=[{"title": "Freelancers", "text": "Bill project work, retainers, and hourly services with a consistent invoice structure."}, {"title": "Consultants", "text": "Show service descriptions, rates, taxes, and payment terms clearly for every client."}, {"title": "Agencies", "text": "Use a polished layout for itemized services, campaign work, and multi-line projects."}, {"title": "Small businesses", "text": "Standardize billing for products, services, and recurring customer accounts."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional invoice without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common invoice questions on the same page."]
+      faqs=[{"q": "What is a invoice?", "a": "A invoice is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this invoice page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this invoice?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related invoice pages"
+    />
   );
 }

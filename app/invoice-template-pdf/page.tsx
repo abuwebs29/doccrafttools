@@ -1,43 +1,32 @@
-    import SiteNav from "@/components/SiteNav";
-    import SiteFooter from "@/components/SiteFooter";
-    import RecentTracker from "@/components/RecentTracker";
-    import ShareBar from "@/components/ShareBar";
-    import JsonLd from "@/components/JsonLd";
-    import { buildBreadcrumbsJsonLd, guideCrumbs } from "@/lib/breadcrumbs";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
-    export const metadata = {
+export const metadata = {
+  title: "Invoice Template PDF",
+  description: "Use this invoice template PDF generator to create invoices with items, tax, notes and logo \u2014 instantly.",
   alternates: { canonical: "/invoice-template-pdf" },
-      title: "Invoice Template PDF",
-      description: "Use this invoice template PDF generator to create invoices with items, tax, notes and logo — instantly.",
-    };
+};
 
-    export default function Page() {
-      return (
-        <main className="mx-auto max-w-4xl px-4 py-10">
-          <RecentTracker title="Invoice Template PDF" href="/invoice-template-pdf" type="Guide" />
-          <JsonLd data={buildBreadcrumbsJsonLd(guideCrumbs("Invoice Template PDF", "/invoice-template-pdf"))} />
-          <SiteNav />
-
-          <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <h1 className="text-3xl font-extrabold tracking-tight">Invoice Template PDF</h1>
-            <p className="mt-3 text-slate-600">Use this invoice template PDF generator to create invoices with items, tax, notes and logo — instantly.</p>
-
-            <p className="mt-4 text-slate-600">Instead of downloading a static template, generate a clean invoice PDF by filling a simple form.</p>
-<p className="mt-4 text-slate-600">This helps you avoid formatting issues and ensures totals are calculated correctly.</p>
-
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <h2 className="text-lg font-semibold">Quick links</h2>
-              <div className="mt-3 grid gap-2 text-sm">
-                <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Open Invoice Generator →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/invoice-format">Invoice format guide →</a>
-<a className="font-semibold text-slate-900 hover:underline" href="/pdf-templates">All templates →</a>
-              </div>
-            </div>
-
-            <ShareBar title="Invoice Template PDF" path="/invoice-template-pdf" description="Use this invoice template PDF generator to create invoices with items, tax, notes and logo — instantly." />
-          </article>
-
-          <SiteFooter />
-        </main>
-      );
-    }
+export default function Page() {
+  return (
+    <ToolLandingPage
+      title="Invoice Template PDF"
+      description="Use this invoice template PDF generator to create invoices with items, tax, notes and logo \u2014 instantly."
+      path="/invoice-template-pdf"
+      templateId="invoice"
+      toolId="invoice"
+      toolName="Invoice Template PDF"
+      embedPath="/embed/invoice"
+      trackerTitle="Invoice Template PDF"
+      introTitle="What this invoice page helps you do"
+      introParagraphs=["A good invoice template gives you a reusable structure for dates, parties, amounts, and supporting details so each document stays consistent.", "This page combines a ready-made invoice layout with online editing so you can move from draft to finished export faster."]
+      includeTitle="What to include in a invoice"
+      includeItems=["Business name and contact details", "Client billing details", "Invoice number and issue date", "Due date and payment terms", "Line items, taxes, discounts, and total"]
+      useCasesTitle="Who should use this invoice page"
+      useCases=[{"title": "Freelancers", "text": "Bill project work, retainers, and hourly services with a consistent invoice structure."}, {"title": "Consultants", "text": "Show service descriptions, rates, taxes, and payment terms clearly for every client."}, {"title": "Agencies", "text": "Use a polished layout for itemized services, campaign work, and multi-line projects."}, {"title": "Small businesses", "text": "Standardize billing for products, services, and recurring customer accounts."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional invoice without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common invoice questions on the same page."]
+      faqs=[{"q": "What is a invoice?", "a": "A invoice is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this invoice page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this invoice?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related invoice pages"
+    />
+  );
+}

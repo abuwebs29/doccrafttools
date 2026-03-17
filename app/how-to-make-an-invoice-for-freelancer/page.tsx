@@ -1,88 +1,27 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import ShareBar from "@/components/ShareBar";
+import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
+  title: "How to Make an Invoice as a Freelancer (Step\u2011by\u2011Step)",
+  description: "Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy\u2011paste wording.",
   alternates: { canonical: "/how-to-make-an-invoice-for-freelancer" },
-  title: "How to Make an Invoice as a Freelancer (Step‑by‑Step)",
-  description: "Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy‑paste wording.",
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <SiteNav />
-      <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-        <h1 className="text-3xl font-extrabold tracking-tight">How to Make an Invoice as a Freelancer (Step‑by‑Step)</h1>
-        <p className="mt-4 text-slate-600">Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy‑paste wording.</p>
-
-        <section className="mt-8">
-          <h2 className="text-xl font-bold">Freelancer invoice checklist</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
-            <li>Your name/business name + contact details</li>
-            <li>Client name + billing address</li>
-            <li>Invoice number (unique) + invoice date</li>
-            <li>Services list, hours/quantity, and rates</li>
-            <li>Due date + payment terms</li>
-            <li>Payment method (bank transfer, card, etc.)</li>
-          </ul>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-xl font-bold">Copy‑paste payment line</h2>
-          <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
-            Payment is due within 15 days of the invoice date. Thank you!
-          </div>
-          <p className="mt-3 text-sm text-slate-600">
-            More options:{" "}
-            <a className="font-semibold text-slate-900 hover:underline" href="/invoice-due-date-wording">invoice due date wording</a>.
-          </p>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-xl font-bold">Avoid these common mistakes</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
-            <li>Missing invoice number or due date</li>
-            <li>Vague service descriptions</li>
-            <li>No payment method instructions</li>
-            <li>Not sending a PDF (harder to track)</li>
-          </ul>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-xl font-bold">Quick start</h2>
-          <p className="mt-3 text-slate-700">
-            If you want the fastest way, open the generator and fill in your details—then download your PDF.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <a href="/invoice-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-              Create Freelancer Invoice →
-            </a>
-            <a href="/invoice-number-format" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
-              Pick an Invoice Number Format →
-            </a>
-          </div>
-        </section>
-
-
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-          <div className="text-sm font-semibold text-slate-900">Create a PDF in seconds</div>
-          <p className="mt-2 text-sm text-slate-600">
-            No signup. No watermark. Download instantly.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <a href="/invoice-generator" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-              Open Invoice Generator →
-            </a>
-            <a href="/receipt-generator" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
-              Open Receipt Generator →
-            </a>
-          </div>
-        </div>
-
-        <ShareBar title="How to Make an Invoice as a Freelancer (Step‑by‑Step)" path="/how-to-make-an-invoice-for-freelancer" description="Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy‑paste wording." />
-      </article>
-      <SiteFooter />
-    </main>
+    <ArticleLandingPage
+      title="How to Make an Invoice as a Freelancer (Step\u2011by\u2011Step)"
+      description="Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy\u2011paste wording."
+      path="/how-to-make-an-invoice-for-freelancer"
+      category="How-to guide"
+      ctaLabel="Open invoice generator"
+      ctaHref="/invoice-generator"
+      secondaryLabel="Browse invoice templates"
+      secondaryHref="/invoice-template"
+      highlights=['Clear structure', 'Practical explanation', 'Related tools linked']
+      sections=[{"title": "Start with the purpose", "paragraphs": ["This guide explains how to handle how to make an invoice as a freelancer (step‑by‑step) in a way that is clear for both you and the recipient.", "The best results come from using a consistent structure, clear labels, and wording that makes the next action easy to understand."]}, {"title": "Steps to follow", "bullets": ["Identify the key fields that must appear on the document.", "Use consistent numbering and date formats.", "Review wording, totals, and references before sending or printing.", "Keep a saved copy for accounting and recordkeeping."]}, {"title": "Helpful next step", "paragraphs": ["After reviewing the basics, use the related invoice tool to build a faster and cleaner version online."]}]
+      faqs=[{"q": "Why does how to make an invoice as a freelancer (step‑by‑step) matter?", "a": "It helps users understand when this document or concept should be used and what details need to be included."}, {"q": "Should I use a template or a generator?", "a": "Use a template when you want a reusable layout. Use the generator when you want a faster workflow, easy edits, and cleaner exports."}, {"q": "Can I adapt this for my business?", "a": "Yes. Adjust wording, references, dates, and required fields to match your clients, country, and internal process."}]
+      relatedTitle="Related invoice pages"
+      trackerTitle="How to Make an Invoice as a Freelancer (Step\u2011by\u2011Step)"
+    />
   );
 }

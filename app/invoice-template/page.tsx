@@ -1,58 +1,32 @@
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
-import TemplateEngine from "@/components/TemplateEngine";
-import ToolSeoBlock from "@/components/ToolSeoBlock";
-import ShareBar from "@/components/ShareBar";
-import EmbedCodeBlock from "@/components/EmbedCodeBlock";
-import InternalLinks from "@/components/InternalLinks";
-import DownloadTemplates from "@/components/DownloadTemplates";
-import { templates } from "@/lib/templates";
+import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
   title: "Free Invoice Template (PDF, Excel & Word)",
-  description:
-    "Create a free invoice template online and export it as PDF, Excel, or Word. Fast, clean, and easy for freelancers and businesses.",
+  description: "Create a free invoice template online and export it as PDF, Excel, or Word. Fast, clean, and easy for freelancers and businesses.",
   alternates: { canonical: "/invoice-template" },
 };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
-      <SiteNav />
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Free Invoice Template (PDF, Excel & Word)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Create a free invoice template online and export it as PDF, Excel, or Word. Fast, clean, and easy for freelancers and businesses.
-        </p>
-      </header>
-
-      <TemplateEngine template={templates.invoice} />
-
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">What is an invoice template?</h2>
-        <p className="mt-3 text-slate-600">
-          An invoice template gives you a reusable structure for billing clients. It usually includes your business details, client details, line items, tax, subtotal, and total.
-        </p>
-        <p className="mt-3 text-slate-600">
-          Use this page if you want a quick invoice layout that you can customize and export in multiple formats for different workflows.
-        </p>
-      </section>
-
-      <DownloadTemplates />
-
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Why use this template?</h2>
-        <p className="mt-3 text-slate-600">
-          A professional document template helps freelancers and businesses create clear financial records. DocCraft Tools lets you generate clean PDFs instantly, customize line items, add taxes, and export invoices or receipts quickly without complex accounting software.
-        </p>
-      </section>
-
-      <ShareBar title="Free Invoice Template (PDF, Excel & Word)" path="/invoice-template" description="Create a free invoice template online and export it as PDF, Excel, or Word. Fast, clean, and easy for freelancers and businesses." />
-      <EmbedCodeBlock toolName="Invoice Generator" embedPath="/embed/invoice" />
-      <ToolSeoBlock toolId="invoice" />
-      <InternalLinks currentPath="/invoice-template" />
-      <SiteFooter />
-    </main>
+    <ToolLandingPage
+      title="Free Invoice Template (PDF, Excel & Word)"
+      description="Create a free invoice template online and export it as PDF, Excel, or Word. Fast, clean, and easy for freelancers and businesses."
+      path="/invoice-template"
+      templateId="invoice"
+      toolId="invoice"
+      toolName="Free Invoice Template (PDF, Excel & Word)"
+      embedPath="/embed/invoice"
+      trackerTitle="Invoice Template"
+      introTitle="What this invoice page helps you do"
+      introParagraphs=["A good invoice template gives you a reusable structure for dates, parties, amounts, and supporting details so each document stays consistent.", "This page combines a ready-made invoice layout with online editing so you can move from draft to finished export faster."]
+      includeTitle="What to include in a invoice"
+      includeItems=["Business name and contact details", "Client billing details", "Invoice number and issue date", "Due date and payment terms", "Line items, taxes, discounts, and total"]
+      useCasesTitle="Who should use this invoice page"
+      useCases=[{"title": "Freelancers", "text": "Bill project work, retainers, and hourly services with a consistent invoice structure."}, {"title": "Consultants", "text": "Show service descriptions, rates, taxes, and payment terms clearly for every client."}, {"title": "Agencies", "text": "Use a polished layout for itemized services, campaign work, and multi-line projects."}, {"title": "Small businesses", "text": "Standardize billing for products, services, and recurring customer accounts."}]
+      formatTitle="Why this version is useful"
+      formatParagraphs=["This page supports people who need a clean, professional invoice without complex software or spreadsheet formulas.", "It also helps search intent by combining the practical tool with enough explanatory content to answer common invoice questions on the same page."]
+      faqs=[{"q": "What is a invoice?", "a": "A invoice is a structured business document used to keep payment, pricing, delivery, or rental records clear and consistent."}, {"q": "Who can use this invoice page?", "a": "Freelancers, consultants, small businesses, landlords, and operations teams can all adapt the structure to their workflow."}, {"q": "Can I customize this invoice?", "a": "Yes. You can adjust names, dates, items, taxes, notes, and other key details before exporting the final version."}]
+      relatedTitle="Related invoice pages"
+    />
   );
 }
