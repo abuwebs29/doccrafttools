@@ -1,8 +1,8 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Invoice Format UAE",
-  description: "Review a practical invoice format for UAE businesses, including VAT-aware structure and client-ready fields.",
+  title: "UAE Invoice Format | VAT Fields, TRN Tips & Example",
+  description: "Review a practical UAE invoice format with VAT-aware fields, TRN notes, and a client-ready example for faster billing.",
   alternates: { canonical: "/invoice-format-uae" },
 };
 

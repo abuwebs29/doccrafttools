@@ -1,8 +1,8 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Receipt Generator",
-  description: "Create a professional receipt online, customize the details, and export a clean version in minutes.",
+  title: "Free Receipt Generator | Create Printable Receipts Instantly",
+  description: "Create a receipt online, add payer details and amount received, and export a clean printable file instantly.",
   alternates: { canonical: "/receipt-generator" },
 };
 

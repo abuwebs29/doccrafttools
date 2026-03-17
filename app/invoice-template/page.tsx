@@ -1,8 +1,8 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Free Invoice Template (PDF, Excel & Word)",
-  description: "Create a free invoice template online and export it as PDF, Excel, or Word. Fast, clean, and easy for freelancers and businesses.",
+  title: "Free Invoice Template (PDF, Word & Excel) | No Signup",
+  description: "Use a free invoice template online, customize the fields, and export as PDF, Word, or Excel for client-ready billing.",
   alternates: { canonical: "/invoice-template" },
 };
 

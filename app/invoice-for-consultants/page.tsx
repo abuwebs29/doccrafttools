@@ -1,8 +1,8 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Invoice for Consultants",
-  description: "Use a consultant invoice format that clearly explains advisory services, retainers, and milestones.",
+  title: "Consultant Invoice Guide | Format, Example & Template",
+  description: "Use a consultant invoice format that clearly explains advisory services, retainers, milestones, and payment terms.",
   alternates: { canonical: "/invoice-for-consultants" },
 };
 
