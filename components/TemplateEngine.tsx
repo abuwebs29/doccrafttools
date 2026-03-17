@@ -14,34 +14,26 @@ import { exportInvoiceAsExcel, exportInvoiceAsWord } from "@/lib/exportDocs";
 
 type ItemRow = { desc: string; qty: number; price: number };
 
-type FormState = {
-  currencyCode: string;
-  items: ItemRow[];
-  invoiceDate?: string;
-  receiptDate?: string;
-  quoteDate?: string;
-  dnDate?: string;
-  taxPercent?: number;
-  [key: string]: string | number | ItemRow[] | undefined;
-};
+const CURRENCIES = [
+  "AED",
+  "USD",
+  "EUR",
+  "GBP",
+  "INR",
+  "SAR",
+  "AUD",
+  "CAD",
+  "PKR",
+];
 
-const CURRENCIES = ["AED", "USD", "EUR", "GBP", "INR", "SAR", "AUD", "CAD", "PKR"];
-
-function clampNum(v: unknown) {
+function clampNum(v: any) {
   const n = Number(v);
   return Number.isFinite(n) ? n : 0;
 }
 
 function fmtMoney(amount: number, currencyCode?: string) {
   const code = String(currencyCode || "AED").toUpperCase();
-  return `${code} ${clampNum(amount).toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  })}`;
-}
-
-function humanizeKey(key: string) {
-  return key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
+  return `${code} ${clampNum(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 export default function TemplateEngine({
@@ -51,11 +43,10 @@ export default function TemplateEngine({
   template: TemplateDef;
   initialCurrencyCode?: string;
 }) {
-  const [logoDataUrl, setLogoDataUrl] = useState("");
-  const [errors, setErrors] = useState<string[]>([]);
-  const [form, setForm] = useState<FormState>(() => ({
+  const [logoDataUrl, setLogoDataUrl] = useState<string>("");
+  const [form, setForm] = useState<Record<string, any>>(() => ({
     currencyCode: (initialCurrencyCode || "AED").toUpperCase(),
-    items: [{ desc: "Service / Product", qty: 1, price: 100 }],
+    items: [{ desc: "Service / Product", qty: 1, price: 100 }] as ItemRow[],
     invoiceDate: new Date().toISOString().slice(0, 10),
     receiptDate: new Date().toISOString().slice(0, 10),
     quoteDate: new Date().toISOString().slice(0, 10),
@@ -67,7 +58,7 @@ export default function TemplateEngine({
     [template.fields]
   );
 
-  function update(key: string, value: string | number) {
+  function update(key: string, value: any) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
@@ -81,115 +72,75 @@ export default function TemplateEngine({
   function removeItem(idx: number) {
     setForm((prev) => ({
       ...prev,
-      items: (prev.items || []).filter((_, i) => i !== idx),
+      items: (prev.items || []).filter((_: any, i: number) => i !== idx),
     }));
   }
 
-  function updateItem(idx: number, key: keyof ItemRow, value: string | number) {
+  function updateItem(idx: number, key: keyof ItemRow, value: any) {
     setForm((prev) => ({
       ...prev,
-      items: (prev.items || []).map((it, i) =>
+      items: (prev.items || []).map((it: ItemRow, i: number) =>
         i === idx
-          ? {
-              ...it,
-              [key]: key === "qty" || key === "price" ? Math.max(0, clampNum(value)) : String(value),
-            }
+          ? { ...it, [key]: key === "qty" || key === "price" ? clampNum(value) : value }
           : it
       ),
     }));
   }
 
   const subtotal = useMemo(() => {
-    const items = Array.isArray(form.items) ? form.items : [];
+    const items: ItemRow[] = Array.isArray(form.items) ? form.items : [];
     return items.reduce((s, r) => s + clampNum(r.qty) * clampNum(r.price), 0);
   }, [form.items]);
 
-  const taxPercent = Math.min(100, Math.max(0, clampNum(form.taxPercent)));
+  const taxPercent = clampNum(form.taxPercent);
   const tax = subtotal * (taxPercent / 100);
   const total = subtotal + tax;
 
   function validate(): string[] {
-    const nextErrors: string[] = [];
-
+    const missing: string[] = [];
     for (const k of requiredKeys) {
       const v = form[k];
       if (k === "items") {
-        const items = Array.isArray(form.items) ? form.items : [];
-        if (!items.length) {
-          nextErrors.push("At least one item is required");
-          continue;
-        }
-        if (!items.some((i) => (i.desc || "").trim().length > 0)) {
-          nextErrors.push("Each document needs at least one described item");
-        }
+        const items: ItemRow[] = Array.isArray(form.items) ? form.items : [];
+        const hasAtLeastOne = items.length > 0 && items.some((i) => (i.desc || "").trim().length > 0);
+        if (!hasAtLeastOne) missing.push("Items");
         continue;
       }
-
-      if (v === undefined || v === null || String(v).trim() === "") {
-        nextErrors.push(`${humanizeKey(k)} is required`);
-      }
+      if (v === undefined || v === null || String(v).trim() === "") missing.push(k);
     }
-
-    const items = Array.isArray(form.items) ? form.items : [];
-    items.forEach((item, idx) => {
-      if (!item.desc?.trim()) nextErrors.push(`Item ${idx + 1}: description is required`);
-      if (clampNum(item.qty) < 0) nextErrors.push(`Item ${idx + 1}: quantity cannot be negative`);
-      if (clampNum(item.price) < 0) nextErrors.push(`Item ${idx + 1}: price cannot be negative`);
-    });
-
-    if (taxPercent < 0 || taxPercent > 100) {
-      nextErrors.push("Tax percent must be between 0 and 100");
-    }
-
-    return nextErrors;
+    return missing;
   }
 
   async function onLogoChange(file?: File) {
     if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-      setErrors(["Logo must be an image file"]);
-      return;
-    }
-
-    if (file.size > 2 * 1024 * 1024) {
-      setErrors(["Logo file must be under 2 MB"]);
-      return;
-    }
-
     const dataUrl = await fileToDataUrl(file);
     setLogoDataUrl(dataUrl);
-    setErrors([]);
-  }
-
-  function ensureValid() {
-    const nextErrors = validate();
-    setErrors(nextErrors);
-    return nextErrors.length === 0;
-  }
-
-  function payload() {
-    return { ...form, logoDataUrl, taxPercent };
   }
 
   function download() {
-    if (!ensureValid()) return;
+    const missing = validate();
+    if (missing.length) {
+      alert("Please fill required fields: " + missing.join(", "));
+      return;
+    }
+
+    const payload = { ...form, logoDataUrl };
 
     switch (template.id) {
       case "invoice":
-        generateInvoicePdf(payload());
+        generateInvoicePdf(payload);
         break;
       case "receipt":
-        generateReceiptPdf(payload());
+        generateReceiptPdf(payload);
         break;
       case "quotation":
-        generateQuotationPdf(payload());
+        generateQuotationPdf(payload);
         break;
       case "delivery_note":
-        generateDeliveryNotePdf(payload());
+        generateDeliveryNotePdf(payload);
         break;
       case "rent_receipt":
-        generateRentReceiptPdf(payload());
+        generateRentReceiptPdf(payload);
         break;
     }
   }
@@ -202,47 +153,44 @@ export default function TemplateEngine({
           <p className="mt-1 text-sm text-slate-600">{template.tagline}</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {template.id === "invoice" ? (
-            <>
-              <button
-                onClick={() => {
-                  if (!ensureValid()) return;
-                  exportInvoiceAsExcel(payload());
-                }}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-              >
-                Export for Excel (.xls)
-              </button>
-              <button
-                onClick={() => {
-                  if (!ensureValid()) return;
-                  exportInvoiceAsWord(payload());
-                }}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-              >
-                Export for Word (.doc)
-              </button>
-            </>
-          ) : null}
-          <button
-            onClick={download}
-            className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-          >
-            Download PDF
-          </button>
-        </div>
+        {template.id === "invoice" ? (
+          <>
+            <button
+              onClick={() => {
+                const missing = validate();
+                if (missing.length) {
+                  alert("Please fill required fields: " + missing.join(", "));
+                  return;
+                }
+                exportInvoiceAsExcel({ ...form, logoDataUrl });
+              }}
+              className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+            >
+              Export Excel
+            </button>
+            <button
+              onClick={() => {
+                const missing = validate();
+                if (missing.length) {
+                  alert("Please fill required fields: " + missing.join(", "));
+                  return;
+                }
+                exportInvoiceAsWord({ ...form, logoDataUrl });
+              }}
+              className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+            >
+              Export Word
+            </button>
+          </>
+        ) : null}
+        <button
+          onClick={download}
+          className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+        >
+          Download PDF
+        </button>
       </div>
-
-      {errors.length ? (
-        <div className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-          <div className="font-semibold">Please fix the following:</div>
-          <ul className="mt-2 list-disc pl-5">
-            {errors.map((error, i) => (
-              <li key={`${error}-${i}`}>{error}</li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
+      </div>
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-slate-200 p-4">
@@ -341,7 +289,6 @@ export default function TemplateEngine({
                           <td className="py-2 pr-2">
                             <input
                               type="number"
-                              min="0"
                               value={it.qty}
                               onChange={(e) => updateItem(idx, "qty", e.target.value)}
                               className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
@@ -350,7 +297,6 @@ export default function TemplateEngine({
                           <td className="py-2 pr-2">
                             <input
                               type="number"
-                              min="0"
                               value={it.price}
                               onChange={(e) => updateItem(idx, "price", e.target.value)}
                               className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
@@ -395,7 +341,11 @@ export default function TemplateEngine({
             );
           }
 
-          const value = form[f.key] ?? "";
+          const rawValue = form[f.key];
+          const value =
+            typeof rawValue === "string" || typeof rawValue === "number"
+              ? rawValue
+              : "";
           return (
             <div key={f.key}>
               <label className="block text-sm font-semibold text-slate-700">
@@ -414,7 +364,6 @@ export default function TemplateEngine({
               ) : (
                 <input
                   type={f.type === "number" ? "number" : f.type === "date" ? "date" : "text"}
-                  min={f.type === "number" ? 0 : undefined}
                   value={value}
                   onChange={(e) => update(f.key, f.type === "number" ? clampNum(e.target.value) : e.target.value)}
                   className="mt-2 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
