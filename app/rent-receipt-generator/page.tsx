@@ -1,8 +1,8 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Free Rent Receipt Generator | Create Printable Rent Receipts",
-  description: "Create a rent receipt online with tenant, landlord, payment period, and amount received, then export a printable PDF.",
+  title: "Rent Receipt Generator",
+  description: "Create a professional rent receipt online, customize the details, and export a clean version in minutes.",
   alternates: { canonical: "/rent-receipt-generator" },
 };
 

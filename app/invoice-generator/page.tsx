@@ -1,8 +1,8 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Free Invoice Generator | Create Printable Invoices Online",
-  description: "Create a professional invoice online, add business and client details, and export a printable PDF in minutes. No signup required.",
+  title: "Invoice Generator",
+  description: "Create a professional invoice online, customize the details, and export a clean version in minutes.",
   alternates: { canonical: "/invoice-generator" },
 };
 

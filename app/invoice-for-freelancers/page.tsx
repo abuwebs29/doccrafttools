@@ -1,8 +1,8 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Freelancer Invoice Guide | Format, Example & Template",
-  description: "Learn how freelancers should structure invoices with service details, rates, payment terms, and a reusable example.",
+  title: "Invoice for Freelancers",
+  description: "Create a freelancer invoice with the right fields, payment terms, and a clean layout clients can process quickly.",
   alternates: { canonical: "/invoice-for-freelancers" },
 };
 

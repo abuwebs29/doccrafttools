@@ -5,15 +5,6 @@ import path from "path";
 const BASE_URL = "https://doccrafttools.com";
 
 const EXCLUDED_ROUTES = new Set([
-  "/invoice-template-excel",
-  "/invoice-template-word",
-  "/invoice-template-pdf",
-  "/receipt-template-excel",
-  "/receipt-template-word",
-  "/receipt-template-pdf",
-  "/invoice-template-pdf-free-download",
-  "/invoice-template-for",
-  "/receipt-for",
   "/search",
   "/status",
   "/rss.xml",

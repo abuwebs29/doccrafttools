@@ -1,8 +1,8 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Free Delivery Note Generator | Create Printable Delivery Notes",
-  description: "Create a delivery note online with shipment details, item lines, and signatures, then export a printable document instantly.",
+  title: "Delivery Note Generator",
+  description: "Create a professional delivery note online, customize the details, and export a clean version in minutes.",
   alternates: { canonical: "/delivery-note-generator" },
 };
 

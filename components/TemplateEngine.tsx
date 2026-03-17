@@ -1,3 +1,4 @@
+import Image from 'next/image'
 "use client";
 
 import { useMemo, useState } from "react";
@@ -205,7 +206,7 @@ export default function TemplateEngine({
             <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
               <div className="text-xs font-semibold text-slate-700">Preview</div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="Logo preview" src={logoDataUrl} className="mt-2 h-12 w-auto" />
+              <Image alt="Logo preview" src={logoDataUrl} className="mt-2 h-12 w-auto" />
             </div>
           ) : null}
         </div>

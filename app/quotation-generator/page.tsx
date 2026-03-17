@@ -1,8 +1,8 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
 
 export const metadata = {
-  title: "Free Quotation Generator | Create Professional Quotes Online",
-  description: "Create a professional quotation online with pricing, scope, and client details, then export a clean printable version.",
+  title: "Quotation Generator",
+  description: "Create a professional quotation online, customize the details, and export a clean version in minutes.",
   alternates: { canonical: "/quotation-generator" },
 };
 
