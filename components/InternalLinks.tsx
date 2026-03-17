@@ -1,31 +1,26 @@
 import Link from "next/link";
-import { getInternalLinks } from "@/lib/internalLinking";
+import { getClusterLinks } from "@/lib/internalLinking";
 
-type Props = {
-  /** Current canonical path like "/invoice-generator" */
-  currentPath: string;
-  title?: string;
-};
+export default function InternalLinks({ currentPath }: { currentPath: string }) {
+  const links = getClusterLinks(currentPath);
 
-export default function InternalLinks({ currentPath, title = "Related pages" }: Props) {
-  const links = getInternalLinks(currentPath);
+  if (!links.length) return null;
 
   return (
-    <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-      <h2 className="text-lg font-bold">{title}</h2>
-      <p className="mt-1 text-sm text-slate-600">
-        Jump to the most useful tools and templates.
-      </p>
+    <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 className="text-xl font-semibold">Related resources</h2>
 
-      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-        {links.map((l) => (
-          <li key={l.href}>
-            <Link className="text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900" href={l.href}>
-              {l.anchor}
-            </Link>
-          </li>
+      <div className="mt-4 grid gap-3 md:grid-cols-2">
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 hover:bg-slate-100"
+          >
+            {link.title}
+          </Link>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
