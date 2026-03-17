@@ -7,6 +7,8 @@ const EXCLUDED_ROUTES = new Set([
   "/search",
   "/status",
   "/rss.xml",
+
+  // duplicates / variants
   "/invoice-generator-online-free",
   "/invoice-generator-usd",
   "/invoice-generator-gbp",
@@ -21,6 +23,7 @@ const EXCLUDED_ROUTES = new Set([
   "/invoice-generator-india",
   "/invoice-generator-saudi-arabia",
   "/invoice-generator-uae",
+
   "/receipt-generator-usd",
   "/receipt-generator-gbp",
   "/receipt-generator-eur",
@@ -28,7 +31,12 @@ const EXCLUDED_ROUTES = new Set([
   "/receipt-generator-sar",
 ]);
 
-const LOW_PRIORITY_ROUTES = new Set(["/privacy", "/disclaimer", "/about", "/faq"]);
+const LOW_PRIORITY_ROUTES = new Set([
+  "/privacy",
+  "/disclaimer",
+  "/about",
+  "/faq",
+]);
 
 function getRoutes(dir: string, appDir: string): string[] {
   const entries = fs.readdirSync(dir);
@@ -47,7 +55,7 @@ function getRoutes(dir: string, appDir: string): string[] {
       const route = fullPath
         .replace(appDir, "")
         .replace(/\/page\.tsx$/, "")
-        .replace(/\/g, "/");
+        .replace(/\\/g, "/");
 
       routes.push(route === "" ? "/" : route);
     }
@@ -96,10 +104,14 @@ function getChangeFreq(route: string): MetadataRoute.Sitemap[number]["changeFreq
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const appDir = path.join(process.cwd(), "app");
-  const routes = Array.from(new Set(getRoutes(appDir, appDir))).filter((r) => !shouldExclude(r));
+
+  const routes = Array.from(new Set(getRoutes(appDir, appDir))).filter(
+    (route) => !shouldExclude(route)
+  );
 
   return routes.map((route) => {
     const lastModified = getLastModifiedForRoute(route);
+
     return {
       url: `${siteConfig.siteUrl}${route}`,
       ...(lastModified ? { lastModified } : {}),
