@@ -4,9 +4,29 @@ import path from "path";
 
 const BASE_URL = "https://doccrafttools.com";
 
-const EXCLUDED_PREFIXES = ["/api", "/_", "/embed"];
-const EXCLUDED_EXACT = new Set(["/search", "/status", "/invoice-generator-online-free"]);
-const EXCLUDED_PATTERNS: RegExp[] = [];
+const EXCLUDED_ROUTES = new Set([
+  "/search",
+  "/status",
+  "/invoice-generator-online-free",
+  "/invoice-generator-usd",
+  "/invoice-generator-gbp",
+  "/invoice-generator-eur",
+  "/invoice-generator-inr",
+  "/invoice-generator-aud",
+  "/invoice-generator-cad",
+  "/invoice-generator-pkr",
+  "/invoice-generator-sar",
+  "/invoice-generator-usa",
+  "/invoice-generator-uk",
+  "/invoice-generator-india",
+  "/invoice-generator-saudi-arabia",
+  "/invoice-generator-uae",
+  "/receipt-generator-usd",
+  "/receipt-generator-gbp",
+  "/receipt-generator-eur",
+  "/receipt-generator-inr",
+  "/receipt-generator-sar",
+]);
 
 function getRoutes(dir: string, appDir: string): string[] {
   const entries = fs.readdirSync(dir);
@@ -34,10 +54,11 @@ function getRoutes(dir: string, appDir: string): string[] {
 }
 
 function shouldExclude(route: string): boolean {
-  if (EXCLUDED_EXACT.has(route)) return true;
-  if (EXCLUDED_PREFIXES.some((prefix) => route.startsWith(prefix))) return true;
-  if (EXCLUDED_PATTERNS.some((pattern) => pattern.test(route))) return true;
-  return false;
+  if (route.startsWith("/api")) return true;
+  if (route.startsWith("/_")) return true;
+  if (route.startsWith("/embed")) return true;
+  if (route === "/rss.xml") return true;
+  return EXCLUDED_ROUTES.has(route);
 }
 
 function getLastModifiedForRoute(route: string): Date {
@@ -52,22 +73,21 @@ function getLastModifiedForRoute(route: string): Date {
   }
 }
 
-function getPriority(route: string): number {
-  if (route === "/") return 1;
-  if (["/invoice-generator", "/receipt-generator", "/quotation-generator", "/delivery-note-generator", "/rent-receipt-generator"].includes(route)) return 0.95;
-  if (route.includes("template")) return 0.85;
-  if (route.includes("invoice") || route.includes("receipt") || route.includes("quotation") || route.includes("delivery-note")) return 0.8;
-  return 0.7;
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const appDir = path.join(process.cwd(), "app");
-  const routes = getRoutes(appDir, appDir).filter((route) => !shouldExclude(route));
+  const routes = getRoutes(appDir, appDir).filter((r) => !shouldExclude(r));
 
   return routes.map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: getLastModifiedForRoute(route),
-    changeFrequency: route === "/" ? "weekly" : "monthly",
-    priority: getPriority(route),
+    changeFrequency: route === "/" ? "daily" : "weekly",
+    priority:
+      route === "/"
+        ? 1
+        : route.includes("generator")
+        ? 0.9
+        : route.includes("template")
+        ? 0.85
+        : 0.8,
   }));
 }

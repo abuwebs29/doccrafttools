@@ -58,7 +58,7 @@ export default function Page() {
               <div className="font-semibold">Should I add payment terms?</div>
               <div className="mt-1 text-sm text-slate-600">
                 Yes. See{" "}
-                <a className="font-semibold text-slate-900 hover:underline" href="/invoice-payment-terms-explained">payment terms examples</a>.
+                <a className="font-semibold text-slate-900 hover:underline" href="/payment-terms-examples">payment terms examples</a>.
               </div>
             </div>
           </div>

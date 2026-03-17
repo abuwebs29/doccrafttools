@@ -22,69 +22,74 @@ export default function Page() {
 
       <header className="mb-8">
         <h1 className="text-3xl font-extrabold tracking-tight">Free Receipt Generator (PDF)</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Generate a printable payment receipt PDF in seconds. Add payer, amount, purpose and logo.
+        <p className="mt-2 max-w-3xl text-slate-600">
+          Generate a printable payment receipt PDF in seconds. Add payer details, amount, purpose, payment method,
+          logo, and download a clean receipt for business or personal use.
         </p>
       </header>
 
       <TemplateEngine template={templates.receipt} />
 
-      <ShareBar title="Free Receipt Generator (PDF)" path="/receipt-generator" description="Generate and download a clean PDF instantly — no login." />
+      <ShareBar
+        title="Free Receipt Generator (PDF)"
+        path="/receipt-generator"
+        description="Generate and download a clean receipt PDF instantly — no login."
+      />
       <EmbedCodeBlock toolName="Receipt Generator" embedPath="/embed/receipt" />
 
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Receipt Generator supports multiple currencies</h2>
-        <p className="mt-3 text-slate-600">Use the main receipt generator and select the currency in the form instead of relying on many similar URLs. This helps search engines focus on the strongest version of the tool.</p>
-        <div className="mt-4 flex flex-wrap gap-3 text-sm">
-          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">USD</a>
-          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">GBP</a>
-          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">EUR</a>
-          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">INR</a>
-          <a className="rounded-xl border border-slate-200 px-3 py-2 font-semibold text-slate-900 hover:bg-slate-50" href="/receipt-generator">SAR</a>
-        </div>
+        <h2 className="text-xl font-semibold">Use one receipt page for every currency</h2>
+        <p className="mt-3 text-sm leading-6 text-slate-700">
+          Choose the currency inside the receipt form instead of using separate URLs. This page is the main
+          canonical receipt generator and is designed to cover cash receipts, payment acknowledgements, rent
+          receipts, and general proof-of-payment documents.
+        </p>
       </section>
 
+      <section className="mt-8 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-xl font-semibold">When to use a receipt</h2>
+          <p className="mt-3 text-sm leading-6 text-slate-700">
+            Use a receipt after payment is collected for services, products, deposits, tuition, subscriptions,
+            donations, or rent. A receipt confirms that money has been received and gives both parties a clean
+            record of the transaction.
+          </p>
+          <h3 className="mt-5 text-base font-semibold">What to include in a receipt</h3>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+            <li>Receipt number and payment date</li>
+            <li>Name of the payer and receiver</li>
+            <li>Amount paid and payment method</li>
+            <li>Reason for payment or item description</li>
+            <li>Optional notes, signature area, and logo</li>
+          </ul>
+        </div>
 
-
-<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">When to use a receipt</h2>
-  <p className="mt-3 text-slate-600">Use a receipt to confirm that payment has already been made for products, services, rent, deposits, reimbursements, or one-time transactions.</p>
-</section>
-
-<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">What to include in a receipt</h2>
-  <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
-    <li>Payer name and payment date</li>
-    <li>Amount received and selected currency</li>
-    <li>Payment method and payment purpose</li>
-    <li>Receiver or issuer details</li>
-    <li>Optional notes and logo</li>
-  </ul>
-</section>
-
-<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">How to make a receipt</h2>
-  <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-    <li>Enter the payer and payment details</li>
-    <li>Select the correct currency in the form</li>
-    <li>Add optional notes or branding</li>
-    <li>Download the PDF and share it instantly</li>
-  </ol>
-</section>
-
-<section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-  <h2 className="text-xl font-semibold">Receipt vs invoice</h2>
-  <p className="mt-3 text-slate-600">An invoice asks for payment. A receipt confirms payment has already been received. Many businesses use both documents in the same workflow.</p>
-</section>
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-xl font-semibold">Receipt vs invoice</h2>
+          <p className="mt-3 text-sm leading-6 text-slate-700">
+            An invoice requests payment before or by a due date. A receipt confirms that payment has already been
+            made. Many businesses use both documents in the same workflow: first the invoice, then the receipt.
+          </p>
+          <h3 className="mt-5 text-base font-semibold">How to make a receipt online</h3>
+          <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-slate-700">
+            <li>Enter payer and receiver information.</li>
+            <li>Add the amount, payment date, and purpose.</li>
+            <li>Select the right currency inside the form.</li>
+            <li>Review the receipt and download the PDF.</li>
+          </ol>
+        </div>
+      </section>
 
       <ToolSeoBlock toolId="receipt" />
 
       <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold">Try also</h2>
+        <h2 className="text-xl font-semibold">Related receipt resources</h2>
         <div className="mt-4 grid gap-2 text-sm">
+          <a className="font-semibold text-slate-900 hover:underline" href="/receipt-template">Receipt Template →</a>
+          <a className="font-semibold text-slate-900 hover:underline" href="/payment-receipt-format">Payment Receipt Format →</a>
+          <a className="font-semibold text-slate-900 hover:underline" href="/rent-receipt-generator">Rent Receipt Generator →</a>
+          <a className="font-semibold text-slate-900 hover:underline" href="/rent-receipt-template">Rent Receipt Template →</a>
           <a className="font-semibold text-slate-900 hover:underline" href="/invoice-generator">Invoice Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/receipt-generator">Receipt Generator →</a>
-          <a className="font-semibold text-slate-900 hover:underline" href="/quotation-generator">Quotation Generator →</a>
           <a className="font-semibold text-slate-900 hover:underline" href="/pdf-templates">All PDF Templates →</a>
         </div>
       </div>

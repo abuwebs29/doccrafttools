@@ -34,7 +34,7 @@ export default function Page() {
             Improve it with:{" "}
             <a className="font-semibold text-slate-900 hover:underline" href="/invoice-number-format">invoice number format</a>,{" "}
             <a className="font-semibold text-slate-900 hover:underline" href="/invoice-due-date-wording">due date wording</a>,{" "}
-            <a className="font-semibold text-slate-900 hover:underline" href="/invoice-payment-terms-explained">payment terms</a>.
+            <a className="font-semibold text-slate-900 hover:underline" href="/payment-terms-examples">payment terms</a>.
           </p>
         </section>
 

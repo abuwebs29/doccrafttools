@@ -1,4 +1,4 @@
-/** @type {import("next").NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: { unoptimized: true },
 
@@ -11,7 +11,7 @@ const nextConfig = {
       { source: "/invoice-generator-saudi-arabia", destination: "/invoice-generator", permanent: true },
       { source: "/invoice-generator-uae", destination: "/invoice-generator", permanent: true },
 
-      // Invoice currency duplicates
+      // Invoice currency variants
       { source: "/invoice-generator-usd", destination: "/invoice-generator", permanent: true },
       { source: "/invoice-generator-gbp", destination: "/invoice-generator", permanent: true },
       { source: "/invoice-generator-eur", destination: "/invoice-generator", permanent: true },
@@ -21,15 +21,12 @@ const nextConfig = {
       { source: "/invoice-generator-pkr", destination: "/invoice-generator", permanent: true },
       { source: "/invoice-generator-sar", destination: "/invoice-generator", permanent: true },
 
-      // Receipt currency duplicates
+      // Receipt currency variants
       { source: "/receipt-generator-usd", destination: "/receipt-generator", permanent: true },
       { source: "/receipt-generator-gbp", destination: "/receipt-generator", permanent: true },
       { source: "/receipt-generator-eur", destination: "/receipt-generator", permanent: true },
       { source: "/receipt-generator-inr", destination: "/receipt-generator", permanent: true },
       { source: "/receipt-generator-sar", destination: "/receipt-generator", permanent: true },
-
-      // Consolidated marketing page
-      { source: "/invoice-generator-online-free", destination: "/invoice-generator", permanent: true },
     ];
   },
 };
