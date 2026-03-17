@@ -1,6 +1,23 @@
 import jsPDF from "jspdf";
 
-type ItemRow = { desc: string; qty: number; price: number };
+export type ItemRow = { desc: string; qty: number; price: number };
+
+export type BasePdfPayload = {
+  currencyCode?: string;
+  taxPercent?: number;
+  notes?: string;
+  logoDataUrl?: string;
+  items?: ItemRow[];
+  [key: string]: unknown;
+};
+
+function safeFilenamePart(v: unknown) {
+  return String(v ?? "")
+    .trim()
+    .replace(/[<>:"/\\|?*\x00-\x1F]/g, "-")
+    .replace(/\s+/g, "-")
+    .slice(0, 80);
+}
 
 function money(n: number) {
   if (!Number.isFinite(n)) return "0.00";
@@ -12,7 +29,7 @@ function moneyWithCurrency(n: number, currencyCode?: string) {
   return `${code} ${money(n)}`;
 }
 
-function safeStr(v: any) {
+function safeStr(v: unknown) {
   return String(v ?? "").trim();
 }
 
@@ -27,7 +44,7 @@ function drawLogo(doc: jsPDF, dataUrl?: string) {
     const fmt = isPng ? "PNG" : isJpg ? "JPEG" : isWebp ? "WEBP" : "PNG";
 
     const W = doc.internal.pageSize.getWidth();
-    doc.addImage(logo, fmt as any, W - 140, 26, 90, 36, undefined, "FAST");
+    doc.addImage(logo, fmt as "PNG" | "JPEG" | "WEBP", W - 140, 26, 90, 36, undefined, "FAST");
   } catch {
     // ignore logo failures
   }
@@ -59,7 +76,7 @@ function ensureSpace(doc: jsPDF, y: number, needed: number) {
   return 80;
 }
 
-export function generateInvoicePdf(data: any) {
+export function generateInvoicePdf(data: BasePdfPayload) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -94,8 +111,8 @@ export function generateInvoicePdf(data: any) {
 
   for (const row of items) {
     const desc = safeStr(row.desc);
-    const qty = Number(row.qty || 0);
-    const price = Number(row.price || 0);
+    const qty = Math.max(0, Number(row.qty || 0));
+    const price = Math.max(0, Number(row.price || 0));
     const lineTotal = qty * price;
     subtotal += lineTotal;
 
@@ -112,7 +129,7 @@ export function generateInvoicePdf(data: any) {
     y += rowHeight;
   }
 
-  const taxPercent = Number(data.taxPercent || 0);
+  const taxPercent = Math.min(100, Math.max(0, Number(data.taxPercent || 0)));
   const tax = subtotal * (taxPercent / 100);
   const grand = subtotal + tax;
 
@@ -144,10 +161,10 @@ export function generateInvoicePdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`invoice-${safeStr(data.invoiceNo) || "pdf"}.pdf`);
+  doc.save(`invoice-${safeFilenamePart(data.invoiceNo) || "export"}.pdf`);
 }
 
-export function generateQuotationPdf(data: any) {
+export function generateQuotationPdf(data: BasePdfPayload) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -182,8 +199,8 @@ export function generateQuotationPdf(data: any) {
   let subtotal = 0;
   for (const row of items) {
     const desc = safeStr(row.desc);
-    const qty = Number(row.qty || 0);
-    const price = Number(row.price || 0);
+    const qty = Math.max(0, Number(row.qty || 0));
+    const price = Math.max(0, Number(row.price || 0));
     const lineTotal = qty * price;
     subtotal += lineTotal;
 
@@ -200,7 +217,7 @@ export function generateQuotationPdf(data: any) {
     y += rowHeight;
   }
 
-  const taxPercent = Number(data.taxPercent || 0);
+  const taxPercent = Math.min(100, Math.max(0, Number(data.taxPercent || 0)));
   const tax = subtotal * (taxPercent / 100);
   const grand = subtotal + tax;
 
@@ -232,10 +249,10 @@ export function generateQuotationPdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`quotation-${safeStr(data.quoteNo) || "pdf"}.pdf`);
+  doc.save(`quotation-${safeFilenamePart(data.quoteNo) || "export"}.pdf`);
 }
 
-export function generateReceiptPdf(data: any) {
+export function generateReceiptPdf(data: BasePdfPayload) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -253,7 +270,7 @@ export function generateReceiptPdf(data: any) {
   doc.setDrawColor(230);
   doc.roundedRect(40, 90, W - 80, 140, 12, 12);
 
-  const amount = Number(data.amount || 0);
+  const amount = Math.max(0, Number(data.amount || 0));
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(12);
@@ -293,10 +310,10 @@ export function generateReceiptPdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, 308);
   }
 
-  doc.save(`receipt-${safeStr(data.receiptNo) || "pdf"}.pdf`);
+  doc.save(`receipt-${safeFilenamePart(data.receiptNo) || "export"}.pdf`);
 }
 
-export function generateDeliveryNotePdf(data: any) {
+export function generateDeliveryNotePdf(data: BasePdfPayload) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -330,8 +347,8 @@ export function generateDeliveryNotePdf(data: any) {
 
   for (const row of items) {
     const desc = safeStr(row.desc);
-    const qty = Number(row.qty || 0);
-    const price = Number(row.price || 0);
+    const qty = Math.max(0, Number(row.qty || 0));
+    const price = Math.max(0, Number(row.price || 0));
     const lineTotal = qty * price;
 
     const descLines = wrap(doc, desc, 320);
@@ -366,10 +383,10 @@ export function generateDeliveryNotePdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`delivery-note-${safeStr(data.dnNo) || "pdf"}.pdf`);
+  doc.save(`delivery-note-${safeFilenamePart(data.dnNo) || "export"}.pdf`);
 }
 
-export function generateRentReceiptPdf(data: any) {
+export function generateRentReceiptPdf(data: BasePdfPayload) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -387,7 +404,7 @@ export function generateRentReceiptPdf(data: any) {
   doc.setDrawColor(230);
   doc.roundedRect(40, 90, W - 80, 220, 12, 12);
 
-  const amount = Number(data.amount || 0);
+  const amount = Math.max(0, Number(data.amount || 0));
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(12);
@@ -439,5 +456,5 @@ export function generateRentReceiptPdf(data: any) {
   doc.text("Landlord Signature", 40, 735);
   doc.text("Tenant Signature", W - 280, 735);
 
-  doc.save(`rent-receipt-${safeStr(data.receiptNo) || "pdf"}.pdf`);
+  doc.save(`rent-receipt-${safeFilenamePart(data.receiptNo) || "export"}.pdf`);
 }

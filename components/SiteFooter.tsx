@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/siteConfig";
+
 export default function SiteFooter() {
   return (
     <footer className="mt-12 border-t border-slate-200 pt-10 text-xs text-slate-500">
@@ -50,7 +52,7 @@ export default function SiteFooter() {
           <a className="hover:text-slate-800" href="/about">About</a>
           <a className="hover:text-slate-800" href="/privacy">Privacy</a>
           <a className="hover:text-slate-800" href="/disclaimer">Disclaimer</a>
-          <a className="hover:text-slate-800" href="mailto:contact@doccrafttools.com">contact@doccrafttools.com</a>
+          <a className="hover:text-slate-800" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
         </div>
       </div>
     </footer>

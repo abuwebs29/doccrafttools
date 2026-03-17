@@ -1,20 +1,39 @@
-type ItemRow = { desc?: string; qty?: number; price?: number };
+type ItemRow = { desc: string; qty: number; price: number };
 
-function num(v: any) {
+type InvoiceExportPayload = {
+  invoiceNo?: string;
+  invoiceDate?: string;
+  businessName?: string;
+  clientName?: string;
+  currencyCode?: string;
+  taxPercent?: number;
+  notes?: string;
+  items: ItemRow[];
+};
+
+function num(v: unknown) {
   const x = Number(v);
   return Number.isFinite(x) ? x : 0;
 }
 
-function money(v: any) {
+function money(v: unknown) {
   return num(v).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function escapeHtml(v: any) {
+function escapeHtml(v: unknown) {
   return String(v ?? "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function safeFilenamePart(v: unknown) {
+  return String(v ?? "")
+    .trim()
+    .replace(/[<>:"/\\|?*\x00-\x1F]/g, "-")
+    .replace(/\s+/g, "-")
+    .slice(0, 80);
 }
 
 function downloadBlob(filename: string, mime: string, body: string) {
@@ -29,11 +48,11 @@ function downloadBlob(filename: string, mime: string, body: string) {
   URL.revokeObjectURL(url);
 }
 
-export function exportInvoiceAsExcel(data: any) {
+export function exportInvoiceAsExcel(data: InvoiceExportPayload) {
   const currency = String(data.currencyCode || "AED").toUpperCase();
   const items: ItemRow[] = Array.isArray(data.items) ? data.items : [];
   const subtotal = items.reduce((s, it) => s + num(it.qty) * num(it.price), 0);
-  const taxPercent = num(data.taxPercent);
+  const taxPercent = Math.min(100, Math.max(0, num(data.taxPercent)));
   const tax = subtotal * (taxPercent / 100);
   const total = subtotal + tax;
 
@@ -84,14 +103,14 @@ export function exportInvoiceAsExcel(data: any) {
   </body>
   </html>`;
 
-  downloadBlob(`invoice-${data.invoiceNo || "export"}.xls`, "application/vnd.ms-excel", html);
+  downloadBlob(`invoice-${safeFilenamePart(data.invoiceNo) || "export"}.xls`, "application/vnd.ms-excel", html);
 }
 
-export function exportInvoiceAsWord(data: any) {
+export function exportInvoiceAsWord(data: InvoiceExportPayload) {
   const currency = String(data.currencyCode || "AED").toUpperCase();
   const items: ItemRow[] = Array.isArray(data.items) ? data.items : [];
   const subtotal = items.reduce((s, it) => s + num(it.qty) * num(it.price), 0);
-  const taxPercent = num(data.taxPercent);
+  const taxPercent = Math.min(100, Math.max(0, num(data.taxPercent)));
   const tax = subtotal * (taxPercent / 100);
   const total = subtotal + tax;
 
@@ -138,5 +157,5 @@ export function exportInvoiceAsWord(data: any) {
   </body>
   </html>`;
 
-  downloadBlob(`invoice-${data.invoiceNo || "export"}.doc`, "application/msword", html);
+  downloadBlob(`invoice-${safeFilenamePart(data.invoiceNo) || "export"}.doc`, "application/msword", html);
 }
