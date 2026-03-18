@@ -17,6 +17,15 @@ function escapeHtml(v: any) {
     .replace(/"/g, "&quot;");
 }
 
+function sanitizeFilename(v: any) {
+  const cleaned = String(v ?? "")
+    .trim()
+    .replace(/[^a-zA-Z0-9._-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+  return cleaned || "export";
+}
+
 function downloadBlob(filename: string, mime: string, body: string) {
   const blob = new Blob([body], { type: mime });
   const url = URL.createObjectURL(blob);
@@ -84,7 +93,7 @@ export function exportInvoiceAsExcel(data: any) {
   </body>
   </html>`;
 
-  downloadBlob(`invoice-${data.invoiceNo || "export"}.xls`, "application/vnd.ms-excel", html);
+  downloadBlob(`invoice-${sanitizeFilename(data.invoiceNo)}.xls`, "application/vnd.ms-excel", html);
 }
 
 export function exportInvoiceAsWord(data: any) {
@@ -138,5 +147,5 @@ export function exportInvoiceAsWord(data: any) {
   </body>
   </html>`;
 
-  downloadBlob(`invoice-${data.invoiceNo || "export"}.doc`, "application/msword", html);
+  downloadBlob(`invoice-${sanitizeFilename(data.invoiceNo)}.doc`, "application/msword", html);
 }

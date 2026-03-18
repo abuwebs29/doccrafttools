@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { SITE_URL } from "@/lib/site";
 
 export default function EmbedCodeBlock({
   toolName,
@@ -15,14 +16,14 @@ export default function EmbedCodeBlock({
   const [copied, setCopied] = useState(false);
 
   const fullUrl = useMemo(() => {
-    if (typeof window === "undefined") return `https://doccrafttools.com${embedPath}`;
+    if (typeof window === "undefined") return `${SITE_URL}${embedPath}`;
     return `${window.location.origin}${embedPath}`;
   }, [embedPath]);
 
   const code = useMemo(() => {
     return `<iframe src="${fullUrl}" width="100%" height="${height}" style="border:0;border-radius:12px;overflow:hidden" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <p style="font:14px system-ui, -apple-system, Segoe UI, Roboto; margin:8px 0 0; color:#64748b">
-  Powered by <a href="https://doccrafttools.com" target="_blank" rel="noreferrer" style="color:#0f172a;font-weight:700;text-decoration:none">DocCraft Tools</a>
+  Powered by <a href="${SITE_URL}" target="_blank" rel="noreferrer" style="color:#0f172a;font-weight:700;text-decoration:none">DocCraft Tools</a>
 </p>`;
   }, [fullUrl, height]);
 

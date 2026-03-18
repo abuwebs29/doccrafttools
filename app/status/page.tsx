@@ -1,5 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = {
   robots: { index: false, follow: false },
@@ -36,8 +37,8 @@ export default function Page() {
         <h2 className="mt-8 text-xl font-semibold">Need help?</h2>
         <p className="mt-2 text-slate-600">
           Contact:{" "}
-          <a className="font-semibold text-slate-900 hover:underline" href="mailto:contact@doccrafttools.com">
-            contact@doccrafttools.com
+          <a className="font-semibold text-slate-900 hover:underline" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
           </a>
         </p>
       </article>

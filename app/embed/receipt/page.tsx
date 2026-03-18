@@ -1,10 +1,11 @@
 import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata = {
   robots: { index: false, follow: false },
   title: "Embed — Receipt Generator",
-  description: "Embedded Receipt Generator by DocCraft Tools.",
+  description: `Embedded Receipt Generator by ${SITE_NAME}.`,
 };
 
 export default function Page() {
@@ -16,13 +17,13 @@ export default function Page() {
             <div className="text-sm font-extrabold text-slate-900">Receipt Generator</div>
             <div className="text-xs text-slate-600">
               Embedded tool by 
-              <a className="font-semibold text-slate-900 hover:underline" href="https://doccrafttools.com" target="_blank" rel="noreferrer">
-                DocCraft Tools
+              <a className="font-semibold text-slate-900 hover:underline" href={SITE_URL} target="_blank" rel="noreferrer">
+                {SITE_NAME}
               </a>
             </div>
           </div>
           <a
-            href="https://doccrafttools.com/receipt-generator"
+            href={`${SITE_URL}/receipt-generator`}
             target="_blank"
             rel="noreferrer"
             className="rounded-xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800"
@@ -35,8 +36,8 @@ export default function Page() {
 
         <div className="mt-6 text-center text-xs text-slate-500">
           Powered by 
-          <a className="font-semibold text-slate-700 hover:underline" href="https://doccrafttools.com" target="_blank" rel="noreferrer">
-            DocCraft Tools
+          <a className="font-semibold text-slate-700 hover:underline" href={SITE_URL} target="_blank" rel="noreferrer">
+            {SITE_NAME}
           </a>
         </div>
       </div>

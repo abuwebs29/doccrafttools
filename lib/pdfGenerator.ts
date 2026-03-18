@@ -16,6 +16,11 @@ function safeStr(v: any) {
   return String(v ?? "").trim();
 }
 
+function sanitizeFilename(v: string) {
+  const cleaned = safeStr(v).replace(/[^a-zA-Z0-9._-]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+  return cleaned || "document";
+}
+
 function drawLogo(doc: jsPDF, dataUrl?: string) {
   const logo = safeStr(dataUrl);
   if (!logo) return;
@@ -144,7 +149,7 @@ export function generateInvoicePdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`invoice-${safeStr(data.invoiceNo) || "pdf"}.pdf`);
+  doc.save(`invoice-${sanitizeFilename(data.invoiceNo)}.pdf`);
 }
 
 export function generateQuotationPdf(data: any) {
@@ -232,7 +237,7 @@ export function generateQuotationPdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`quotation-${safeStr(data.quoteNo) || "pdf"}.pdf`);
+  doc.save(`quotation-${sanitizeFilename(data.quoteNo)}.pdf`);
 }
 
 export function generateReceiptPdf(data: any) {
@@ -293,7 +298,7 @@ export function generateReceiptPdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, 308);
   }
 
-  doc.save(`receipt-${safeStr(data.receiptNo) || "pdf"}.pdf`);
+  doc.save(`receipt-${sanitizeFilename(data.receiptNo)}.pdf`);
 }
 
 export function generateDeliveryNotePdf(data: any) {
@@ -366,7 +371,7 @@ export function generateDeliveryNotePdf(data: any) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`delivery-note-${safeStr(data.dnNo) || "pdf"}.pdf`);
+  doc.save(`delivery-note-${sanitizeFilename(data.dnNo)}.pdf`);
 }
 
 export function generateRentReceiptPdf(data: any) {
@@ -439,5 +444,5 @@ export function generateRentReceiptPdf(data: any) {
   doc.text("Landlord Signature", 40, 735);
   doc.text("Tenant Signature", W - 280, 735);
 
-  doc.save(`rent-receipt-${safeStr(data.receiptNo) || "pdf"}.pdf`);
+  doc.save(`rent-receipt-${sanitizeFilename(data.receiptNo)}.pdf`);
 }

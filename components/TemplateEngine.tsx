@@ -166,7 +166,7 @@ export default function TemplateEngine({
               }}
               className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
             >
-              Export Excel
+              Export Excel (.xls)
             </button>
             <button
               onClick={() => {
@@ -179,7 +179,7 @@ export default function TemplateEngine({
               }}
               className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
             >
-              Export Word
+              Export Word (.doc)
             </button>
           </>
         ) : null}

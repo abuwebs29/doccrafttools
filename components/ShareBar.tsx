@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { SITE_URL } from "@/lib/site";
 
 function encode(s: string) {
   return encodeURIComponent(s);
@@ -18,7 +19,7 @@ export default function ShareBar({
   const [copied, setCopied] = useState(false);
 
   const url = useMemo(() => {
-    if (typeof window === "undefined") return `https://doccrafttools.com${path}`;
+    if (typeof window === "undefined") return `${SITE_URL}${path}`;
     const base = window.location.origin;
     return `${base}${path}`;
   }, [path]);
