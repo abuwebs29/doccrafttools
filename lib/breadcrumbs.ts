@@ -1,7 +1,6 @@
 import type { TemplateId } from "@/lib/templateTypes";
 import { toolSchema } from "@/lib/schemaRegistry";
-
-const site = "https://doccrafttools.com";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Crumb = { name: string; path: string };
 
@@ -13,7 +12,7 @@ export function buildBreadcrumbsJsonLd(crumbs: Crumb[]) {
       "@type": "ListItem",
       position: idx + 1,
       name: c.name,
-      item: `${site}${c.path}`,
+      item: `${siteConfig.siteUrl}${c.path}`,
     })),
   };
 }

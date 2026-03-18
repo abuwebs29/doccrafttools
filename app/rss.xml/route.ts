@@ -1,6 +1,5 @@
 import { guides } from "@/lib/guides";
-
-const site = "https://doccrafttools.com";
+import { siteConfig } from "@/lib/siteConfig";
 
 function escapeXml(s: string) {
   return s
@@ -14,7 +13,7 @@ function escapeXml(s: string) {
 export async function GET() {
   const items = guides
     .map((g) => {
-      const link = `${site}${g.path}`;
+      const link = `${siteConfig.siteUrl}${g.path}`;
       const pubDate = new Date(g.date + "T00:00:00Z").toUTCString();
       return `
         <item>
@@ -33,7 +32,7 @@ export async function GET() {
     <rss version="2.0">
       <channel>
         <title>DocCraft Tools Guides</title>
-        <link>${site}</link>
+        <link>${siteConfig.siteUrl}</link>
         <description>Guides and templates for invoices, receipts, quotations and business documents.</description>
         ${items}
       </channel>

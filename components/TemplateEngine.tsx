@@ -162,7 +162,7 @@ export default function TemplateEngine({
                   alert("Please fill required fields: " + missing.join(", "));
                   return;
                 }
-                exportInvoiceAsExcel({ ...form, logoDataUrl });
+                exportInvoiceAsExcel(form);
               }}
               className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
             >
@@ -175,7 +175,7 @@ export default function TemplateEngine({
                   alert("Please fill required fields: " + missing.join(", "));
                   return;
                 }
-                exportInvoiceAsWord({ ...form, logoDataUrl });
+                exportInvoiceAsWord(form);
               }}
               className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
             >
@@ -341,7 +341,11 @@ export default function TemplateEngine({
             );
           }
 
-          const value = form[f.key] ?? "";
+          const rawValue = form[f.key];
+          const value =
+            typeof rawValue === "string" || typeof rawValue === "number"
+              ? rawValue
+              : "";
           return (
             <div key={f.key}>
               <label className="block text-sm font-semibold text-slate-700">

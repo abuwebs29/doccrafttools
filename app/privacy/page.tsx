@@ -1,5 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
   alternates: { canonical: "/privacy" },
@@ -32,8 +33,8 @@ export default function Page() {
         <h2 className="mt-8 text-xl font-semibold">Contact</h2>
         <p className="mt-2 text-slate-600">
           Questions? Email{" "}
-          <a className="font-semibold text-slate-900 hover:underline" href="mailto:contact@doccrafttools.com">
-            contact@doccrafttools.com
+          <a className="font-semibold text-slate-900 hover:underline" href={`mailto:${siteConfig.contactEmail}`}>
+            {siteConfig.contactEmail}
           </a>.
         </p>
       </article>
