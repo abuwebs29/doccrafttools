@@ -1,5 +1,6 @@
 import type { TemplateId } from "@/lib/templateTypes";
-import { siteConfig } from "@/lib/siteConfig";
+
+const site = "https://doccrafttools.com";
 
 export type FaqItem = { q: string; a: string };
 
@@ -92,7 +93,7 @@ export function buildWebAppJsonLd(toolId: TemplateId) {
     name: t.appName,
     applicationCategory: "BusinessApplication",
     operatingSystem: "All",
-    url: `${siteConfig.siteUrl}${t.canonicalPath}`,
+    url: `${site}${t.canonicalPath}`,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
 }

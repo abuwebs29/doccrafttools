@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/siteConfig";
+
+const BASE_URL = "https://doccrafttools.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
+
         allow: [
           "/",
           "/invoice-generator",
@@ -15,10 +17,20 @@ export default function robots(): MetadataRoute.Robots {
           "/rent-receipt-generator",
           "/pdf-templates",
         ],
-        disallow: ["/search", "/status", "/api/", "/_next/", "/embed/"],
+
+        disallow: [
+          "/search",
+          "/status",
+          "/api/",
+          "/_next/",
+          "/embed/",
+          "/invoice-generator-",
+          "/receipt-generator-",
+        ],
       },
     ],
-    sitemap: `${siteConfig.siteUrl}/sitemap.xml`,
-    host: siteConfig.siteUrl,
+
+    sitemap: `${BASE_URL}/sitemap.xml`,
+    host: BASE_URL,
   };
 }

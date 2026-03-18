@@ -1,6 +1,5 @@
 import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
-import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
   robots: { index: false, follow: false },
@@ -17,13 +16,13 @@ export default function Page() {
             <div className="text-sm font-extrabold text-slate-900">Invoice Generator</div>
             <div className="text-xs text-slate-600">
               Embedded tool by 
-              <a className="font-semibold text-slate-900 hover:underline" href={siteConfig.siteUrl} target="_blank" rel="noreferrer">
+              <a className="font-semibold text-slate-900 hover:underline" href="https://doccrafttools.com" target="_blank" rel="noreferrer">
                 DocCraft Tools
               </a>
             </div>
           </div>
           <a
-            href={`${siteConfig.siteUrl}/invoice-generator`}
+            href="https://doccrafttools.com/invoice-generator"
             target="_blank"
             rel="noreferrer"
             className="rounded-xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800"
@@ -36,7 +35,7 @@ export default function Page() {
 
         <div className="mt-6 text-center text-xs text-slate-500">
           Powered by 
-          <a className="font-semibold text-slate-700 hover:underline" href={siteConfig.siteUrl} target="_blank" rel="noreferrer">
+          <a className="font-semibold text-slate-700 hover:underline" href="https://doccrafttools.com" target="_blank" rel="noreferrer">
             DocCraft Tools
           </a>
         </div>
