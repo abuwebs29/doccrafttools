@@ -1,6 +1,8 @@
 import type { TemplateId } from "@/lib/templateTypes";
 import { toolSchema } from "@/lib/schemaRegistry";
-import { siteConfig } from "@/lib/siteConfig";
+
+import { absoluteUrl } from "@/lib/site";
+
 
 type Crumb = { name: string; path: string };
 
@@ -12,7 +14,7 @@ export function buildBreadcrumbsJsonLd(crumbs: Crumb[]) {
       "@type": "ListItem",
       position: idx + 1,
       name: c.name,
-      item: `${siteConfig.siteUrl}${c.path}`,
+      item: absoluteUrl(c.path),
     })),
   };
 }

@@ -1,23 +1,6 @@
 import jsPDF from "jspdf";
 
-export type ItemRow = { desc: string; qty: number; price: number };
-
-export type BasePdfPayload = {
-  currencyCode?: string;
-  taxPercent?: number;
-  notes?: string;
-  logoDataUrl?: string;
-  items?: ItemRow[];
-  [key: string]: unknown;
-};
-
-function safeFilenamePart(v: unknown) {
-  return String(v ?? "")
-    .trim()
-    .replace(/[<>:"/\\|?*\x00-\x1F]/g, "-")
-    .replace(/\s+/g, "-")
-    .slice(0, 80);
-}
+type ItemRow = { desc: string; qty: number; price: number };
 
 function money(n: number) {
   if (!Number.isFinite(n)) return "0.00";
@@ -29,8 +12,13 @@ function moneyWithCurrency(n: number, currencyCode?: string) {
   return `${code} ${money(n)}`;
 }
 
-function safeStr(v: unknown) {
+function safeStr(v: any) {
   return String(v ?? "").trim();
+}
+
+function sanitizeFilename(v: string) {
+  const cleaned = safeStr(v).replace(/[^a-zA-Z0-9._-]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+  return cleaned || "document";
 }
 
 function drawLogo(doc: jsPDF, dataUrl?: string) {
@@ -44,7 +32,7 @@ function drawLogo(doc: jsPDF, dataUrl?: string) {
     const fmt = isPng ? "PNG" : isJpg ? "JPEG" : isWebp ? "WEBP" : "PNG";
 
     const W = doc.internal.pageSize.getWidth();
-    doc.addImage(logo, fmt as "PNG" | "JPEG" | "WEBP", W - 140, 26, 90, 36, undefined, "FAST");
+    doc.addImage(logo, fmt as any, W - 140, 26, 90, 36, undefined, "FAST");
   } catch {
     // ignore logo failures
   }
@@ -76,7 +64,7 @@ function ensureSpace(doc: jsPDF, y: number, needed: number) {
   return 80;
 }
 
-export function generateInvoicePdf(data: BasePdfPayload) {
+export function generateInvoicePdf(data: any) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -111,8 +99,8 @@ export function generateInvoicePdf(data: BasePdfPayload) {
 
   for (const row of items) {
     const desc = safeStr(row.desc);
-    const qty = Math.max(0, Number(row.qty || 0));
-    const price = Math.max(0, Number(row.price || 0));
+    const qty = Number(row.qty || 0);
+    const price = Number(row.price || 0);
     const lineTotal = qty * price;
     subtotal += lineTotal;
 
@@ -129,7 +117,7 @@ export function generateInvoicePdf(data: BasePdfPayload) {
     y += rowHeight;
   }
 
-  const taxPercent = Math.min(100, Math.max(0, Number(data.taxPercent || 0)));
+  const taxPercent = Number(data.taxPercent || 0);
   const tax = subtotal * (taxPercent / 100);
   const grand = subtotal + tax;
 
@@ -161,10 +149,10 @@ export function generateInvoicePdf(data: BasePdfPayload) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`invoice-${safeFilenamePart(data.invoiceNo) || "export"}.pdf`);
+  doc.save(`invoice-${sanitizeFilename(data.invoiceNo)}.pdf`);
 }
 
-export function generateQuotationPdf(data: BasePdfPayload) {
+export function generateQuotationPdf(data: any) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -199,8 +187,8 @@ export function generateQuotationPdf(data: BasePdfPayload) {
   let subtotal = 0;
   for (const row of items) {
     const desc = safeStr(row.desc);
-    const qty = Math.max(0, Number(row.qty || 0));
-    const price = Math.max(0, Number(row.price || 0));
+    const qty = Number(row.qty || 0);
+    const price = Number(row.price || 0);
     const lineTotal = qty * price;
     subtotal += lineTotal;
 
@@ -217,7 +205,7 @@ export function generateQuotationPdf(data: BasePdfPayload) {
     y += rowHeight;
   }
 
-  const taxPercent = Math.min(100, Math.max(0, Number(data.taxPercent || 0)));
+  const taxPercent = Number(data.taxPercent || 0);
   const tax = subtotal * (taxPercent / 100);
   const grand = subtotal + tax;
 
@@ -249,10 +237,10 @@ export function generateQuotationPdf(data: BasePdfPayload) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`quotation-${safeFilenamePart(data.quoteNo) || "export"}.pdf`);
+  doc.save(`quotation-${sanitizeFilename(data.quoteNo)}.pdf`);
 }
 
-export function generateReceiptPdf(data: BasePdfPayload) {
+export function generateReceiptPdf(data: any) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -270,7 +258,7 @@ export function generateReceiptPdf(data: BasePdfPayload) {
   doc.setDrawColor(230);
   doc.roundedRect(40, 90, W - 80, 140, 12, 12);
 
-  const amount = Math.max(0, Number(data.amount || 0));
+  const amount = Number(data.amount || 0);
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(12);
@@ -310,10 +298,10 @@ export function generateReceiptPdf(data: BasePdfPayload) {
     doc.text(wrap(doc, notes, W - 80), 40, 308);
   }
 
-  doc.save(`receipt-${safeFilenamePart(data.receiptNo) || "export"}.pdf`);
+  doc.save(`receipt-${sanitizeFilename(data.receiptNo)}.pdf`);
 }
 
-export function generateDeliveryNotePdf(data: BasePdfPayload) {
+export function generateDeliveryNotePdf(data: any) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -347,8 +335,8 @@ export function generateDeliveryNotePdf(data: BasePdfPayload) {
 
   for (const row of items) {
     const desc = safeStr(row.desc);
-    const qty = Math.max(0, Number(row.qty || 0));
-    const price = Math.max(0, Number(row.price || 0));
+    const qty = Number(row.qty || 0);
+    const price = Number(row.price || 0);
     const lineTotal = qty * price;
 
     const descLines = wrap(doc, desc, 320);
@@ -383,10 +371,10 @@ export function generateDeliveryNotePdf(data: BasePdfPayload) {
     doc.text(wrap(doc, notes, W - 80), 40, y + 18);
   }
 
-  doc.save(`delivery-note-${safeFilenamePart(data.dnNo) || "export"}.pdf`);
+  doc.save(`delivery-note-${sanitizeFilename(data.dnNo)}.pdf`);
 }
 
-export function generateRentReceiptPdf(data: BasePdfPayload) {
+export function generateRentReceiptPdf(data: any) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const W = doc.internal.pageSize.getWidth();
 
@@ -404,7 +392,7 @@ export function generateRentReceiptPdf(data: BasePdfPayload) {
   doc.setDrawColor(230);
   doc.roundedRect(40, 90, W - 80, 220, 12, 12);
 
-  const amount = Math.max(0, Number(data.amount || 0));
+  const amount = Number(data.amount || 0);
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(12);
@@ -456,5 +444,5 @@ export function generateRentReceiptPdf(data: BasePdfPayload) {
   doc.text("Landlord Signature", 40, 735);
   doc.text("Tenant Signature", W - 280, 735);
 
-  doc.save(`rent-receipt-${safeFilenamePart(data.receiptNo) || "export"}.pdf`);
+  doc.save(`rent-receipt-${sanitizeFilename(data.receiptNo)}.pdf`);
 }

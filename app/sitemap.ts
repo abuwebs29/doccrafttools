@@ -1,14 +1,12 @@
 import type { MetadataRoute } from "next";
 import fs from "fs";
 import path from "path";
-import { siteConfig } from "@/lib/siteConfig";
+import { SITE_URL } from "@/lib/site";
 
 const EXCLUDED_ROUTES = new Set([
   "/search",
   "/status",
   "/rss.xml",
-
-  // duplicates / variants
   "/invoice-generator-online-free",
   "/invoice-generator-usd",
   "/invoice-generator-gbp",
@@ -23,7 +21,6 @@ const EXCLUDED_ROUTES = new Set([
   "/invoice-generator-india",
   "/invoice-generator-saudi-arabia",
   "/invoice-generator-uae",
-
   "/receipt-generator-usd",
   "/receipt-generator-gbp",
   "/receipt-generator-eur",
@@ -74,14 +71,14 @@ function shouldExclude(route: string): boolean {
   return false;
 }
 
-function getLastModifiedForRoute(route: string): Date | undefined {
+function getLastModifiedForRoute(route: string): Date {
+  const appDir = path.join(process.cwd(), "app");
   try {
-    const appDir = path.join(process.cwd(), "app");
     const routePath = route === "/" ? "" : route;
     const pagePath = path.join(appDir, routePath, "page.tsx");
     return fs.statSync(pagePath).mtime;
   } catch {
-    return undefined;
+    return fs.statSync(appDir).mtime;
   }
 }
 
@@ -104,19 +101,12 @@ function getChangeFreq(route: string): MetadataRoute.Sitemap[number]["changeFreq
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const appDir = path.join(process.cwd(), "app");
+  const routes = Array.from(new Set(getRoutes(appDir, appDir))).filter((r) => !shouldExclude(r));
 
-  const routes = Array.from(new Set(getRoutes(appDir, appDir))).filter(
-    (route) => !shouldExclude(route)
-  );
-
-  return routes.map((route) => {
-    const lastModified = getLastModifiedForRoute(route);
-
-    return {
-      url: `${siteConfig.siteUrl}${route}`,
-      ...(lastModified ? { lastModified } : {}),
-      changeFrequency: getChangeFreq(route),
-      priority: getPriority(route),
-    };
-  });
+  return routes.map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: getLastModifiedForRoute(route),
+    changeFrequency: getChangeFreq(route),
+    priority: getPriority(route),
+  }));
 }

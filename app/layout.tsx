@@ -1,18 +1,31 @@
+import type { Metadata } from "next";
 import "./globals.css";
-import { siteConfig } from "@/lib/siteConfig";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
-export const metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: {
-    default: "Free Invoice Generator, Receipt Generator & PDF Templates | DocCraft Tools",
-    template: "%s | DocCraft Tools",
+    default: `Free Invoice Generator, Receipt Generator & PDF Templates | ${SITE_NAME}`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
     "Generate professional PDFs instantly: invoice, receipt, quotation, delivery note, rent receipt — no login.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     type: "website",
-    url: siteConfig.siteUrl,
-    title: "Free Invoice Generator, Receipt Generator & PDF Templates | DocCraft Tools",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `Free Invoice Generator, Receipt Generator & PDF Templates | ${SITE_NAME}`,
+    description:
+      "Generate professional PDFs instantly: invoice, receipt, quotation and more — no login.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Free Invoice Generator, Receipt Generator & PDF Templates | ${SITE_NAME}`,
     description:
       "Generate professional PDFs instantly: invoice, receipt, quotation and more — no login.",
   },

@@ -1,11 +1,12 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
-import { siteConfig } from "@/lib/siteConfig";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = {
-  robots: { index: false, follow: false },
+  robots: { index: false, follow: true },
   title: "Status",
   description: "Service status and privacy-first statement for DocCraft Tools.",
+  alternates: { canonical: "/status" },
 };
 
 export default function Page() {
@@ -37,8 +38,8 @@ export default function Page() {
         <h2 className="mt-8 text-xl font-semibold">Need help?</h2>
         <p className="mt-2 text-slate-600">
           Contact:{" "}
-          <a className="font-semibold text-slate-900 hover:underline" href={`mailto:${siteConfig.contactEmail}`}>
-            {siteConfig.contactEmail}
+          <a className="font-semibold text-slate-900 hover:underline" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
           </a>
         </p>
       </article>

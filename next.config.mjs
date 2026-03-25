@@ -1,9 +1,17 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
   images: { unoptimized: true },
 
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.doccrafttools.com" }],
+        destination: "https://doccrafttools.com/:path*",
+        permanent: true,
+        basePath: false,
+      },
+
       { source: "/invoice-generator-usa", destination: "/invoice-generator", permanent: true },
       { source: "/invoice-generator-uk", destination: "/invoice-generator", permanent: true },
       { source: "/invoice-generator-india", destination: "/invoice-generator", permanent: true },

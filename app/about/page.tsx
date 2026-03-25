@@ -1,6 +1,6 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
-import { siteConfig } from "@/lib/siteConfig";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = {
   alternates: { canonical: "/about" },
@@ -26,8 +26,8 @@ export default function Page() {
 
         <h2 className="mt-8 text-xl font-semibold">Contact</h2>
         <p className="mt-2 text-slate-600">
-          Email: <a className="font-semibold text-slate-900 hover:underline" href={`mailto:${siteConfig.contactEmail}`}>
-            {siteConfig.contactEmail}
+          Email: <a className="font-semibold text-slate-900 hover:underline" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
           </a>
         </p>
       </article>

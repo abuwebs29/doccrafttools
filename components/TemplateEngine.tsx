@@ -162,11 +162,11 @@ export default function TemplateEngine({
                   alert("Please fill required fields: " + missing.join(", "));
                   return;
                 }
-                exportInvoiceAsExcel(form);
+                exportInvoiceAsExcel({ ...form, logoDataUrl });
               }}
               className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
             >
-              Export Excel
+              Export Excel (.xls)
             </button>
             <button
               onClick={() => {
@@ -175,11 +175,11 @@ export default function TemplateEngine({
                   alert("Please fill required fields: " + missing.join(", "));
                   return;
                 }
-                exportInvoiceAsWord(form);
+                exportInvoiceAsWord({ ...form, logoDataUrl });
               }}
               className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
             >
-              Export Word
+              Export Word (.doc)
             </button>
           </>
         ) : null}
@@ -341,11 +341,7 @@ export default function TemplateEngine({
             );
           }
 
-          const rawValue = form[f.key];
-          const value =
-            typeof rawValue === "string" || typeof rawValue === "number"
-              ? rawValue
-              : "";
+          const value = form[f.key] ?? "";
           return (
             <div key={f.key}>
               <label className="block text-sm font-semibold text-slate-700">
