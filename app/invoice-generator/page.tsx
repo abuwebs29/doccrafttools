@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Generator",
-  description: "Create a professional invoice online, customize the details, and export a clean version in minutes.",
-  alternates: { canonical: "/invoice-generator" },
-};
+export const metadata = buildMetadata("/invoice-generator");
 
 export default function Page() {
   return (

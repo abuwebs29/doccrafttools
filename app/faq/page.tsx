@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "DocCraft Tools FAQ",
-  description: "Find quick answers about DocCraft Tools, document generators, templates, and common billing questions.",
-  alternates: { canonical: "/faq" },
-};
+export const metadata = buildMetadata("/faq");
 
 export default function Page() {
   return (

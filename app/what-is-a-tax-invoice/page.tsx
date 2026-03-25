@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "What Is a Tax Invoice? (VAT/GST Invoice Guide)",
-  description: "A tax invoice includes VAT/GST details required for compliant billing. Learn what to include and generate a tax invoice PDF instantly.",
-  alternates: { canonical: "/what-is-a-tax-invoice" },
-};
+export const metadata = buildMetadata("/what-is-a-tax-invoice");
 
 export default function Page() {
   return (

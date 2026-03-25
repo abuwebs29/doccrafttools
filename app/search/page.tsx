@@ -1,12 +1,9 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import SearchClient from "@/app/search/SearchClient";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  robots: { index: false, follow: false },
-  title: "Search",
-  description: "Search DocCraft Tools templates and guides.",
-};
+export const metadata = buildMetadata("/search");
 
 export default function Page() {
   return (

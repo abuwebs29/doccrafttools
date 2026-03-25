@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free Invoice Template Word (DOC Export)",
-  description: "Create a free invoice template and export it to Word. Perfect for editable document workflows and professional invoice customization.",
-  alternates: { canonical: "/invoice-template-word" },
-};
+export const metadata = buildMetadata("/invoice-template-word");
 
 export default function Page() {
   return (

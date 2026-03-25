@@ -1,12 +1,9 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { CONTACT_EMAIL } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  alternates: { canonical: "/disclaimer" },
-  title: "Disclaimer",
-  description: "Disclaimer for DocCraft Tools.",
-};
+export const metadata = buildMetadata("/disclaimer");
 
 export default function Page() {
   return (

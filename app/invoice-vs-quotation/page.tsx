@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice vs Quotation",
-  description: "Understand the difference between an invoice and a quotation, when to use each document, and how they fit into one workflow.",
-  alternates: { canonical: "/invoice-vs-quotation" },
-};
+export const metadata = buildMetadata("/invoice-vs-quotation");
 
 export default function Page() {
   return (

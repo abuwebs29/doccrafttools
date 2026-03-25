@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Delivery Note Sample",
-  description: "Use a delivery note sample to understand item lists, dispatch information, signatures, and received-by details.",
-  alternates: { canonical: "/delivery-note-sample" },
-};
+export const metadata = buildMetadata("/delivery-note-sample");
 
 export default function Page() {
   return (

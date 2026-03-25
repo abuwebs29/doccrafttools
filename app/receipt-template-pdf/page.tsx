@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Receipt Template PDF (Free Download Generator)",
-  description: "Create a printable receipt template PDF instantly \u2014 add payer name, amount, purpose, and method.",
-  alternates: { canonical: "/receipt-template-pdf" },
-};
+export const metadata = buildMetadata("/receipt-template-pdf");
 
 export default function Page() {
   return (

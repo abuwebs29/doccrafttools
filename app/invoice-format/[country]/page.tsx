@@ -1,18 +1,13 @@
-import type { Metadata } from "next";
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 import { invoiceFormatCountries, titleFromSlug } from "@/lib/programmaticSeo";
+import { buildInvoiceFormatMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return invoiceFormatCountries.map((country) => ({ country }));
 }
 
-export function generateMetadata({ params }: { params: { country: string } }): Metadata {
-  const country = titleFromSlug(params.country);
-  return {
-    title: `Invoice Format ${country}`,
-    description: `Learn a practical invoice format for ${country}. Review the core fields, format best practices, and when to use the online generator to keep billing consistent.`,
-    alternates: { canonical: `/invoice-format/${params.country}` },
-  };
+export function generateMetadata({ params }: { params: { country: string } }) {
+  return buildInvoiceFormatMetadata(params.country);
 }
 
 export default function Page({ params }: { params: { country: string } }) {

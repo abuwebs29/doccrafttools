@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Business Document Guides",
-  description: "Read practical guides, comparisons, and formatting tips for invoices, receipts, quotations, delivery notes, and rent receipts.",
-  alternates: { canonical: "/guides" },
-};
+export const metadata = buildMetadata("/guides");
 
 export default function Page() {
   return (

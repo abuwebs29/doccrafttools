@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Simple Invoice Format (Free PDF Example)",
-  description: "A simple invoice format you can copy, plus tips for invoice numbers, due dates, and payment terms. Generate a PDF in seconds.",
-  alternates: { canonical: "/simple-invoice-format" },
-};
+export const metadata = buildMetadata("/simple-invoice-format");
 
 export default function Page() {
   return (

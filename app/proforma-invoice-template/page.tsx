@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Proforma Invoice Template (Free PDF Generator)",
-  description: "Create a proforma invoice template for advance billing or quotations. Download as PDF instantly.",
-  alternates: { canonical: "/proforma-invoice-template" },
-};
+export const metadata = buildMetadata("/proforma-invoice-template");
 
 export default function Page() {
   return (

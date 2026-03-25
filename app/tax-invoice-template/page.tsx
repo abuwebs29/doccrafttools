@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free Tax Invoice Template",
-  description: "Create a tax invoice template online and export it as PDF, Excel, or Word. Ideal for VAT, GST, and business billing.",
-  alternates: { canonical: "/tax-invoice-template" },
-};
+export const metadata = buildMetadata("/tax-invoice-template");
 
 export default function Page() {
   return (

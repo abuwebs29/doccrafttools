@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Business Receipt Template (Free Printable PDF)",
-  description: "Generate a business receipt template for professional transactions.",
-  alternates: { canonical: "/business-receipt-template" },
-};
+export const metadata = buildMetadata("/business-receipt-template");
 
 export default function Page() {
   return (

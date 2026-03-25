@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Difference Between Invoice and Receipt (Simple Guide)",
-  description: "Learn the difference between an invoice and a receipt, when to use each, and how to generate invoice and receipt PDFs instantly.",
-  alternates: { canonical: "/difference-between-invoice-and-receipt" },
-};
+export const metadata = buildMetadata("/difference-between-invoice-and-receipt");
 
 export default function Page() {
   return (

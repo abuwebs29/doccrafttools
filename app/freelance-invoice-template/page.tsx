@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Freelance Invoice Template (Professional PDF)",
-  description: "Free freelance invoice template with professional layout and payment terms.",
-  alternates: { canonical: "/freelance-invoice-template" },
-};
+export const metadata = buildMetadata("/freelance-invoice-template");
 
 export default function Page() {
   return (

@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free Receipt Template Word (DOC Export)",
-  description: "Create a receipt template and export it to Word. Useful for editable receipt documents and business administration.",
-  alternates: { canonical: "/receipt-template-word" },
-};
+export const metadata = buildMetadata("/receipt-template-word");
 
 export default function Page() {
   return (

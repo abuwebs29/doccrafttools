@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice for Freelancers",
-  description: "Create a freelancer invoice with the right fields, payment terms, and a clean layout clients can process quickly.",
-  alternates: { canonical: "/invoice-for-freelancers" },
-};
+export const metadata = buildMetadata("/invoice-for-freelancers");
 
 export default function Page() {
   return (

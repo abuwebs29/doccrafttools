@@ -1,10 +1,7 @@
 import SiteFooter from "@/components/SiteFooter";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  alternates: { canonical: "/ar" },
-  title: "DocCraft Tools — أدوات PDF مجانية",
-  description: "أنشئ مستندات PDF احترافية خلال ثوانٍ بدون تسجيل.",
-};
+export const metadata = buildMetadata("/ar");
 
 export default function Page() {
   return (

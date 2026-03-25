@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free PDF Templates for Invoices, Receipts, Quotations & More",
-  description: "Browse free PDF templates and document generators for invoices, receipts, quotations, delivery notes, and rent receipts.",
-  alternates: { canonical: "/pdf-templates" },
-};
+export const metadata = buildMetadata("/pdf-templates");
 
 export default function Page() {
   return (

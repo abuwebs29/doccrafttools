@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free GST Invoice Generator (India)",
-  description: "Create a GST invoice online for India and download a printable PDF. Add tax percentage, line items, and business details instantly.",
-  alternates: { canonical: "/gst-invoice-generator" },
-};
+export const metadata = buildMetadata("/gst-invoice-generator");
 
 export default function Page() {
   return (

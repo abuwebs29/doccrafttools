@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free Receipt Template Excel (XLS Export)",
-  description: "Create a receipt template and export it to Excel. Ideal for spreadsheet-based payment records and bookkeeping.",
-  alternates: { canonical: "/receipt-template-excel" },
-};
+export const metadata = buildMetadata("/receipt-template-excel");
 
 export default function Page() {
   return (

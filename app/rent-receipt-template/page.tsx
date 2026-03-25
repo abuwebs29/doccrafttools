@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Rent Receipt Template (Printable PDF Generator)",
-  description: "Generate a rent receipt PDF with tenant/landlord details, property address, rent period, and amount paid.",
-  alternates: { canonical: "/rent-receipt-template" },
-};
+export const metadata = buildMetadata("/rent-receipt-template");
 
 export default function Page() {
   return (

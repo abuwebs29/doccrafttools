@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Rent Receipt Generator",
-  description: "Create a professional rent receipt online, customize the details, and export a clean version in minutes.",
-  alternates: { canonical: "/rent-receipt-generator" },
-};
+export const metadata = buildMetadata("/rent-receipt-generator");
 
 export default function Page() {
   return (

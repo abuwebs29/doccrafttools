@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Format UAE",
-  description: "Review a practical invoice format for UAE businesses, including VAT-aware structure and client-ready fields.",
-  alternates: { canonical: "/invoice-format-uae" },
-};
+export const metadata = buildMetadata("/invoice-format-uae");
 
 export default function Page() {
   return (

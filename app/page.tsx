@@ -5,12 +5,9 @@ import RecentlyUsed from "@/components/RecentlyUsed";
 import DownloadTemplates from "@/components/DownloadTemplates";
 import RelatedTools from "@/components/RelatedTools";
 import PageFaq from "@/components/PageFaq";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  alternates: { canonical: "/" },
-  title: "Free Invoice Generator, Receipt Generator & Business Document Templates | DocCraft Tools",
-  description: "Create invoices, receipts, quotations, delivery notes, and rent receipts online. Free business document tools with templates, guides, and printable exports.",
-};
+export const metadata = buildMetadata("/");
 
 function Card({ title, desc, href }: { title: string; desc: string; href: string }) {
   return (

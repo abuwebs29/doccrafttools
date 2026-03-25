@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Receipt for Business",
-  description: "Create a business receipt format for products, services, deposits, or in-person payments.",
-  alternates: { canonical: "/receipt-for-business" },
-};
+export const metadata = buildMetadata("/receipt-for-business");
 
 export default function Page() {
   return (

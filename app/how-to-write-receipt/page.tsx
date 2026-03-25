@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "How to Write a Receipt",
-  description: "Learn how to write a receipt step by step, including the payer, amount, date, payment method, and reason for payment.",
-  alternates: { canonical: "/how-to-write-receipt" },
-};
+export const metadata = buildMetadata("/how-to-write-receipt");
 
 export default function Page() {
   return (

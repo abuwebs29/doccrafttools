@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Receipt Sample",
-  description: "See the fields and structure of a printable receipt sample for payments, rent, and business transactions.",
-  alternates: { canonical: "/receipt-sample" },
-};
+export const metadata = buildMetadata("/receipt-sample");
 
 export default function Page() {
   return (

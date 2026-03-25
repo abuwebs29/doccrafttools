@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Sample",
-  description: "See what a professional invoice sample should include, from business details to totals and payment instructions.",
-  alternates: { canonical: "/invoice-sample" },
-};
+export const metadata = buildMetadata("/invoice-sample");
 
 export default function Page() {
   return (
