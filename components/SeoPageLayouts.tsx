@@ -158,7 +158,7 @@ export function ToolLandingPage({
       {embedPath ? <EmbedCodeBlock toolName={toolName} embedPath={embedPath} /> : null}
       {toolId ? <ToolSeoBlock toolId={toolId} /> : null}
       <InternalLinks currentPath={path} title={relatedTitle ?? "Related pages"} />
-      <RelatedTools title="Popular tools and templates" />
+      <RelatedTools title={relatedTitle ? `${relatedTitle} and tools` : "Related tools, templates, and guides"} />
       <SiteFooter />
     </main>
   );
@@ -253,7 +253,7 @@ export function ArticleLandingPage({
       {faqs.length > 0 ? <PageFaq items={faqs} /> : null}
       <ShareBar title={title} path={path} description={description} />
       <InternalLinks currentPath={path} title={relatedTitle ?? "Related pages"} />
-      <RelatedTools title="Popular tools and templates" />
+      <RelatedTools title={relatedTitle ? `${relatedTitle} and tools` : "Related tools, templates, and guides"} />
       <SiteFooter />
     </main>
   );

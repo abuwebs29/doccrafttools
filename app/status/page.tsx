@@ -3,10 +3,10 @@ import SiteFooter from "@/components/SiteFooter";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = {
-  robots: { index: false, follow: true },
   title: "Status",
   description: "Service status and privacy-first statement for DocCraft Tools.",
   alternates: { canonical: "/status" },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

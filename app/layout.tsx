@@ -5,10 +5,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
-<<<<<<< HEAD
-=======
   alternates: { canonical: "/" },
->>>>>>> 25b8b526da89e5a2987f60196f3fcc87c402283e
   title: {
     default: `Free Invoice Generator, Receipt Generator & PDF Templates | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
