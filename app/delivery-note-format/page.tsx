@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Delivery Note Format (Template + Examples)",
-  description: "Delivery note format explained with template fields, examples, and tips for businesses shipping goods.",
-  alternates: { canonical: "/delivery-note-format" },
-};
+export const metadata = buildMetadata("/delivery-note-format");
 
 export default function Page() {
   return (

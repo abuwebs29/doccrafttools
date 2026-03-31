@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Quotation Generator",
-  description: "Create a professional quotation online, customize the details, and export a clean version in minutes.",
-  alternates: { canonical: "/quotation-generator" },
-};
+export const metadata = buildMetadata("/quotation-generator");
 
 export default function Page() {
   return (

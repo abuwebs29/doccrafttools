@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Template PDF",
-  description: "Use this invoice template PDF generator to create invoices with items, tax, notes and logo \u2014 instantly.",
-  alternates: { canonical: "/invoice-template-pdf" },
-};
+export const metadata = buildMetadata("/invoice-template-pdf");
 
 export default function Page() {
   return (

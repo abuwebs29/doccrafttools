@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Rent Receipt Format (Examples + Printable PDF)",
-  description: "Rent receipt format explained with examples and a printable PDF generator for landlords and tenants.",
-  alternates: { canonical: "/rent-receipt-format" },
-};
+export const metadata = buildMetadata("/rent-receipt-format");
 
 export default function Page() {
   return (

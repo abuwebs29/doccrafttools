@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Estimate vs Quotation (Key Differences)",
-  description: "Learn the difference between an estimate and a quotation in business.",
-  alternates: { canonical: "/estimate-vs-quotation" },
-};
+export const metadata = buildMetadata("/estimate-vs-quotation");
 
 export default function Page() {
   return (

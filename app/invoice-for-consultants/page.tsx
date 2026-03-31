@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice for Consultants",
-  description: "Use a consultant invoice format that clearly explains advisory services, retainers, and milestones.",
-  alternates: { canonical: "/invoice-for-consultants" },
-};
+export const metadata = buildMetadata("/invoice-for-consultants");
 
 export default function Page() {
   return (

@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Payment Receipt Format (Printable Example)",
-  description: "Understand the correct payment receipt format and generate a printable PDF instantly.",
-  alternates: { canonical: "/payment-receipt-format" },
-};
+export const metadata = buildMetadata("/payment-receipt-format");
 
 export default function Page() {
   return (

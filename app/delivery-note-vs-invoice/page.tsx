@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Delivery Note vs Invoice (Clear Comparison)",
-  description: "Understand the difference between delivery notes and invoices.",
-  alternates: { canonical: "/delivery-note-vs-invoice" },
-};
+export const metadata = buildMetadata("/delivery-note-vs-invoice");
 
 export default function Page() {
   return (

@@ -1,6 +1,4 @@
 import type { MetadataRoute } from "next";
-import fs from "fs";
-import path from "path";
 import { SITE_URL } from "@/lib/site";
 
 const EXCLUDED_ROUTES = new Set([
@@ -35,52 +33,73 @@ const LOW_PRIORITY_ROUTES = new Set([
   "/faq",
 ]);
 
-function getRoutes(dir: string, appDir: string): string[] {
-  const entries = fs.readdirSync(dir);
-  let routes: string[] = [];
-
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry);
-    const stat = fs.statSync(fullPath);
-
-    if (stat.isDirectory()) {
-      routes = routes.concat(getRoutes(fullPath, appDir));
-      continue;
-    }
-
-    if (entry === "page.tsx") {
-      const route = fullPath
-        .replace(appDir, "")
-        .replace(/\/page\.tsx$/, "")
-        .replace(/\\/g, "/");
-
-      routes.push(route === "" ? "/" : route);
-    }
-  }
-
-  return routes;
-}
-
-function shouldExclude(route: string): boolean {
-  if (!route) return true;
-  if (route.startsWith("/api")) return true;
-  if (route.startsWith("/_")) return true;
-  if (route.startsWith("/embed")) return true;
-  if (EXCLUDED_ROUTES.has(route)) return true;
-  if (route.includes("[") || route.includes("]")) return true;
-  return false;
-}
-
-function getLastModifiedForRoute(route: string): Date {
-  const appDir = path.join(process.cwd(), "app");
-  try {
-    const routePath = route === "/" ? "" : route;
-    const pagePath = path.join(appDir, routePath, "page.tsx");
-    return fs.statSync(pagePath).mtime;
-  } catch {
-    return fs.statSync(appDir).mtime;
-  }
-}
+const ROUTES = [
+  "/",
+  "/about",
+  "/ar",
+  "/ar/pdf-templates",
+  "/blank-receipt-template",
+  "/business-documents",
+  "/business-receipt-template",
+  "/cash-receipt-template",
+  "/commercial-invoice-template",
+  "/delivery-note-format",
+  "/delivery-note-generator",
+  "/delivery-note-sample",
+  "/delivery-note-vs-invoice",
+  "/difference-between-invoice-and-receipt",
+  "/disclaimer",
+  "/estimate-vs-invoice",
+  "/estimate-vs-quotation",
+  "/faq",
+  "/freelance-invoice-template",
+  "/gst-invoice-generator",
+  "/guides",
+  "/how-to-make-an-invoice",
+  "/how-to-make-an-invoice-for-freelancer",
+  "/how-to-write-receipt",
+  "/invoice-due-date-meaning",
+  "/invoice-for-consultants",
+  "/invoice-for-freelancers",
+  "/invoice-for-services",
+  "/invoice-format",
+  "/invoice-format-uae",
+  "/invoice-format-uk",
+  "/invoice-generator",
+  "/invoice-number-format",
+  "/invoice-payment-terms-explained",
+  "/invoice-sample",
+  "/invoice-template",
+  "/invoice-template-excel",
+  "/invoice-template-pdf",
+  "/invoice-template-pdf-free-download",
+  "/invoice-template-word",
+  "/invoice-vs-quotation",
+  "/invoice-vs-receipt-difference",
+  "/payment-receipt-format",
+  "/pdf-templates",
+  "/privacy",
+  "/proforma-invoice-template",
+  "/proforma-vs-invoice",
+  "/quotation-generator",
+  "/quotation-sample",
+  "/receipt-for-business",
+  "/receipt-for-rent",
+  "/receipt-generator",
+  "/receipt-sample",
+  "/receipt-template",
+  "/receipt-template-excel",
+  "/receipt-template-pdf",
+  "/receipt-template-word",
+  "/receipt-vs-invoice",
+  "/rent-receipt-format",
+  "/rent-receipt-generator",
+  "/rent-receipt-template",
+  "/simple-invoice-format",
+  "/simple-invoice-template",
+  "/tax-invoice-template",
+  "/what-is-a-tax-invoice",
+];
 
 function getPriority(route: string): number {
   if (route === "/") return 1;
@@ -92,7 +111,9 @@ function getPriority(route: string): number {
   return 0.8;
 }
 
-function getChangeFreq(route: string): MetadataRoute.Sitemap[number]["changeFrequency"] {
+function getChangeFreq(
+  route: string
+): MetadataRoute.Sitemap[number]["changeFrequency"] {
   if (route === "/") return "daily";
   if (route.includes("generator")) return "weekly";
   if (route.includes("template")) return "weekly";
@@ -100,12 +121,11 @@ function getChangeFreq(route: string): MetadataRoute.Sitemap[number]["changeFreq
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const appDir = path.join(process.cwd(), "app");
-  const routes = Array.from(new Set(getRoutes(appDir, appDir))).filter((r) => !shouldExclude(r));
+  const now = new Date();
 
-  return routes.map((route) => ({
+  return ROUTES.filter((route) => !EXCLUDED_ROUTES.has(route)).map((route) => ({
     url: `${SITE_URL}${route}`,
-    lastModified: getLastModifiedForRoute(route),
+    lastModified: now,
     changeFrequency: getChangeFreq(route),
     priority: getPriority(route),
   }));

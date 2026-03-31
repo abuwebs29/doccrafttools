@@ -1,12 +1,9 @@
 import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  robots: { index: false, follow: false },
-  title: "Embed — Rent Receipt Generator",
-  description: `Embedded Rent Receipt Generator by ${SITE_NAME}.`,
-};
+export const metadata = buildMetadata("/embed/rent-receipt");
 
 export default function Page() {
   return (

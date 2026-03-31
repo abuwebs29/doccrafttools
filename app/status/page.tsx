@@ -1,12 +1,9 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { CONTACT_EMAIL } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  robots: { index: false, follow: false },
-  title: "Status",
-  description: "Service status and privacy-first statement for DocCraft Tools.",
-};
+export const metadata = buildMetadata("/status");
 
 export default function Page() {
   return (

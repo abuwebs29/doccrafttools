@@ -1,12 +1,9 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { CONTACT_EMAIL } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  alternates: { canonical: "/about" },
-  title: "About DocCraft Tools",
-  description: "DocCraft Tools helps freelancers and small businesses generate clean PDF documents instantly.",
-};
+export const metadata = buildMetadata("/about");
 
 export default function Page() {
   return (

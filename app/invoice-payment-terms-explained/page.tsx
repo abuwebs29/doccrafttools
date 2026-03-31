@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Payment Terms Explained (Net 30, Net 15, Due on Receipt)",
-  description: "Understand invoice payment terms like Net 30, Net 15, and Due on Receipt. Learn best practices and generate invoices with clear terms.",
-  alternates: { canonical: "/invoice-payment-terms-explained" },
-};
+export const metadata = buildMetadata("/invoice-payment-terms-explained");
 
 export default function Page() {
   return (

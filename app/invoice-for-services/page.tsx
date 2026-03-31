@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice for Services Template (Example PDF)",
-  description: "Create an invoice for services rendered with a professional format.",
-  alternates: { canonical: "/invoice-for-services" },
-};
+export const metadata = buildMetadata("/invoice-for-services");
 
 export default function Page() {
   return (

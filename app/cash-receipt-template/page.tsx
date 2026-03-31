@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Cash Receipt Template (Free PDF Generator)",
-  description: "Create a printable cash receipt template PDF. Add payer name, amount received and payment purpose instantly.",
-  alternates: { canonical: "/cash-receipt-template" },
-};
+export const metadata = buildMetadata("/cash-receipt-template");
 
 export default function Page() {
   return (

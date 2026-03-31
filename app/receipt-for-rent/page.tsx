@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Receipt for Rent",
-  description: "Make a rent receipt with tenant name, property details, rental period, payment date, and amount received.",
-  alternates: { canonical: "/receipt-for-rent" },
-};
+export const metadata = buildMetadata("/receipt-for-rent");
 
 export default function Page() {
   return (

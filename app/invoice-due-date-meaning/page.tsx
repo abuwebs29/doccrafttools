@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Due Date Meaning Explained",
-  description: "Understand what invoice due date means and how it affects payments.",
-  alternates: { canonical: "/invoice-due-date-meaning" },
-};
+export const metadata = buildMetadata("/invoice-due-date-meaning");
 
 export default function Page() {
   return (

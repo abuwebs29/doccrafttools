@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Delivery Note Generator",
-  description: "Create a professional delivery note online, customize the details, and export a clean version in minutes.",
-  alternates: { canonical: "/delivery-note-generator" },
-};
+export const metadata = buildMetadata("/delivery-note-generator");
 
 export default function Page() {
   return (

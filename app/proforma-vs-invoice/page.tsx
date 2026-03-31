@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Proforma Invoice vs Invoice (What\u2019s the Difference?)",
-  description: "Learn when to use proforma invoices versus standard invoices.",
-  alternates: { canonical: "/proforma-vs-invoice" },
-};
+export const metadata = buildMetadata("/proforma-vs-invoice");
 
 export default function Page() {
   return (

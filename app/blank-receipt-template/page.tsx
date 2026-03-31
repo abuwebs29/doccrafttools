@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Blank Receipt Template (Free Printable PDF)",
-  description: "Download a blank receipt template PDF. Create and print a simple receipt with payer name, amount, date and signature instantly.",
-  alternates: { canonical: "/blank-receipt-template" },
-};
+export const metadata = buildMetadata("/blank-receipt-template");
 
 export default function Page() {
   return (

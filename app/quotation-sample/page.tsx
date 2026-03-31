@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Quotation Sample",
-  description: "Review a quotation sample with scope, pricing, validity date, terms, and approval-ready structure.",
-  alternates: { canonical: "/quotation-sample" },
-};
+export const metadata = buildMetadata("/quotation-sample");
 
 export default function Page() {
   return (

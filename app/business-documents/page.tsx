@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Business Documents Generator",
-  description: "Generate invoices, receipts, quotations, delivery notes, and rent receipts from one business document hub.",
-  alternates: { canonical: "/business-documents" },
-};
+export const metadata = buildMetadata("/business-documents");
 
 export default function Page() {
   return (

@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free Invoice Template PDF (Download Instantly)",
-  description: "Download a free invoice template PDF or generate a custom invoice online. No signup required\u2014get a clean PDF in seconds.",
-  alternates: { canonical: "/invoice-template-pdf-free-download" },
-};
+export const metadata = buildMetadata("/invoice-template-pdf-free-download");
 
 export default function Page() {
   return (

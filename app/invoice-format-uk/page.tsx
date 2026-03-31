@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Format UK",
-  description: "Use a practical UK invoice format with supplier details, invoice number, issue date, itemized lines, and tax-ready totals.",
-  alternates: { canonical: "/invoice-format-uk" },
-};
+export const metadata = buildMetadata("/invoice-format-uk");
 
 export default function Page() {
   return (

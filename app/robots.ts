@@ -6,24 +6,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: [
-          "/",
-          "/invoice-generator",
-          "/receipt-generator",
-          "/quotation-generator",
-          "/delivery-note-generator",
-          "/rent-receipt-generator",
-          "/pdf-templates",
-        ],
-        disallow: [
-          "/search",
-          "/status",
-          "/api/",
-          "/_next/",
-          "/embed/",
-          "/invoice-generator-",
-          "/receipt-generator-",
-        ],
+        allow: "/",
+        disallow: ["/search", "/api/", "/_next/", "/embed/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

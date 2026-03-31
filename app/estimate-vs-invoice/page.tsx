@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Estimate vs Invoice",
-  description: "Compare estimates and invoices so you know when to quote work and when to send a final bill.",
-  alternates: { canonical: "/estimate-vs-invoice" },
-};
+export const metadata = buildMetadata("/estimate-vs-invoice");
 
 export default function Page() {
   return (

@@ -1,12 +1,9 @@
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { CONTACT_EMAIL } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  alternates: { canonical: "/privacy" },
-  title: "Privacy Policy",
-  description: "Privacy policy for DocCraft Tools.",
-};
+export const metadata = buildMetadata("/privacy");
 
 export default function Page() {
   return (

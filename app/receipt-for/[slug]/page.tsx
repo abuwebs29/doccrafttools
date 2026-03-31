@@ -1,18 +1,13 @@
-import type { Metadata } from "next";
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 import { receiptUseCaseSlugs, titleFromSlug } from "@/lib/programmaticSeo";
+import { buildReceiptForMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return receiptUseCaseSlugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const title = titleFromSlug(params.slug);
-  return {
-    title: `Receipt for ${title}`,
-    description: `Learn how to issue a receipt for ${title.toLowerCase()} payments with the right fields, clean wording, and a practical proof-of-payment structure.`,
-    alternates: { canonical: `/receipt-for/${params.slug}` },
-  };
+export function generateMetadata({ params }: { params: { slug: string } }) {
+  return buildReceiptForMetadata(params.slug);
 }
 
 export default function Page({ params }: { params: { slug: string } }) {

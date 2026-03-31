@@ -1,18 +1,13 @@
-import type { Metadata } from "next";
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
 import { invoiceUseCaseSlugs, titleFromSlug } from "@/lib/programmaticSeo";
+import { buildInvoiceTemplateForMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return invoiceUseCaseSlugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const title = titleFromSlug(params.slug);
-  return {
-    title: `Invoice Template for ${title}`,
-    description: `Use a free invoice template for ${title.toLowerCase()} work. Learn what to include, when to send it, and how to move from template to finished invoice faster.`,
-    alternates: { canonical: `/invoice-template-for/${params.slug}` },
-  };
+export function generateMetadata({ params }: { params: { slug: string } }) {
+  return buildInvoiceTemplateForMetadata(params.slug);
 }
 
 export default function Page({ params }: { params: { slug: string } }) {

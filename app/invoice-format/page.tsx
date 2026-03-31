@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Format (Simple Professional Layout Guide)",
-  description: "Learn the correct invoice format with examples and required fields for freelancers and businesses.",
-  alternates: { canonical: "/invoice-format" },
-};
+export const metadata = buildMetadata("/invoice-format");
 
 export default function Page() {
   return (

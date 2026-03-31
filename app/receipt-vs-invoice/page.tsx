@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Receipt vs Invoice",
-  description: "Learn the difference between a receipt and an invoice, with practical examples of when to issue each document.",
-  alternates: { canonical: "/receipt-vs-invoice" },
-};
+export const metadata = buildMetadata("/receipt-vs-invoice");
 
 export default function Page() {
   return (

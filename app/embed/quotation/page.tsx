@@ -1,12 +1,9 @@
 import TemplateEngine from "@/components/TemplateEngine";
 import { templates } from "@/lib/templates";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  robots: { index: false, follow: false },
-  title: "Embed — Quotation Generator",
-  description: `Embedded Quotation Generator by ${SITE_NAME}.`,
-};
+export const metadata = buildMetadata("/embed/quotation");
 
 export default function Page() {
   return (

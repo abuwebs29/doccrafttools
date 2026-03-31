@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "How to Make an Invoice as a Freelancer (Step\u2011by\u2011Step)",
-  description: "Learn how to create a freelancer invoice that looks professional and gets paid faster. Includes a checklist and copy\u2011paste wording.",
-  alternates: { canonical: "/how-to-make-an-invoice-for-freelancer" },
-};
+export const metadata = buildMetadata("/how-to-make-an-invoice-for-freelancer");
 
 export default function Page() {
   return (

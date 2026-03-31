@@ -1,10 +1,7 @@
 import { ToolLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Free Commercial Invoice Template",
-  description: "Create a commercial invoice template online for international shipments and business documentation. Export as PDF, Excel, or Word.",
-  alternates: { canonical: "/commercial-invoice-template" },
-};
+export const metadata = buildMetadata("/commercial-invoice-template");
 
 export default function Page() {
   return (

@@ -1,10 +1,7 @@
 import { ArticleLandingPage } from "@/components/SeoPageLayouts";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Invoice Number Format (Examples + Best Practices)",
-  description: "Invoice number format examples, best practices, and tips to avoid duplicate invoice numbers for freelancers and small businesses.",
-  alternates: { canonical: "/invoice-number-format" },
-};
+export const metadata = buildMetadata("/invoice-number-format");
 
 export default function Page() {
   return (
