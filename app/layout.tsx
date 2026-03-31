@@ -1,48 +1,28 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Suspense } from "react";
+import Script from "next/script";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  applicationName: SITE_NAME,
-  alternates: { canonical: "/" },
-  title: {
-    default: `Free Invoice Generator, Receipt Generator & PDF Templates | ${SITE_NAME}`,
-    template: `%s | ${SITE_NAME}`,
-  },
-  description:
-    "Generate professional PDFs instantly: invoice, receipt, quotation, delivery note, rent receipt — no login.",
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    type: "website",
-    url: SITE_URL,
-    siteName: SITE_NAME,
-    title: `Free Invoice Generator, Receipt Generator & PDF Templates | ${SITE_NAME}`,
-    description:
-      "Generate professional PDFs instantly: invoice, receipt, quotation and more — no login.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `Free Invoice Generator, Receipt Generator & PDF Templates | ${SITE_NAME}`,
-    description:
-      "Generate professional PDFs instantly: invoice, receipt, quotation and more — no login.",
-  },
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <GoogleAnalytics />
-        {children}
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SKR2R64LCM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SKR2R64LCM');
+          `}
+        </Script>
+
+        {/* Suspense Fix */}
+        <Suspense fallback={null}>
+          {children}
+        </Suspense>
       </body>
     </html>
   );
