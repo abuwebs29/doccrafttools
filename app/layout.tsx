@@ -1,11 +1,14 @@
-import { Suspense } from "react";
+import { Suspense, ReactNode } from "react";
 import Script from "next/script";
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SKR2R64LCM"
           strategy="afterInteractive"
@@ -19,7 +22,6 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Suspense Fix */}
         <Suspense fallback={null}>
           {children}
         </Suspense>
