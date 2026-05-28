@@ -28,6 +28,7 @@ const EXCLUDED_ROUTES = new Set([
 
 const LOW_PRIORITY_ROUTES = new Set([
   "/privacy",
+  "/terms",
   "/disclaimer",
   "/about",
   "/faq",
@@ -38,6 +39,12 @@ const ROUTES = [
   "/about",
   "/ar",
   "/ar/pdf-templates",
+  "/blog",
+  "/blog/invoice-vs-receipt",
+  "/blog/how-to-create-professional-invoice",
+  "/blog/receipt-record-keeping-small-business",
+  "/blog/quotation-vs-estimate",
+  "/blog/delivery-note-checklist",
   "/blank-receipt-template",
   "/business-documents",
   "/business-receipt-template",
@@ -79,6 +86,7 @@ const ROUTES = [
   "/payment-receipt-format",
   "/pdf-templates",
   "/privacy",
+  "/terms",
   "/proforma-invoice-template",
   "/proforma-vs-invoice",
   "/quotation-generator",

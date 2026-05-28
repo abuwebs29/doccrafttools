@@ -42,9 +42,9 @@ export default function Home() {
         <Card title="Business Document Guides" desc="Explore templates, comparisons, samples, and format guides." href="/guides" />
       </section>
       <section className="mt-10 grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-lg font-semibold">Built for intent</h2><p className="mt-2 text-sm leading-6 text-slate-600">Core tool pages handle high-intent searches while guides and format pages capture research traffic.</p></div>
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-lg font-semibold">Simple document creation</h2><p className="mt-2 text-sm leading-6 text-slate-600">Choose the document you need, enter your details, and download a clean file you can review, share, or print.</p></div>
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-lg font-semibold">Designed for clarity</h2><p className="mt-2 text-sm leading-6 text-slate-600">Each page helps users understand what to include, when to use a document, and which tool solves the next step.</p></div>
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-lg font-semibold">Ready to scale</h2><p className="mt-2 text-sm leading-6 text-slate-600">Templates, use-case pages, comparisons, and country guides strengthen internal linking and topical authority.</p></div>
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-lg font-semibold">Helpful guidance included</h2><p className="mt-2 text-sm leading-6 text-slate-600">Templates, samples, comparisons, and country guides explain what to include before you send an important business document.</p></div>
       </section>
       <DownloadTemplates />
       <PopularTemplates className="mt-10" />

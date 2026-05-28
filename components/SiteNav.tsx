@@ -7,6 +7,7 @@ export default function SiteNav() {
       <div className="flex flex-wrap gap-3 text-sm text-slate-600">
         <a className="hover:text-slate-900" href="/pdf-templates">Templates</a>
         <a className="hover:text-slate-900" href="/guides">Guides</a>
+        <a className="hover:text-slate-900" href="/blog">Blog</a>
         <a className="hover:text-slate-900" href="/search">Search</a>
         <a className="hover:text-slate-900" href="/faq">FAQ</a>
         <a className="hover:text-slate-900" href="/status">Status</a>

@@ -16,9 +16,9 @@ export default function Page() {
       secondaryHref="/pdf-templates"
       highlights={["Templates", "Guides", "Tools linked together"]}
       sections={[
-        { title: "What you can find here", paragraphs: ["This hub brings together core document tools, supporting template pages, and educational content so users can move from research to action quickly.", "It is designed to strengthen both usability and search visibility by connecting high-intent pages with helpful supporting content."] },
+        { title: "What you can find here", paragraphs: ["This hub brings together document generators, template pages, examples, and plain-English explanations so you can choose the right business document with confidence.", "Use the guides to understand what each document means, which fields matter, and how to avoid common formatting mistakes before sending a file to a client, tenant, or supplier."] },
         { title: "Best way to use the hub", bullets: ["Start with the main generator when you need to create a document now.", "Use template pages when you want a reusable structure.", "Read format, sample, or comparison pages when you need context before sending a document."] },
-        { title: "Why this matters for growth", paragraphs: ["A strong hub page helps users discover related routes and helps search engines understand the full topic cluster around business documents."] },
+        { title: "Why these guides are useful", paragraphs: ["Business documents can look similar, but they are used at different points in a transaction. These guides help you decide whether you need an invoice, receipt, quotation, delivery note, or rent receipt."] },
       ]}
       faqs={[
         { q: "What is the purpose of this hub page?", a: "It helps users discover the right generator, template, or guide without having to search the site manually." },

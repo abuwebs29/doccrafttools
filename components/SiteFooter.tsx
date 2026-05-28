@@ -50,7 +50,9 @@ export default function SiteFooter() {
           <a className="hover:text-slate-800" href="/search">Search</a>
           <a className="hover:text-slate-800" href="/rss.xml">RSS</a>
           <a className="hover:text-slate-800" href="/about">About</a>
+          <a className="hover:text-slate-800" href="/blog">Blog</a>
           <a className="hover:text-slate-800" href="/privacy">Privacy</a>
+          <a className="hover:text-slate-800" href="/terms">Terms</a>
           <a className="hover:text-slate-800" href="/disclaimer">Disclaimer</a>
           <a className="hover:text-slate-800" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
         </div>
